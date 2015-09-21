@@ -1,0 +1,5 @@
+* Jarkko Saltiola .-files
+
+=DISCLAIMER: I'm currently migrating and cleaning up config files from my private dotfiles repo. Things will break during the progress.=
+
+My favourite programs are Emacs and ZSH-shell. I tend switch between Linux and OSX quite often so I've built a portable environment configuration between those.

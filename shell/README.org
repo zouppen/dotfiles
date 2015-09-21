@@ -1,0 +1,19 @@
+ZSH configuration built upon [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]].
+
+Compatibility between Linux and OSX via conditional loading aliases defaulting to custom preference or common Linux commands.
+
+TODO Bash command subset to be sourced via =wget <url> | bash= on rarely used boxes.
+
+#+BEGIN_SRC bash
+
+# On a highly configured and comfortable zsh shell prompt
+ssh pi@192.168.1.20
+
+# Gives default Raspbian shell..
+# :( $
+wget http://<short_domain>/ba|bash
+
+# Loads and applies essential customizations to ease the pain
+# :) $ 
+
+#+END_SRC

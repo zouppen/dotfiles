@@ -1,0 +1,4 @@
+Python specific development environment customizations
+
+- Shell aliases
+- Emacs language mode configuration
