@@ -1,0 +1,18 @@
+# symlink this to $ZSH/custom/zsh-custom
+#eg# $ ln -s $HOME/dotfiles/shell/zsh-custom.symlink $ZSH/custom/custom.zsh
+
+export UPDATE_ZSH_DAYS=60
+export DOTFILES=$HOME/dotfiles
+
+ZSH_THEME="robbyrussell"
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+COMPLETION_WAITING_DOTS="true"
+ENABLE_CORRECTION="true"
+DISABLE_LS_COLORS="true"
+
+export EDITOR='mg'
+
+source $DOTFILES/shell/shell-common.sh
+
+source $HOME/.keys
