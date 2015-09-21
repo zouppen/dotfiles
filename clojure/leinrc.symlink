@@ -1,0 +1,2 @@
+LEIN_JAVA_CMD=${LEIN_JAVA_CMD-drip}
+
