@@ -1,0 +1,2 @@
+# use c-q as screen escape so C-a is not bound by screen
+escape ^Qq

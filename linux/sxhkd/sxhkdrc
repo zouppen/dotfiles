@@ -1,0 +1,149 @@
+# Launch applications
+control + alt + grave
+    terminator
+control + alt + {1,2,3}
+    {nemo,google-chrome,emacs}
+
+#super + space
+#    dmenu_run
+
+#super + alt + space
+#   tracker-needle
+
+hyper + super + alt + Up
+    xrandr --orientation normal
+
+hyper + super + alt + Down
+    xrandr --orientation inverted 
+
+# Process utilities
+control + alt + Delete
+    terminator -e htop
+control + shift + Escape
+    xkill
+
+XF86WebCam
+    /home/jasalt/dev/window-manager/key-actions/toggle-redshift
+
+# Clipboard / Selections (Currently CopyQ handles this)
+## Show clipboard history
+##super + alt + v
+##  xfce4-popup-clipman
+
+## Translate selection and give output as notification.
+## Brief mode output is copied to clipboard also.
+super + s ; t ; f
+    echo `xsel` | trans -b en:fi | tee >(notify-pipe) | xclip -selection clipboard
+super + s ; t ; F
+    notify-send "$(trans en:fi $(xsel) | perl -ne 's/\e\[\d+m//g;print')"
+super + s ; t ; e
+    echo `xsel` | trans -b fi:en | tee >(notify-pipe) | xclip -selection clipboard
+super + s ; t ; E
+    notify-send "$(trans fi:en $(xsel) | perl -ne 's/\e\[\d+m//g;print')"
+
+## Write email with selection as content
+super + s ; c
+    nohup google-chrome --app="https://mail.google.com/mail/?view=cm&fs=1&su=Linkspam&body=`xsel`"
+
+## Define selection
+super + s ; d
+    nohup google-chrome "https://www.google.fi/search?q=define `xsel`"
+
+## Google selection
+super + s ; g
+    nohup google-chrome "https://www.google.fi/search?q=`xsel`"
+
+super + s ; G
+    nohup google-chrome "http://www.google.com/search?btnI&q=`xsel`"
+
+## Open selection url
+super + s ; l
+    nohup google-chrome "`xsel`"
+
+super + s ; k
+    nohup google-chrome "http://kat.cr/usearch/?q=`xsel`"
+
+super + s ; b
+    nohup google-chrome "http://gen.lib.rus.ec/search.php?req=`xsel`"
+
+super + s ; m
+    nohup google-chrome "http://mp3li.net/en/index.php?q=`xsel`"
+
+## Speak selection with google, echo does unquoting
+super + s ; s ; e
+    gspeak "$(echo `xsel`)"
+
+## Speak selection in finnish, echo does unquoting
+super + s ; s ; f
+    espeak -v europe/fi "$(echo `xsel`)"
+
+# Taking Screenshots
+hyper + super + alt + v
+    xfce4-screenshooter -r -s /home/jasalt/Desktop/
+hyper + super + alt + c
+    xfce4-screenshooter -c -r
+
+# Messaging
+super + m ; c  
+    google-chrome --app="https://mail.google.com/mail/?view=cm&fs=1&tf=1"
+# google-chrome "https://mail.google.com/mail/?view=cm&fs=1&tf=1"
+super + m ; m
+    google-chrome "https://mail.google.com/mail/u/0/"
+super + m ; t
+    google-chrome "www.trello.com"
+super + m ; i
+    terminator -e "ssh jatasalt@irc-machine -t 'screen -rd'"
+super + m ; h
+    terminator -e "hangups"
+super + m ; w
+    google-chrome --app=https://web.whatsapp.com/
+super + m ; S
+    skype
+super + m ; s
+    google-chrome "https://putkilandia.slack.com/"
+
+super + c ; w
+    terminator -e "ssh pi@webkamera"
+super + c ; s
+    terminator -e "ssh pi@wstation"
+super + c ; d
+    terminator -e "mosh root@do"
+super + c ; m
+    terminator -e "mosh jasalt@murskaaja"
+super + c ; h
+    terminator -e "mosh jasalt@192.168.1.103"
+
+# Web apps
+super + w ; h
+    google-chrome "www.github.com/jasalt?tab=repositories"
+super + w ; T
+    killall TogglDesktop && /opt/toggldesktop/TogglDesktop &
+super + w ; t
+    google-chrome "www.toggl.com/app"
+super + w ; d
+    google-chrome "http://diigo.com/user/jasalt"
+super + w ; w
+    google-chrome "http://ilmatieteenlaitos.fi/saa/jyväskylä"
+super + w ; u
+    google-chrome "http://www.wunderground.com/personal-weather-station/dashboard?ID=IFINLAND34"
+super + w ; s
+    google-chrome "http://www.zalama.net/euroblitz/Web/euroblitz_webpage.php"
+super + w ; k
+    google-chrome "http://keep.google.com/"
+
+# Headset
+XF86AudioPlay
+    xdotool key space
+
+# fix breaking xmodmap and kill power led
+XF86Launch1
+    sudo /home/jarkko/konffit/linux/init-linux.sh
+
+super + t ; p
+    /home/jasalt/konffit/bin/timer 30
+super + t ; 5
+    /home/jasalt/konffit/bin/timer 5
+super + t ; 1 ; 5
+    /home/jasalt/konffit/bin/timer 15
+super + t ; 3 ; 0
+    /home/jasalt/konffit/bin/timer 30

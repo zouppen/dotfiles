@@ -1,0 +1,13 @@
+More futuristic replacement for xbindkeys (which started behaving badly).
+https://github.com/baskerville/sxhkd
+
+* Building sxhkd on Ubuntu 14.04
+git clone https://github.com/baskerville/sxhkd.git
+
+Depends on packages (at least):
+libxcb1-dev
+libxcb-keysyms1-dev
+libxcb-util0-dev
+
+make
+sudo make install

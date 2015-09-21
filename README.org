@@ -2,4 +2,7 @@
 
 =DISCLAIMER: I'm currently migrating and cleaning up config files from my private dotfiles repo. Things will break during the progress.=
 
-I work in GUI Emacs and a terminal emulator. I tend switch between Linux and OSX quite often so I've built a `portable` environment configuration between those.
+I work in GUI Emacs and terminal emulator. I tend switch between Linux and OSX quite often so I've built a `portable` environment configuration between those.
+
+
+- /bin has a plenty of handy utilities
