@@ -1,5 +1,13 @@
 ;; Entry point for Emacs configurations.
 ;; This file is symlinked into ~/.emacs.d/personal/init.el after Prelude install
 
-(load "~/konffit/emacs/prelude-personal/modes/acme-search.el")
-(load "~/konffit/emacs/prelude-personal/general.el")
+(setq dotfiles-folder "~/dotfiles/")
+
+;; TODO dynamic loading?
+(let ((conf-files
+       '("emacs/modes/acme-search.el"
+         "emacs/general.el"
+         "lang/python/python.el"
+         "lang/clojure/clojure.el"
+         "lang/web/web.el")))
+  (dolist (entry conf-files) (load (concat dotfiles-folder entry))))
