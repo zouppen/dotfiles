@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Open new Terminal tabs from the command line to currently running ITerm2
+# session
+#
+# Author: Justin Hileman (http://justinhileman.com)
+# Modified by: Jarkko Saltiola (http://saltio.la)
+#
+# Installation:
+#     Add this file path
+#
+# Usage:
+#     iterm                   Opens the current directory in a new tab
+#     iterm [PATH]            Open PATH in a new tab
+#     iterm [CMD]             Open a new tab and execute CMD
+#     iterm [PATH] [CMD] ...  You can prob'ly guess
+
+CMD=""
+CDTO="$PWD"
+ARGS="$@"
+
+if [ -d "$1" ]; then
+    CDTO=`cd "$1"; pwd`
+    ARGS="${@:2}"
+fi
+
+if [ -n "$ARGS" ]; then
+    CMD="; $ARGS"
+fi
+
+osascript &>/dev/null <<EOF
+        tell application "iTerm"
+            tell current terminal
+                launch session "Default Session"
+                tell the last session
+                    write text "cd \"$CDTO\"$CMD"
+                    write text "clear"
+                end tell
+            end tell
+        end tell
+EOF
