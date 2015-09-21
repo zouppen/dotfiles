@@ -4,9 +4,9 @@
   (define-key smartparens-mode-map (kbd "H-n") 'sp-splice-sexp-killing-forward)
   (define-key smartparens-mode-map (kbd "H-p") 'sp-splice-sexp-killing-backward)
 
-  ;; Mac workaround, TODO eval mac only
-  (define-key smartparens-mode-map (kbd "<kp-multiply>") 'sp-splice-sexp-killing-backward)
-  
+  (progn-on "darwin"
+            (define-key smartparens-mode-map (kbd "<kp-multiply>")
+              'sp-splice-sexp-killing-backward))
   
   (define-key smartparens-mode-map (kbd "H-f") 'sp-forward-slurp-sexp)
   (define-key smartparens-mode-map (kbd "H-b") 'sp-forward-barf-sexp)

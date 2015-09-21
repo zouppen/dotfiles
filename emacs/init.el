@@ -8,7 +8,7 @@
        '("emacs/modes/acme-search.el"
          "emacs/general.el"
          "emacs/orgmode.el"
-         ;;"lang/python/python.el"
+         "lang/python/python.el"
          ;;"lang/clojure/clojure.el"
          ;;"lang/web/web.el"
 )))
