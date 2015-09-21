@@ -1,5 +1,7 @@
 Emacs 24 configuration based on [[https://github.com/bbatsov/prelude][Emacs Prelude]] using newest stable GUI version.
 
+Install Prelude with =curl -L https://git.io/epre | sh=
+
 Configuration is mostly copy pasted from around the net and there's also a few `home made` commands (find them by [[grep:jasalt][rgrep "jasalt"]]).
 
 - emacs/modes/ directory contains some rare-ish elisp files
