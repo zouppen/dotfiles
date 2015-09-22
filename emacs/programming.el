@@ -7,15 +7,22 @@
   (progn-on "darwin"
             (define-key smartparens-mode-map (kbd "<kp-multiply>")
               'sp-splice-sexp-killing-backward))
-  
+
   (define-key smartparens-mode-map (kbd "H-f") 'sp-forward-slurp-sexp)
   (define-key smartparens-mode-map (kbd "H-b") 'sp-forward-barf-sexp)
-  
+
 
   (define-key smartparens-mode-map (kbd "M-<right>") 'sp-forward-slurp-sexp)
   (define-key smartparens-mode-map (kbd "M-<left>") 'sp-forward-barf-sexp)
   )
 
 (add-hook 'smartparens-mode-hook 'my-smartparens-mode-hook)
-(setq yas-snippet-dirs (append yas-snippet-dirs
-                               '((concat dotfiles-folder "/emacs/yasnippets"))))
+
+(require 'yasnippet)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
+(yas-global-mode 1)
+
+(let ((my-yas-custom-dir (concat dotfiles-folder "emacs/yasnippets/")))
+  (setq yas-snippet-dirs (append yas-snippet-dirs (list my-yas-custom-dir))))
