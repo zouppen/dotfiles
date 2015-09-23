@@ -3,6 +3,13 @@
 ;;;; Disable some Prelude defaults
 (setq prelude-whitespace nil)
 
+;; In use of Finnish words
+(key-chord-define-global "yy" nil)
+(key-chord-define-global "uu" nil)
+
+(global-unset-key (kbd "M-`"))
+(global-set-key (kbd "M-`") 'other-frame)
+
 ;;;; Customize default config variables
 
 (defmacro progn-on (platform &rest body)
