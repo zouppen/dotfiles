@@ -1,5 +1,6 @@
-;; Entry point for Emacs configurations.
-;; This file is symlinked into ~/.emacs.d/personal/init.el after Prelude install
+;; Entry point for custom Emacs configuration.
+;; See README for installation guide
+;; This file is symlinked into ~/.emacs.d/personal/init.el
 
 (setq dotfiles-folder "~/dotfiles/")
 
