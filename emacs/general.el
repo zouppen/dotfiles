@@ -2,6 +2,7 @@
 
 ;;;; Disable some Prelude defaults
 (setq prelude-whitespace nil)
+(setq prelude-flyspell nil)
 
 ;; In use of Finnish words
 (key-chord-define-global "yy" nil)
