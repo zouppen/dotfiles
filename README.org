@@ -1,8 +1,45 @@
 * Jarkko Saltiola .-files
-
-=DISCLAIMER: I'm currently migrating and cleaning up config files from my private dotfiles repo. Things will break during the progress.=
-
 I work in GUI Emacs and terminal emulator. I tend switch between Linux and OSX quite often so I've built a `portable` environment configuration between those.
 
+This is accomplished in [[file:shell/shell-common.sh][bash/zsh by onlinux/onmac]] functions and inheriting/sourcing commands from distro/OS specific files.
 
-- /bin has a plenty of handy utilities
+#+BEGIN_SRC bash
+onlinux () { [ $(uname -s) = "Linux" ] && $* }
+onmac () { [ $(uname -s) = "Darwin" ] && $* }
+
+onlinux \
+    alias open="xdg-open" && \
+    alias say="espeak"
+
+onmac \
+    alias lsusb="system_profiler SPUSBDataType" && \
+    alias lsblk="diskutil list"
+
+#+END_SRC
+
+And on [[file:emacs/general.el][Emacs by progn-on]] macro:
+#+BEGIN_SRC elisp
+(defmacro progn-on (platform &rest body)
+  "Evaluate given expressions if running on given platform."
+  (if (string-equal system-type platform)
+      (cons 'progn body)))
+
+;; Example usage:
+
+(progn-on "darwin"
+ (setq ns-use-native-fullscreen nil)
+ (setq mac-option-modifier 'nil
+       mac-command-modifier 'meta
+       mac-function-modifier 'hyper)
+ (set-variable 'magit-emacsclient-executable
+               "/usr/local/bin/emacsclient"))
+
+(progn-on "gnu-linux"
+          (defun open-file-path-in-terminal ()
+            "Open current directory in dired mode in terminal application.
+             Dismiss shell output buffer afterwards."
+            (interactive)
+            (start-process "terminator" nil "terminator"
+                           (concat "--working-directory="
+                                   (file-truename default-directory)))))
+#+END_SRC

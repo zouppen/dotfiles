@@ -1,6 +1,9 @@
 Emacs 24 configuration based on [[https://github.com/bbatsov/prelude][Emacs Prelude]] using newest stable GUI version.
 
-Install Prelude with =curl -L https://git.io/epre | sh=
+1) Install Prelude with =curl -L https://git.io/epre | sh= (check prelude page for updated command)
+2) Symlink prelude-modules.el =ln -s ~/dotfiles/emacs/prelude-modules.el ~/.emacs.d/=
+3) Symlink init.el =ln -s ~/dotfiles/emacs/init.el ~/.emacs.d/personal/=
+4) Startup Emacs, packages are downloaded and editor is ready for work.
 
 Configuration is mostly copy pasted from around the net and there's also a few `home made` commands (find them by [[grep:jasalt][rgrep "jasalt"]]).
 
