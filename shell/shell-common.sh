@@ -2,6 +2,9 @@
 # On OSX source this from .zshrc
 # On Linux source a distro-specific file instead (eg. shell-mint.sh)  
 
+source $DOTFILES/lang/python/python-shell.sh
+export PATH="$PATH:$HOME/bin"
+
 # Prefix functions for applying conditionally based on system type
 onlinux () { [ $(uname -s) = "Linux" ] && $* }
 onmac () { [ $(uname -s) = "Darwin" ] && $* }
