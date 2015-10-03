@@ -55,9 +55,11 @@
         select-window-1
         select-window-2
         sp--self-insert-command
+        sp-backward-delete-char
         sp-backward-sexp
         sp-forward-sexp
         sp-forward-slurp-sexp
+        sp-kill-word
         sp-splice-sexp-killing-backward
         sp-splice-sexp-killing-forward
         tern-ac-dot-complete
