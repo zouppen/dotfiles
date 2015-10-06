@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Write to file (spit)
+# key : slurp
+# --
+with open("$1", "r") as f:
+    $0data = f.read().replace('\n', '')
