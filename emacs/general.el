@@ -8,6 +8,8 @@
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "uu" nil)
 
+(key-chord-define-global "lj" nil) ;; .clj
+
 (global-unset-key (kbd "M-`"))
 (global-set-key (kbd "M-`") 'other-frame)
 
@@ -88,7 +90,14 @@
 (window-numbering-mode t)
 
 (prelude-require-package 'multiple-cursors)
-(setq mc/list-file (concat dotfiles-folder "/emacs/mc-lists.el"))
+(setq mc/list-file (concat dotfiles-folder "emacs/mc-lists.el"))
+
+(key-chord-define-global "jf" 'avy-goto-word-1)
+
+(prelude-require-package 'iy-go-to-char)
+(key-chord-define-global "jj" nil)
+(key-chord-define-global "jj" 'iy-go-to-char)
+(key-chord-define-global "hh" 'iy-go-to-char-backward)
 
 (key-chord-define-global "jn" 'mc/mark-more-like-this-extended)
 ;; TODO 'mc/mark-more-like-this-extended for previous to make it work.
@@ -97,6 +106,7 @@
 (key-chord-define-global "jm" 'mc/mark-all-like-this)
 (key-chord-define-global "jt" 'mc/mark-sgml-tag-pair)
 (key-chord-define-global "kd" 'mc/edit-lines)
+
 
 
 (prelude-require-package 'edit-server)

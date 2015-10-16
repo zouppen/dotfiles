@@ -18,7 +18,7 @@
    [org.clojure/tools.nrepl "0.2.10"] ;; Try fix cider warning
    
    [debugger "0.1.7"]
-   ;;[slamhound "1.5.5"]
+   [slamhound "1.5.5"]
    ;; [clj-stacktrace "0.2.8"] ;; Pretty stack traces (cider mode does this already)
    [alembic "0.3.2"] ;; Add dependencies to repl session, run lein...
    ]
