@@ -1,4 +1,9 @@
-# Shell customizations for working with Python
+# Shell environment requirements and customizations for working with Python
+
+if (( ! $+commands[pip] )); then
+    onlinux echo "Installing python-pip" && \
+        sudo apt-get install python-pip
+fi
 
 # Python package manager
 alias pipi="pip install"
@@ -6,7 +11,7 @@ alias pips="pip search"
 alias pipr="pip uninstall"
 alias pipf="pip freeze | tee requirements.txt"
 alias pipfi="pip install -r requirements.txt"
-alias serve="python -m SimpleHTTPServer 3333"
+# alias serve="python -m SimpleHTTPServer 3333"
 
 # Python Virtualenv
 # alias va="source ./venv/bin/activate"
@@ -15,6 +20,17 @@ alias serve="python -m SimpleHTTPServer 3333"
 # alias vp="pip install -r requirements.txt"
 
 # Use virtualenvwrapper which stores venvs in centralized fashion.
+
+if (( ! $+commands[virtualenv] )); then
+    echo "Installing virtualenv" && \
+        sudo pip install virtualenv
+fi    
+
+if (( ! $+commands[virtualenvwrapper.sh] )); then
+    echo "Installing virtualenvwrapper" && \
+        sudo pip install virtualenvwrapper
+fi    
+
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
 

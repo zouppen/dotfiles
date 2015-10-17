@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Write to file (spit)
+# key : spit
+# --
+with open("$1", "w") as f:
+    f.write($0)
