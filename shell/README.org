@@ -1,4 +1,4 @@
-ZSH configuration built upon [[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]].
+ZSH configuration built upon +[[https://github.com/robbyrussell/oh-my-zsh][oh-my-zsh]]+ [[https://github.com/jasalt/prezto][prezto]].
 
 Compatibility between Linux and OSX via conditional loading aliases defaulting to custom preference or common Linux commands.
 
