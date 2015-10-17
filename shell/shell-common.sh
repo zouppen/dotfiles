@@ -94,3 +94,19 @@ onlinux \
 onmac \
     alias sano="say -v \"Mikko\"" && \
     alias sega="say -v \"Oskar\""
+
+
+# ESC-ESC to sudo last command
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    if [[ $BUFFER == sudo\ * ]]; then
+        LBUFFER="${LBUFFER#sudo }"
+    else
+        LBUFFER="sudo $LBUFFER"
+    fi
+}
+zle -N sudo-command-line
+# Defined shortcut keys: [Esc] [Esc]
+bindkey "\e\e" sudo-command-line
+
+
