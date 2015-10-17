@@ -50,11 +50,14 @@
        mac-command-modifier 'meta
        mac-function-modifier 'hyper)
  (set-variable 'magit-emacsclient-executable
-               "/usr/local/bin/emacsclient"))
+               "/usr/local/bin/emacsclient")
+ (set-face-attribute 'default nil :font "Inconsolata-16")
+ )
 
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)
 
+(global-set-key (kbd "H-m a") 'artist-mode)
 (global-set-key (kbd "H-m o") 'org-mode)
 (global-set-key (kbd "H-m t") 'text-mode)
 (global-set-key (kbd "H-m q") 'fundamental-mode)

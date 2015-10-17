@@ -64,6 +64,7 @@
         sp-splice-sexp-killing-forward
         tern-ac-dot-complete
         transpose-words
+        yaml-electric-dash-and-dot
         ))
 
 (setq mc/cmds-to-run-once

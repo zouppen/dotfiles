@@ -1,5 +1,9 @@
 ;; Configuration for writing and arranging text
 
+(prelude-require-package 'ledger-mode)
+;; setup files ending in “.ledger” to open in ledger-mode
+(add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
+
 (prelude-require-package 'writeroom-mode)
 
 (require 'org)
