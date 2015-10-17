@@ -2,7 +2,7 @@
 control + alt + grave
     terminator
 control + alt + {1,2,3}
-    {nemo,google-chrome,emacs}
+    {thunar,x-www-browser,emacs}
 
 #super + space
 #    dmenu_run
@@ -43,31 +43,32 @@ super + s ; t ; E
 
 ## Write email with selection as content
 super + s ; c
-    nohup google-chrome --app="https://mail.google.com/mail/?view=cm&fs=1&su=Linkspam&body=`xsel`"
+    nohup x-www-browser --app="https://mail.google.com/mail/?view=cm&fs=1&su=Linkspam&body=`xsel`"
 
 ## Define selection
 super + s ; d
-    nohup google-chrome "https://www.google.fi/search?q=define `xsel`"
+    nohup x-www-browser "https://www.google.fi/search?q=define `xsel`"
 
 ## Google selection
 super + s ; g
-    nohup google-chrome "https://www.google.fi/search?q=`xsel`"
+    nohup x-www-browser "https://www.google.fi/search?q=`xsel`"
 
+## Lucky search
 super + s ; G
-    nohup google-chrome "http://www.google.com/search?btnI&q=`xsel`"
+    nohup x-www-browser "http://www.google.com/search?btnI&q=`xsel`"
 
 ## Open selection url
 super + s ; l
-    nohup google-chrome "`xsel`"
+    nohup x-www-browser "`xsel`"
 
 super + s ; k
-    nohup google-chrome "http://kat.cr/usearch/?q=`xsel`"
+    nohup x-www-browser "http://kat.cr/usearch/?q=`xsel`"
 
 super + s ; b
-    nohup google-chrome "http://gen.lib.rus.ec/search.php?req=`xsel`"
+    nohup x-www-browser "http://gen.lib.rus.ec/search.php?req=`xsel`"
 
 super + s ; m
-    nohup google-chrome "http://mp3li.net/en/index.php?q=`xsel`"
+    nohup x-www-browser "http://mp3li.net/en/index.php?q=`xsel`"
 
 ## Speak selection with google, echo does unquoting
 super + s ; s ; e
@@ -85,22 +86,22 @@ hyper + super + alt + c
 
 # Messaging
 super + m ; c  
-    google-chrome --app="https://mail.google.com/mail/?view=cm&fs=1&tf=1"
-# google-chrome "https://mail.google.com/mail/?view=cm&fs=1&tf=1"
+    x-www-browser --app="https://mail.google.com/mail/?view=cm&fs=1&tf=1"
+# x-www-browser "https://mail.google.com/mail/?view=cm&fs=1&tf=1"
 super + m ; m
-    google-chrome "https://mail.google.com/mail/u/0/"
+    x-www-browser "https://mail.google.com/mail/u/0/"
 super + m ; t
-    google-chrome "www.trello.com"
+    x-www-browser "www.trello.com"
 super + m ; i
     terminator -e "ssh jatasalt@irc-machine -t 'screen -rd'"
 super + m ; h
     terminator -e "hangups"
 super + m ; w
-    google-chrome --app=https://web.whatsapp.com/
+    x-www-browser --app=https://web.whatsapp.com/
 super + m ; S
     skype
 super + m ; s
-    google-chrome "https://putkilandia.slack.com/"
+    x-www-browser "https://putkilandia.slack.com/"
 
 super + c ; w
     terminator -e "ssh pi@webkamera"
@@ -115,21 +116,21 @@ super + c ; h
 
 # Web apps
 super + w ; h
-    google-chrome "www.github.com/jasalt?tab=repositories"
+    x-www-browser "www.github.com/jasalt?tab=repositories"
 super + w ; T
     killall TogglDesktop && /opt/toggldesktop/TogglDesktop &
 super + w ; t
-    google-chrome "www.toggl.com/app"
+    x-www-browser "www.toggl.com/app"
 super + w ; d
-    google-chrome "http://diigo.com/user/jasalt"
+    x-www-browser "http://diigo.com/user/jasalt"
 super + w ; w
-    google-chrome "http://ilmatieteenlaitos.fi/saa/jyväskylä"
+    x-www-browser "http://ilmatieteenlaitos.fi/saa/jyväskylä"
 super + w ; u
-    google-chrome "http://www.wunderground.com/personal-weather-station/dashboard?ID=IFINLAND34"
+    x-www-browser "http://www.wunderground.com/personal-weather-station/dashboard?ID=IFINLAND34"
 super + w ; s
-    google-chrome "http://www.zalama.net/euroblitz/Web/euroblitz_webpage.php"
+    x-www-browser "http://www.zalama.net/euroblitz/Web/euroblitz_webpage.php"
 super + w ; k
-    google-chrome "http://keep.google.com/"
+    x-www-browser "http://keep.google.com/"
 
 # Headset
 XF86AudioPlay
@@ -137,7 +138,7 @@ XF86AudioPlay
 
 # fix breaking xmodmap and kill power led
 XF86Launch1
-    sudo /home/jarkko/konffit/linux/init-linux.sh
+    sudo $HOME/konffit/linux/init-linux.sh
 
 super + t ; p
     /home/jasalt/konffit/bin/timer 30
