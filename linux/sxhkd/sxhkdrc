@@ -140,6 +140,24 @@ XF86AudioPlay
 XF86Launch1
     sudo $HOME/konffit/linux/init-linux.sh
 
+# Display configurations
+XF86Display ; XF86Display
+    xrandr --output VGA1  --off \
+           --output HDMI1 --off \
+           --output HDMI2 --off \
+           --output LVDS1 --mode 1366x768
+XF86Display ; d
+    xrandr --output VGA1  --auto --above LVDS1  --primary \
+           --output HDMI1  --auto --above LVDS1  --primary  \
+           --output LVDS1 --mode 1366x768
+XF86Display ; m
+    xrandr --output VGA1  --mode 1024x768 --same-as LVDS1 \
+           --output LVDS1 --mode 1024x768 --primary
+XF86Display ; e
+    xrandr --output HDMI1  --auto \
+           --output VGA1  --auto \
+           --output LVDS1 --off
+           
 super + t ; p
     /home/jasalt/konffit/bin/timer 30
 super + t ; 5
