@@ -79,8 +79,9 @@ onmac \
 
 ### Language translation utilities
 # See also: Linux selection hotkeys on sxhkd config
-# Using http://www.soimort.org/translate-shell/
-# brew install http://www.soimort.org/translate-shell/translate-shell.rb
+# Using http://www.soimort.org/translate-shell/ depends on gawk
+# Mac: brew install http://www.soimort.org/translate-shell/translate-shell.rb
+# Linux: wget git.io/trans && chmod +x ./trans
 alias te="trans fi:en"
 alias tf="trans en:fi"
 alias ts="trans fi:sv"
