@@ -54,6 +54,11 @@
  (set-face-attribute 'default nil :font "Inconsolata-16")
  )
 
+(progn-on
+ "gnu/linux"
+ (set-face-attribute 'default nil :font "Inconsolata-12")
+ )
+
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)
 
@@ -169,7 +174,7 @@
                              (concat dotfiles-folder "/osx/bin/iterm")
                              (file-truename default-directory)))))
 
-(progn-on "gnu-linux"
+(progn-on "gnu/linux"
           (defun open-file-path-in-terminal ()
             "Open current directory in dired mode in terminal application.
              Dismiss shell output buffer afterwards."
