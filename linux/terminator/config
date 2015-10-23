@@ -31,7 +31,7 @@
 [profiles]
   [[default]]
     scrollbar_position = hidden
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     background_image = None
     background_darkness = 0.9
     scrollback_lines = 5000
@@ -42,6 +42,7 @@
     show_titlebar = False
     color_scheme = custom
     font = Inconsolata Medium 11
+    background_color = "#3f3f3f"
     scrollback_infinite = True
 [layouts]
   [[default]]

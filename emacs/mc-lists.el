@@ -24,11 +24,13 @@
         indent-for-tab-command
         iy-go-to-char--command
         kill-region
+        ledger-magic-tab
         magit-section-toggle
         magit-stage-item
         magit-unstage-item
         markdown-cycle
         markdown-exdent-or-delete
+        move-text-up
         org-beginning-of-line
         org-cycle
         org-delete-char

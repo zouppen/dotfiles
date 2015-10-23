@@ -15,6 +15,10 @@ onmac () { [ $(uname -s) = "Darwin" ] && $* }
 alias rp="source ~/.zshrc"
 
 ### Everyday file operations etc.
+function take() {
+  mkdir -p $1
+  cd $1
+}
 alias cdd="cd ~/Desktop/"
 alias cddo="cd ~/Documents/"
 # alias finddir='sudo find / -type d -name'
