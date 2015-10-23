@@ -67,9 +67,9 @@ alias iports="lsof -Pni4 | grep LISTEN"
 
 ### Developer tools
 # Emacsclient GUI
-alias ec="emacsclient -n"
+# alias ec="emacsclient -n"
 # Emacsclient terminal
-alias ect="emacsclient -t"
+# alias ect="emacsclient -t"
 
 # Git quick commit
 alias qc="git commit -a -m 'up' && git push"

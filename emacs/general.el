@@ -57,6 +57,8 @@
 (progn-on
  "gnu/linux"
  (set-face-attribute 'default nil :font "Inconsolata-12")
+ (set-variable 'magit-emacsclient-executable
+               (concat dotfiles-folder "bin/ec"))
  )
 
 ;; Pop marks faster by repeated spacing
