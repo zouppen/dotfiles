@@ -1,11 +1,1 @@
-1) Deps
-
-sudo apt-get install python-wnck python-xlib
-
- dbus-python
-
-2) Clone & Run
-
-git clone git://github.com/ssokolow/quicktile
-
-
+[[https://github.com/ssokolow/quicktile][Quicktile window manager]]. Simple tool for managing multiple X windows. See [[file:setup-ubuntu.sh][Ubuntu 15.10 setup script]] for installation notes.

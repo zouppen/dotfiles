@@ -1,3 +1,41 @@
+* Install
+Building stable emacs on Ubuntu. http://ubuntuhandbook.org/index.php/2014/10/emacs-24-4-released-install-in-ubuntu-14-04/
+
+1) Get latest sources from http://ftp.gnu.org/gnu/emacs/
+2) Build & Install
+
+#+begin_src sh
+sudo apt-get install build-essential
+sudo apt-get build-dep emacs24
+cd ~/Downloads && tar -xf emacs-24.5.tar.* && cd emacs-24.5
+./configure
+make
+sudo make install
+sudo gedit /usr/share/applications/Emacs-24.desktop
+
+#+end_src
+
+3) Add desktop entry to /usr/share/applications/Emacs-24.desktop
+#+begin_src sh
+
+[Desktop Entry]
+Version=1.0
+Name=Emacs-24
+Exec=env UBUNTU_MENUPROXY=0 /usr/local/bin/emacs
+Terminal=false
+Icon=emacs
+Type=Application
+Categories=IDE
+X-Ayatana-Desktop-Shortcuts=NewWindow
+[NewWindow Shortcut Group]
+Name=New Window
+TargetEnvironment=Unity
+
+#+end_src
+
+4) Install =fonts-inconsolata= on Ubuntu or =ttf-inconsolata= on Debian.
+
+* Setup
 Emacs 24 configuration based on [[https://github.com/bbatsov/prelude][Emacs Prelude]] using newest stable GUI version.
 
 1) Install Prelude with =curl -L https://git.io/epre | sh= (check prelude page for updated command)

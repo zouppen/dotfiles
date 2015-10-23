@@ -1,0 +1,18 @@
+#!/bin/sh -xeu
+### Install sxhkd on Ubuntu 15.10
+### https://github.com/baskerville/sxhkd
+
+if (( ! $+commands[quicktile] )); then
+    echo "Installing sxhkd."
+    ln -s $DOTFILES/linux/sxhkd ~/.config/ && \
+    sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev && \
+    mkdir -p $HOME/building/ && \
+    cd $HOME/building/ && \
+    git clone https://github.com/baskerville/sxhkd.git && \
+    cd $HOME/building/ && \
+    cd sxhkd && \
+    make && \
+    sudo make install
+fi
+
+
