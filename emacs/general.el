@@ -66,6 +66,7 @@
   "Set the transparency of the frame window.  VALUE = 0-100."
   (interactive "nTransparency Value 0 - 100 opaque:")
   (set-frame-parameter (selected-frame) 'alpha value))
+(transparency 90)
 
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)
@@ -205,6 +206,17 @@
 
 (define-key global-map (kbd "C-c )") 'copy-file-name-to-clipboard)
 
+(when (fboundp 'eww)
+  (progn
+    (defun xah-rename-eww-hook ()
+      "Rename eww browser's buffer so sites open in new page."
+      (rename-buffer "eww" t))
+    (defun my-eww-mode-hook ()
+      (define-key eww-mode-map (kbd "<mouse-8>") 'eww-back-url)  
+      (define-key eww-mode-map (kbd "<backspace>") 'eww-back-url)  
+      )
+    (add-hook 'eww-mode-hook 'xah-rename-eww-hook 'my-eww-mode-hook)
+    ))
 
 (provide 'general)
 ;;; general.el ends here
