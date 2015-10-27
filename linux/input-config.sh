@@ -13,7 +13,7 @@ setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option
 # -> us alt international dead keys
 
 ## Set modifier keys
-xmodmap /home/`awk -F':' '{ print $1}' /etc/passwd | grep ja`/konffit/linux/Xmodmap
+xmodmap /home/`awk -F':' '{ print $1}' /etc/passwd | grep ja`/dotfiles/linux/Xmodmap
 
 ## Key repeat delay and rate
 xset r rate 170 25
