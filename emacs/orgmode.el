@@ -23,7 +23,7 @@
 ;; (add-to-list 'org-agenda-files (expand-file-name
 ;;                                 (concat org-folder "interesting.org")))
 (add-to-list 'org-agenda-files (expand-file-name
-                                "~/Dropbox/trello-tasks.org"))
+                                "~/.ext-calendar.org"))
 
 (global-set-key (kbd "C-c <f1>")
                 (lambda ()
