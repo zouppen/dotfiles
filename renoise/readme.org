@@ -1,0 +1,1 @@
+Reuse emacs keybindings for different 'modes' in renoise as learning new keybindings is not fun and tracker.el is too hc.
