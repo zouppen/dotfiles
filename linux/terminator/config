@@ -35,6 +35,7 @@
     background_image = None
     background_darkness = 0.9
     scrollback_lines = 5000
+    background_type = transparent
     use_system_font = False
     cursor_color = "#808080"
     foreground_color = "#ffffff"
