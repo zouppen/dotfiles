@@ -15,7 +15,7 @@ onmac () { [ $(uname -s) = "Darwin" ] && $* }
 alias rp="source ~/.zshrc"
 
 ### Everyday file operations etc.
-function take() {
+take () {
   mkdir -p $1
   cd $1
 }
@@ -54,27 +54,18 @@ onmac \
     alias ass="brew cask search" && \
     alias aup="brew update" && \
     alias aug="brew upgrade"
-onlinux \
-    alias aup="sudo apt-get update" && \
-    alias aug="sudo apt-get upgrade" && \
-    alias addppa="sudo add-apt-repository"
 
 ### Networking helpers
 # Echo public IP
-alias ipext="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 # List open ports
-alias iports="lsof -Pni4 | grep LISTEN"
-
-### Developer tools
-# Emacsclient GUI
-# alias ec="emacsclient -n"
-# Emacsclient terminal
-# alias ect="emacsclient -t"
+alias ports="lsof -Pni4 | grep LISTEN"
+alias speedtest="ping -c 3 www.funet.fi && wget -O /dev/null ftp://ftp.funet.fi/dev/100Mnull > /dev/null"
 
 # Git quick commit
 alias qc="git commit -a -m 'up' && git push"
 # BFG Repo Cleaner https://rtyley.github.io/bfg-repo-cleaner/
-alias bfg="java -jar ~/konffit/bin/bfg-1.11.8.jar"
+alias bfg="java -jar ~/dotfiles/bin/bfg-1.11.8.jar"
 
 onmac \
     # Toggle PostgreSQL service state
