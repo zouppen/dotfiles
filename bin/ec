@@ -1,6 +1,7 @@
 #!/bin/sh
+# Emacsclient script
 if [ "$(pidof emacs)" ] ; then
-    emacsclient "$@" &
+    emacsclient -n -s /tmp/emacs1000/jarkon-emacs "$@"
 else
     emacs -mm "$@" &
 fi

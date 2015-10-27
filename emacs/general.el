@@ -22,6 +22,7 @@
 
 ;; Run emacs server so emacsclient can connect.
 (load "server")
+(setq server-name "jarkon-emacs")
 (unless (server-running-p) (server-start))
 
 (setq calendar-week-start-day 1) ; Week starts on monday
@@ -60,6 +61,11 @@
  (set-variable 'magit-emacsclient-executable
                (concat dotfiles-folder "bin/ec"))
  )
+
+(defun transparency (value)
+  "Set the transparency of the frame window.  VALUE = 0-100."
+  (interactive "nTransparency Value 0 - 100 opaque:")
+  (set-frame-parameter (selected-frame) 'alpha value))
 
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)
@@ -186,6 +192,19 @@
                                    (file-truename default-directory)))))
 
 (define-key global-map (kbd "C-c 0") 'open-file-path-in-terminal)
+
+(defun copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
+
+(define-key global-map (kbd "C-c )") 'copy-file-name-to-clipboard)
+
 
 (provide 'general)
 ;;; general.el ends here
