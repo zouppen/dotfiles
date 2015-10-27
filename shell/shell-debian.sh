@@ -8,6 +8,7 @@ alias as="aptitude search"
 alias aup="sudo apt-get update"
 alias aug="sudo apt-get upgrade"
 alias addppa="sudo add-apt-repository"
+alias alog="less /var/log/apt/history.log"
 
 alias postgre-start="sudo service postgresql start"
 alias postgre-stop="sudo service postgresql stop"
