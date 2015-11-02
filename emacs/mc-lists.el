@@ -7,6 +7,7 @@
         autopair-insert-opening
         autopair-insert-or-skip-quote
         beginning-of-buffer
+        beginning-of-visual-line
         bibtex-next-field
         c-electric-delete-forward
         c-electric-paren

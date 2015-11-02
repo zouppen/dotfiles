@@ -18,6 +18,8 @@
 ;; Add some individual files to agenda files
 (add-to-list 'org-agenda-files (expand-file-name
                                 (concat org-folder "gtd.org")))
+(add-to-list 'org-agenda-files (expand-file-name
+                                (concat org-folder "future.org")))
 ;; (add-to-list 'org-agenda-files (expand-file-name
 ;;                                 (concat org-folder "cron.org")))
 ;; (add-to-list 'org-agenda-files (expand-file-name

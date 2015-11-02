@@ -4,8 +4,8 @@ control + alt + grave
 control + alt + {1,2,3}
     {thunar,x-www-browser,emacs}
 
-#super + space
-#    dmenu_run
+super + space
+    xfce4-appfinder
 
 #super + alt + space
 #   tracker-needle

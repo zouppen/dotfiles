@@ -27,3 +27,5 @@
 
 (let ((my-yas-custom-dir (concat dotfiles-folder "emacs/yasnippets/")))
   (setq yas-snippet-dirs (append yas-snippet-dirs (list my-yas-custom-dir))))
+
+(define-key global-map (kbd "<f5>") 'compile)
