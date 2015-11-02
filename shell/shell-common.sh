@@ -27,11 +27,11 @@ onlinux \
     alias open="xdg-open" && \
     ## Clipboard interop helpers
     # Copy SSH public key
-    alias cbssh="cbf ~/.ssh/id_rsa.pub" && \
+    alias cbssh="echo `gpgkey2ssh 2190701CC614FD52` | cb" && \
     # Copy current working directory
-    alias cbwd="pwd | cb" && \
+    alias cbwd="pwd | cb"
     # Copy most recent command in bash history
-    alias cbhs="cat $HISTFILE | tail -n 1 | cb"
+    # alias cbhs="cat $HISTFILE | tail -n 2 | cb"
 
 onmac \
     alias o="open ." && \
