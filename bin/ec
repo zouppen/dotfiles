@@ -1,7 +1,9 @@
 #!/bin/sh
 # Emacsclient script
 if [ "$(pidof emacs)" ] ; then
-    emacsclient -n -s /tmp/jasalt/emacs1000/jarkon-emacs "$@"
+    [ $(uname -s) = "Darwin" ] && emacsclient -n -s jarkon-emacs "$@"
+    [ $(uname -s) = "Linux" ] && emacsclient -n -s /tmp/jasalt/emacs1000/jarkon-emacs "$@" 
 else
-    emacs -mm "$@" &
+    [ $(uname -s) = "Darwin" ] && /Applications/Emacs.app/Contents/MacOS/Emacs "$@" &
+    [ $(uname -s) = "Linux" ] && emacs -mm "$@" &
 fi
