@@ -59,7 +59,9 @@
         select-window-2
         sp--self-insert-command
         sp-backward-delete-char
+        sp-backward-kill-word
         sp-backward-sexp
+        sp-delete-char
         sp-forward-sexp
         sp-forward-slurp-sexp
         sp-kill-word

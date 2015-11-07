@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : Python shebang
+# key : !
+# --
+#!/usr/bin/env python
+
