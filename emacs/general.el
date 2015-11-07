@@ -32,6 +32,12 @@
 (setq initial-scratch-message "")
 (setq initial-major-mode 'org-mode)
 
+;; Yank from linux selection to point when using middle mouse
+;;(setq mouse-yank-at-point t)
+;; Nicer mousewheel scrolling
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 2) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
 (defun show-or-create-scratch ()
   "Shows a scratch buffer or creates another one if visiting one."
   (interactive)
