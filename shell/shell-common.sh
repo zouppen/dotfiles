@@ -62,6 +62,9 @@ alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 
 alias ports="lsof -Pni4 | grep LISTEN"
 alias speedtest="ping -c 3 www.funet.fi && wget -O /dev/null ftp://ftp.funet.fi/dev/100Mnull > /dev/null"
 
+alias get-mp3="youtube-dl --extract-audio --audio-format mp3"
+alias get-ogg="youtube-dl --extract-audio --audio-format vorbis"
+
 # Git quick commit
 alias qc="git commit -a -m 'up' && git push"
 # BFG Repo Cleaner https://rtyley.github.io/bfg-repo-cleaner/
