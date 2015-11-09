@@ -69,6 +69,7 @@
         sp-splice-sexp-killing-forward
         tern-ac-dot-complete
         transpose-words
+        yaml-electric-backspace
         yaml-electric-dash-and-dot
         ))
 

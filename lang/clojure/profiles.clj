@@ -1,5 +1,4 @@
 ;; Symlink this file to ~/.lein/
-
 {:user
  {:plugins
   [[lein-pprint "1.1.2"]
@@ -14,8 +13,7 @@
    ]
   :dependencies
   [
-   ^:replace
-   [org.clojure/tools.nrepl "0.2.10"] ;; Try fix cider warning
+   [org.clojure/tools.nrepl "0.2.12"]
    
    [debugger "0.1.7"]
    [slamhound "1.5.5"]
