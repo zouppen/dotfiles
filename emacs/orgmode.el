@@ -60,26 +60,33 @@
   (if (equal "capture" (frame-parameter nil 'name))
       (delete-frame)))
 
+(defun capture-report-data-file (path)
+  )
 
 (setq org-capture-templates
       '(
-        ("p" "Post skeleton" entry (file (capture-report-date-file
-                                          "~/dev/landing/blog/src/content/posts/"))
-         "* Title :tags:
-:PROPERTIES:
-:date: %t
-:slug:
-:summary:
-Body")
+        ;; ("p" "Post skeleton" entry (file (capture-report-date-file
+        ;;                                           "~/dev/landing/blog/src/content/posts/"))
+        ;;          "* Title :tags:
+        ;; :PROPERTIES:
+        ;; :date: %t
+        ;; :slug:
+        ;; :summary:
+        ;; Body")
+
         ("i" "Save to Inbox" entry
          (file (concat org-folder "inbox.org") "inbox") "* %?\n  %i\n")
         ("t" "TODO Item" entry
          (file+headline (concat org-folder "gtd.org") "Tasks") "* TODO %?\n  %i\n")
         ("a" "Appointment or other scheduled item" entry
-         (file+headline (concat org-folder "next.org") "Schaduled") "* APPT %?\n  %i\n")
+         (file+headline (concat org-folder "gtd.org") "Scheduled") "* APPT %?\n  %i\n")
         ("j" "Journal entry" entry (file+datetree (concat org-folder "texts/meta/notetoself.org"))
          "* %?\nEntered on %U\n  %i\n")
-        ("r" "Save Recommendation" entry (file+headline (concat org-folder "interesting.org") "Check out") "* %?\n  %i\n")))
+        ("r" "Save Recommendation" entry (file+headline (concat org-folder "inbox.org") "Recommendations") "* %?\n  %i\n")
+        ("p" "New project file" entry
+         (file (concat org-folder "projects/"
+                       (let ((prompt (read-string "New project [filename].org: ")))
+                         (concat prompt ".org")))) "* %?\n  %i\n")))
 
 (setq org-agenda-skip-scheduled-if-done 'nil)
 
@@ -104,21 +111,22 @@ Body")
 
 (setq org-agenda-custom-commands
       '(        ;; other commands go here
-        ("w" "Week"
-         ((agenda "" ((org-agenda-ndays 7))) ;; review upcoming deadlines and appointments
-          ;; type "l" in the agenda to review logged items
+        ;; ("w" "Week"
+        ;;  ((agenda "" ((org-agenda-ndays 7))) ;; review upcoming deadlines and appointments
+        ;;   ;; type "l" in the agenda to review logged items
 
-          (todo "TODO") ;; review all projects (assuming you use todo keywords to designate projects)
-          (todo "APPT") ;; review someday/maybe items
-          (todo "WAIT")
-          (stuck "")))
+        ;;   (todo "TODO") ;; review all projects (assuming you use todo keywords to designate projects)
+        ;;   (todo "APPT") ;; review someday/maybe items
+        ;;   (todo "WAIT")
+        ;;   (stuck "")))
 
         ("d" "Day"
          ((agenda "" ((org-agenda-ndays 1))) ;; review upcoming deadlines and appointments
           (tags-todo "+PRIORITY=\"A\"")
-          (todo "TODO") ;; review all projects (assuming you use todo keywords to designate projects)
-          (todo "MAYBE") ;; review someday/maybe items
-          (todo "WAITING"))) ;; review waiting items
+          ;;(todo "TODO") ;; review all projects (assuming you use todo keywords to designate projects)
+          ;;(todo "MAYBE") ;; review someday/maybe items
+          ;;(todo "WAITING")
+          )) ;; review waiting items
 
         ("c" "Calendar 2 Weeks" agenda ""
          ((org-agenda-ndays 14)                          ;; [1]
@@ -189,9 +197,24 @@ Body")
 ;; Use link to do a quick grep for keyword
 ;; Eg TODO's in codebase
 (org-add-link-type
-"grep" 'endless/follow-grep-link)
+ "grep" 'endless/follow-grep-link)
 
 (defun endless/follow-grep-link (regexp)
   "Run `rgrep' with REGEXP as argument."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
+
+;;; Calendar config
+;; Week starts on monday
+(setq calendar-week-start-day 1) 
+;; Add week numbers to calendar
+(copy-face font-lock-constant-face 'calendar-iso-week-face)
+(set-face-attribute 'calendar-iso-week-face nil
+                    :height 0.7)
+(setq calendar-intermonth-text
+      '(propertize
+        (format "%2d"
+                (car
+                 (calendar-iso-from-absolute
+                  (calendar-absolute-from-gregorian (list month day year)))))
+        'font-lock-face 'calendar-iso-week-face))

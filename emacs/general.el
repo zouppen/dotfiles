@@ -25,7 +25,6 @@
 (setq server-name "jarkon-emacs")
 (unless (server-running-p) (server-start))
 
-(setq calendar-week-start-day 1) ; Week starts on monday
 (scroll-bar-mode -1) ; Disable scroll bars
 
 ;; Make scratch-buffer more convenient
