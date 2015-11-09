@@ -22,8 +22,10 @@
                                 (concat org-folder "future.org")))
 ;; (add-to-list 'org-agenda-files (expand-file-name
 ;;                                 (concat org-folder "cron.org")))
-;; (add-to-list 'org-agenda-files (expand-file-name
-;;                                 (concat org-folder "interesting.org")))
+(add-to-list 'org-agenda-files (expand-file-name
+                                (concat org-folder "interesting.org")))
+(add-to-list 'org-agenda-files (expand-file-name
+                                (concat org-folder "inbox.org")))
 (add-to-list 'org-agenda-files (expand-file-name
                                 "~/.ext-calendar.org"))
 
@@ -70,7 +72,7 @@
 :summary:
 Body")
         ("i" "Save to Inbox" entry
-         (file+headline (concat org-folder "inbox.org") "inbox") "* %?\n  %i\n")
+         (file (concat org-folder "inbox.org") "inbox") "* %?\n  %i\n")
         ("t" "TODO Item" entry
          (file+headline (concat org-folder "gtd.org") "Tasks") "* TODO %?\n  %i\n")
         ("a" "Appointment or other scheduled item" entry
