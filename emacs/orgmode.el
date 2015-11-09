@@ -37,6 +37,10 @@
                 (lambda ()
                   (interactive)
                   (find-file (concat org-folder "gtd.org"))))
+(global-set-key (kbd "C-c S-<f2>")
+                (lambda ()
+                  (interactive)
+                  (find-file (concat org-folder "interesting.org"))))
 (global-set-key (kbd "C-c <f3>")
                 (lambda ()
                   (interactive)
@@ -182,9 +186,19 @@
 
   (local-set-key (kbd "H-f") 'org-metaright)
   (local-set-key (kbd "H-b") 'org-metaleft)
+  
+  (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
   )
 
 (add-hook 'org-mode-hook 'own-org-mode-hook)
+
+(defun sync-ext-agenda ()
+  (interactive)
+  (princ "Start syncing external calendar items. Rebuild agenda afterwards.")
+  (start-process "cal-sync" "foo" "/Users/js/dev/org-ext-agenda/sync-gtd.sh" )
+  )
+
+(sync-ext-agenda)
 
 ;; Create filename with datestamp
 (defun capture-report-date-file (path)
