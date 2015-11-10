@@ -1,0 +1,3 @@
+#!/bin/bash
+# Turn Thinkpad X220 IPS screen backlight as down as possible.
+echo 23 > /sys/class/backlight/intel_backlight/brightness
