@@ -91,6 +91,7 @@
 (global-set-key (kbd "H-m j") 'javascript-mode)
 (global-set-key (kbd "H-m h") 'html-mode)
 (global-set-key (kbd "H-m w") 'writeroom-mode)
+(setq writeroom-width 110)
 
 (global-set-key (kbd "<C-M-backspace>") 'prelude-top-join-line)
 (global-set-key (kbd "C-c C-SPC") 'comment-or-uncomment-region)
