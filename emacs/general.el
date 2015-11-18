@@ -65,6 +65,8 @@
  (set-face-attribute 'default nil :font "Inconsolata-12")
  (set-variable 'magit-emacsclient-executable
                (concat dotfiles-folder "bin/ec"))
+ (setq browse-url-browser-function 'browse-url-generic
+       browse-url-generic-program "x-www-browser")
  )
 
 (defun transparency (value)
@@ -217,8 +219,8 @@
       "Rename eww browser's buffer so sites open in new page."
       (rename-buffer "eww" t))
     (defun my-eww-mode-hook ()
-      (define-key eww-mode-map (kbd "<mouse-8>") 'eww-back-url)  
-      (define-key eww-mode-map (kbd "<backspace>") 'eww-back-url)  
+      (define-key eww-mode-map (kbd "<mouse-8>") 'eww-back-url)
+      (define-key eww-mode-map (kbd "<backspace>") 'eww-back-url)
       )
     (add-hook 'eww-mode-hook 'xah-rename-eww-hook 'my-eww-mode-hook)
     ))
