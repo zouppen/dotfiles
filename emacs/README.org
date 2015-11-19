@@ -46,3 +46,15 @@ Emacs 24 configuration based on [[https://github.com/bbatsov/prelude][Emacs Prel
 Configuration is mostly copy pasted from around the net and there's also a few `home made` commands (find them by [[grep:jasalt][rgrep "jasalt"]]).
 
 - emacs/modes/ directory contains some rare-ish elisp files
+* Notes
+** Problem with grep 2.21 (Ubuntu 15.10)
+Error messagee when running rgrep command: =grep: warning: GREP_OPTIONS is deprecated; please use an alias or script=. Fix by commenting out from grep.el source file =/usr/local/share/emacs/24.5/lisp/progmodes/grep.el.gz= lines:
+#+begin_src elisp
+ (setenv "GREP_OPTIONS"
+             (concat (getenv "GREP_OPTIONS")
+                    " --color=" (if (eq grep-highlight-matches 'always)
+                                    "always" "auto")))
+#+end_src
+Afterwards byte compile file again by removing =/usr/local/share/emacs/24.5/lisp/progmodes/grep.elc= and restarting Emacs.
+
+Source: http://ju.outofmemory.cn/entry/161810
