@@ -21,6 +21,8 @@ take () {
 }
 alias cdd="cd ~/Desktop/"
 alias cddo="cd ~/Documents/"
+alias ...="cd ../../"
+alias ....="cd ../../../"
 # alias finddir='sudo find / -type d -name'
 # alias findfile='sudo find / -type  -name'
 onlinux \
