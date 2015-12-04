@@ -23,6 +23,7 @@
 ;; Run emacs server so emacsclient can connect.
 (load "server")
 (setq server-name "jarkon-emacs")
+(setq server-socket-dir "~/.emacs.d/server")
 (unless (server-running-p) (server-start))
 
 (scroll-bar-mode -1) ; Disable scroll bars
