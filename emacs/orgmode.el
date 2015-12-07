@@ -205,13 +205,15 @@
   (local-set-key (kbd "H-b") 'org-metaleft)
 
   (setq org-icalendar-combined-agenda-file "~/Dropbox/Public/org.ics")
-  (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo))
-  
-  (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
-  (define-key org-agenda-mode-map (kbd "<f6>") 'org-icalendar-combine-agenda-files)
-  )
+  (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo)))
 
 (add-hook 'org-mode-hook 'own-org-mode-hook)
+
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+            (progn
+              (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
+              (define-key org-agenda-mode-map (kbd "<f6>") 'org-icalendar-combine-agenda-files))))
 
 (defun sync-ext-agenda ()
   (interactive)
