@@ -216,7 +216,10 @@
 (defun sync-ext-agenda ()
   (interactive)
   (princ "Start syncing external calendar items. Rebuild agenda afterwards.")
-  (start-process "cal-sync" "foo" "/Users/js/dev/org-ext-agenda/sync-gtd.sh" )
+  (progn-on "darwin"
+            (start-process "cal-sync" "foo" "/home/js/dev/org-ext-agenda/sync-gtd.sh"))
+  (progn-on "gnu/linux"
+            (start-process "cal-sync" "foo" "/home/jasalt/dev/org-ext-agenda/sync-gtd.sh"))
   )
 
 (sync-ext-agenda)
@@ -238,6 +241,10 @@
   "Run `rgrep' with REGEXP as argument."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
+
+;; Export customization
+(setq org-odt-preferred-output-format "rtf")
+
 
 ;;; Calendar config
 ;; Week starts on monday
