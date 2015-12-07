@@ -220,6 +220,8 @@
             (start-process "cal-sync" "foo" "/home/js/dev/org-ext-agenda/sync-gtd.sh"))
   (progn-on "gnu/linux"
             (start-process "cal-sync" "foo" "/home/jasalt/dev/org-ext-agenda/sync-gtd.sh"))
+  ;; TODO watch for process completion and refresh agenda buffer accordingly
+  ;; TODO portability problems
   )
 
 (sync-ext-agenda)
