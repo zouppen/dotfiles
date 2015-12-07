@@ -7,6 +7,7 @@
 ;; TODO dynamic loading?
 (let ((conf-files
        '("emacs/modes/acme-search.el"
+         "emacs/modes/google-translate-mode.el"
          "emacs/general.el"
          "emacs/programming.el"
          "emacs/orgmode.el"
