@@ -6,8 +6,10 @@
 # http://askubuntu.com/questions/22108/how-to-control-fan-speed
 # http://www.thinkwiki.org/wiki/How_to_control_fan_speed#Automated_control_scripts
 # Notes:
-# - # sudo echo level 1 > /proc/acpi/ibm/fan" is handy for testing.
+# `echo level auto | sudo tee /proc/acpi/ibm/fan` is handy for testing
 # - Fancontrol package's command `pwmconfig` wizard is handy for generating config file.
+
+
 
 if (( ! $+commands[fancontrol] )); then
     echo "Installing fancontrol management" && \
@@ -19,4 +21,6 @@ if (( ! $+commands[fancontrol] )); then
         sudo service fancontrol start && \
         echo "Fancontrol config symlinked and service started. Effective after REBOOT."
 fi
+# TODO apt-get install thinkfan, disable fancontrol
+# customize /etc/thinkfan.conf 
 
