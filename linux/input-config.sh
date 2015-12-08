@@ -57,6 +57,8 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -100
 xinput set-prop "Logitech K400" "Evdev Scrolling Distance" -1, -1, -1
 xinput set-prop "Logitech K400" "Evdev Middle Button Emulation" 1
 
+xinput set-prop "Logitech Anywhere MX" "Evdev Scrolling Distance" -1, -1, 1
+
 # Coasting sucks when using ctrl after scrolling a web-page
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Coasting Speed" 0 0
 
