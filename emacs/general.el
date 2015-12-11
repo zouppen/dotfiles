@@ -3,6 +3,7 @@
 ;;;; Disable some Prelude defaults
 (setq prelude-whitespace nil)
 (setq prelude-flyspell nil)
+(global-hl-line-mode 0)
 
 ;; In use of Finnish words
 (key-chord-define-global "yy" nil)
@@ -79,6 +80,10 @@
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)
 
+(global-set-key (kbd "<XF86Launch1>") 'writeroom-mode)
+(global-set-key (kbd "H-m w") 'writeroom-mode)
+(setq writeroom-width 110)
+
 (global-set-key (kbd "H-m a") 'artist-mode)
 (global-set-key (kbd "H-m o") 'org-mode)
 (global-set-key (kbd "H-m t") 'text-mode)
@@ -93,8 +98,6 @@
 (global-set-key (kbd "H-m s") 'shell-script-mode)
 (global-set-key (kbd "H-m j") 'javascript-mode)
 (global-set-key (kbd "H-m h") 'html-mode)
-(global-set-key (kbd "H-m w") 'writeroom-mode)
-(setq writeroom-width 110)
 
 (global-set-key (kbd "<C-M-backspace>") 'prelude-top-join-line)
 (global-set-key (kbd "C-c C-SPC") 'comment-or-uncomment-region)
