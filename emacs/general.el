@@ -3,6 +3,7 @@
 ;;;; Disable some Prelude defaults
 (setq prelude-whitespace nil)
 (setq prelude-flyspell nil)
+(guru-mode 0)  ;; No need for gurus
 
 ;; In use of Finnish words
 (key-chord-define-global "yy" nil)
@@ -26,6 +27,10 @@
 (unless (server-running-p) (server-start))
 
 (scroll-bar-mode -1) ; Disable scroll bars
+
+(prelude-require-package 'solarized-theme)
+(disable-theme 'zenburn)
+(load-theme 'solarized-light)
 
 ;; Make scratch-buffer more convenient
 (setq initial-scratch-message "")
@@ -57,8 +62,7 @@
        mac-function-modifier 'hyper)
  (set-variable 'magit-emacsclient-executable
                "/usr/local/bin/emacsclient")
- (set-face-attribute 'default nil :font "Inconsolata-16")
- )
+ (set-face-attribute 'default nil :font "Inconsolata-16"))
 
 (progn-on
  "gnu/linux"
@@ -66,14 +70,13 @@
  (set-variable 'magit-emacsclient-executable
                (concat dotfiles-folder "bin/ec"))
  (setq browse-url-browser-function 'browse-url-generic
-       browse-url-generic-program "x-www-browser")
- )
+       browse-url-generic-program "x-www-browser"))
 
 (defun transparency (value)
   "Set the transparency of the frame window.  VALUE = 0-100."
   (interactive "nTransparency Value 0 - 100 opaque:")
   (set-frame-parameter (selected-frame) 'alpha value))
-(transparency 90)
+;;(transparency 90)
 
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)

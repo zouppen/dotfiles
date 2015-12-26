@@ -175,7 +175,8 @@
   "Modify keymaps and settings used by `org-mode'."
   (visual-line-mode 1)
   (org-indent-mode 1)
-  
+  (company-mode 0)
+
   ;;(indent-guide-mode -1)
   ;;(whitespace-mode -1)
 
@@ -203,15 +204,17 @@
 
   (local-set-key (kbd "H-f") 'org-metaright)
   (local-set-key (kbd "H-b") 'org-metaleft)
-
-  (setq org-icalendar-combined-agenda-file "~/Dropbox/Public/org.ics")
-  (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo))
-  
-  (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
-  (define-key org-agenda-mode-map (kbd "<f6>") 'org-icalendar-combine-agenda-files)
   )
 
 (add-hook 'org-mode-hook 'own-org-mode-hook)
+
+(defun my-org-agenda-mode-hook ()
+  (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
+  (define-key org-agenda-mode-map (kbd "<f6>") 'org-icalendar-combine-agenda-files)
+  (setq org-icalendar-combined-agenda-file "~/Dropbox/Public/org.ics")
+  (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo))
+  )
+(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
 
 (defun sync-ext-agenda ()
   (interactive)
@@ -283,7 +286,7 @@
 
 ;;; Calendar config
 ;; Week starts on monday
-(setq calendar-week-start-day 1) 
+(setq calendar-week-start-day 1)
 ;; Add week numbers to calendar
 (copy-face font-lock-constant-face 'calendar-iso-week-face)
 (set-face-attribute 'calendar-iso-week-face nil
