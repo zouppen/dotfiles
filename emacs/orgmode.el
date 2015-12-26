@@ -208,18 +208,23 @@
 
 (add-hook 'org-mode-hook 'own-org-mode-hook)
 
-(defun my-org-agenda-mode-hook ()
-  (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
-  (define-key org-agenda-mode-map (kbd "<f6>") 'org-icalendar-combine-agenda-files)
-  (setq org-icalendar-combined-agenda-file "~/Dropbox/Public/org.ics")
-  (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo))
-  )
-(add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+            (progn
+              (define-key org-agenda-mode-map (kbd "<f5>") 'sync-ext-agenda)
+              (define-key org-agenda-mode-map (kbd "<f6>") 'org-icalendar-combine-agenda-files)
+              (setq org-icalendar-combined-agenda-file "~/Dropbox/Public/org.ics")
+              (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo)))))
 
 (defun sync-ext-agenda ()
   (interactive)
   (princ "Start syncing external calendar items. Rebuild agenda afterwards.")
-  (start-process "cal-sync" "foo" "/Users/js/dev/org-ext-agenda/sync-gtd.sh" )
+  (progn-on "darwin"
+            (start-process "cal-sync" "foo" "/home/js/dev/org-ext-agenda/sync-gtd.sh"))
+  (progn-on "gnu/linux"
+            (start-process "cal-sync" "foo" "/home/jasalt/dev/org-ext-agenda/sync-gtd.sh"))
+  ;; TODO watch for process completion and refresh agenda buffer accordingly
+  ;; TODO portability problems
   )
 
 (sync-ext-agenda)
@@ -283,6 +288,10 @@
   "Run `rgrep' with REGEXP as argument."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
+
+;; Export customization
+(setq org-odt-preferred-output-format "rtf")
+
 
 ;;; Calendar config
 ;; Week starts on monday

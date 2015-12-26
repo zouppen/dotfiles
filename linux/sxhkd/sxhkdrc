@@ -133,12 +133,12 @@ super + w ; k
     x-www-browser "http://keep.google.com/"
 
 # Headset
-XF86AudioPlay
-    xdotool key space
+# XF86AudioPlay
+#     xdotool key space
 
 # fix breaking xmodmap and kill power led
-XF86Launch1
-    sudo $HOME/konffit/linux/init-linux.sh
+# XF86Launch1
+#     sudo $HOME/konffit/linux/init-linux.sh
 
 # Display configurations
 XF86Display ; XF86Display
@@ -169,10 +169,10 @@ XF86AudioPrev
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
            
 super + t ; p
-    /home/jasalt/konffit/bin/timer 30
+    /home/jasalt/dotfiles/linux/bin/timer 30
 super + t ; 5
-    /home/jasalt/konffit/bin/timer 5
+    /home/jasalt/dotfiles/linux/bin/timer 5
 super + t ; 1 ; 5
-    /home/jasalt/konffit/bin/timer 15
+    /home/jasalt/dotfiles/linux/bin/timer 15
 super + t ; 3 ; 0
-    /home/jasalt/konffit/bin/timer 30
+    /home/jasalt/dotfiles/linux/bin/timer 30

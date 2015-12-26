@@ -4,12 +4,13 @@
 (setq prelude-whitespace nil)
 (setq prelude-flyspell nil)
 (guru-mode 0)  ;; No need for gurus
+(global-hl-line-mode 0)
 
-;; In use of Finnish words
+;; Used in some Finnish words
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "uu" nil)
 
-(key-chord-define-global "lj" nil) ;; .clj
+(key-chord-define-global "lj" nil) ;; .clj etc
 
 (global-unset-key (kbd "M-`"))
 (global-set-key (kbd "M-`") 'other-frame)
@@ -24,6 +25,7 @@
 ;; Run emacs server so emacsclient can connect.
 (load "server")
 (setq server-name "jarkon-emacs")
+(setq server-socket-dir "~/.emacs.d/server")
 (unless (server-running-p) (server-start))
 
 (scroll-bar-mode -1) ; Disable scroll bars
@@ -81,6 +83,10 @@
 ;; Pop marks faster by repeated spacing
 (setq set-mark-command-repeat-pop 't)
 
+(global-set-key (kbd "<XF86Launch1>") 'writeroom-mode)
+(global-set-key (kbd "H-m w") 'writeroom-mode)
+(setq writeroom-width 110)
+
 (global-set-key (kbd "H-m a") 'artist-mode)
 (global-set-key (kbd "H-m o") 'org-mode)
 (global-set-key (kbd "H-m t") 'text-mode)
@@ -95,8 +101,6 @@
 (global-set-key (kbd "H-m s") 'shell-script-mode)
 (global-set-key (kbd "H-m j") 'javascript-mode)
 (global-set-key (kbd "H-m h") 'html-mode)
-(global-set-key (kbd "H-m w") 'writeroom-mode)
-(setq writeroom-width 110)
 
 (global-set-key (kbd "<C-M-backspace>") 'prelude-top-join-line)
 (global-set-key (kbd "C-c C-SPC") 'comment-or-uncomment-region)

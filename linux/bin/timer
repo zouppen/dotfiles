@@ -1,0 +1,21 @@
+#!/bin/sh -eu
+
+echo "Started timer" | notify-pipe
+
+if [ "$#" -eq 1 ]; then
+    echo "Notifying you in $1 minutes."
+    SEC=$((60*$1))
+    sleep $SEC
+else
+    if [ "$#" -eq 2 ]; then
+        echo "Notifying you in $1 seconds."
+        sleep $1
+    else
+        echo "Usage: timer 5 [s]"
+        echo "[s] uses seconds"
+    fi
+fi
+
+espeak time &
+echo "Timer stopped" | notify-pipe
+thinkstrobo &
