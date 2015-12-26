@@ -11,6 +11,9 @@ onmac () { [ $(uname -s) = "Darwin" ] && $* }
 # Eg. `onmac echo "Yes!" && echo "No!"`
 # Should echo Yes! and No! on Mac and do nothing on Linux.
 
+# Rebind kill-region for zsh
+bindkey '^w' kill-region
+
 # Reload shell profile
 alias rp="source ~/.zshrc"
 
@@ -19,6 +22,9 @@ take () {
   mkdir -p $1
   cd $1
 }
+
+CDPATH=:$HOME/
+
 alias cdd="cd ~/Desktop/"
 alias cddo="cd ~/Documents/"
 alias ...="cd ../../"
