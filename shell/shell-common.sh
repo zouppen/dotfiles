@@ -43,6 +43,10 @@ onmac \
     alias cbwd="pwd|pbcopy" && \
     alias cbssh="cat ~/.ssh/id_rsa.pub|pbcopy"
 
+onmac \
+    source $HOME/dotfiles/shell/shell-osx.zsh
+
+
 # Download subtitles, requires sudo pip install subliminal
 alias sub="subliminal -l en --"
 
