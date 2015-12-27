@@ -11,11 +11,16 @@ onmac () { [ $(uname -s) = "Darwin" ] && $* }
 # Eg. `onmac echo "Yes!" && echo "No!"`
 # Should echo Yes! and No! on Mac and do nothing on Linux.
 
+# Enable character expansion
+setopt braceccl
 # Rebind kill-region for zsh
 bindkey '^w' kill-region
 
 # Reload shell profile
 alias rp="source ~/.zshrc"
+
+alias ee="ec"  # Emacsclient
+alias e="mg"   # Micro Gnu Emacs
 
 ### Everyday file operations etc.
 take () {
