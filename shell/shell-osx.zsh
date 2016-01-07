@@ -1,6 +1,9 @@
 # Some stuff from osx oh-my-zsh config
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
 
+alias fixui="killall -KILL Dock"
+alias fixui!="sudo killall -HUP WindowServer"
+
 function pfd() {
     osascript 2>/dev/null <<EOF
     tell application "Finder"

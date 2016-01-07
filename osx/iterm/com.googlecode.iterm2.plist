@@ -1109,15 +1109,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1255 1083 509 390 -82 1050 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>11 436 924 485 0 0 1680 1027 </string>
+	<string>461 323 924 485 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>507 203 384 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1680 1050 0 0 1680 1027 </string>
+	<string>843 30 829 481 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>12 6 1662 1002 0 0 1680 1027 </string>
+	<string>12 582 598 426 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>82 2 828 502 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -2406,7 +2406,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Inconsolata 14</string>
+			<string>Inconsolata 16</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2584,7 +2584,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>465908898.37289798</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>472719923.40030903</real>
+	<real>472992268.75835502</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2629,7 +2629,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-26T16:25:34Z</date>
+	<date>2015-12-28T10:44:27Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
