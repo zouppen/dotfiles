@@ -13,6 +13,11 @@ onmac () { [ $(uname -s) = "Darwin" ] && $* }
 
 # Enable character expansion
 setopt braceccl
+# Allow empty glob entries
+setopt null_glob
+# Allow empty glob entries
+setopt extended_glob
+
 # Rebind kill-region for zsh
 bindkey '^w' kill-region
 
@@ -83,6 +88,12 @@ alias get-mp3="youtube-dl --extract-audio --audio-format mp3"
 alias get-ogg="youtube-dl --extract-audio --audio-format vorbis"
 
 # Git quick commit
+alias ga="git add"
+alias gp="git push"
+alias gl="git pull"
+alias gc="git commit"
+alias gcm="git commit -m"
+
 alias qc="git commit -a -m 'up' && git push"
 # BFG Repo Cleaner https://rtyley.github.io/bfg-repo-cleaner/
 alias bfg="java -jar ~/dotfiles/bin/bfg-1.11.8.jar"
