@@ -2,8 +2,8 @@
 # On OSX source this from .zshrc
 # On Linux source a distro-specific file instead (eg. shell-mint.sh)  
 
-source $DOTFILES/lang/python/python-shell.sh
-export PATH="$PATH:$HOME/bin"
+source ~/dotfiles/lang/python/python-shell.sh
+export PATH="$PATH:$HOME/bin:$HOME/dotfiles/bin"
 
 # Prefix functions for applying conditionally based on system type
 onlinux () { [ $(uname -s) = "Linux" ] && $* }
@@ -35,6 +35,8 @@ take () {
 
 CDPATH=:$HOME/
 
+alias cbssh="cat ~/.ssh/id_rsa.pub|pbcopy"
+
 alias cdd="cd ~/Desktop/"
 alias cddo="cd ~/Documents/"
 alias ...="cd ../../"
@@ -45,7 +47,7 @@ onlinux \
     alias open="xdg-open" && \
     ## Clipboard interop helpers
     # Copy SSH public key
-    alias cbssh="echo `gpgkey2ssh 2190701CC614FD52` | cb" && \
+#    alias cbssh="echo `gpgkey2ssh 2190701CC614FD52` | cb" && \
     # Copy current working directory
     alias cbwd="pwd | cb"
     # Copy most recent command in bash history
@@ -57,7 +59,7 @@ onmac \
     alias lsusb="system_profiler SPUSBDataType" && \
     alias cb="pbcopy" && \
     alias cbwd="pwd|pbcopy" && \
-    alias cbssh="cat ~/.ssh/id_rsa.pub|pbcopy"
+
 
 onmac \
     source $HOME/dotfiles/shell/shell-osx.zsh
