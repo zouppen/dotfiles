@@ -27,6 +27,7 @@
         kill-region
         ledger-magic-tab
         magit-section-toggle
+        magit-stage
         magit-stage-item
         magit-unstage-item
         markdown-cycle

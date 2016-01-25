@@ -18,6 +18,9 @@ setopt null_glob
 # Allow empty glob entries
 setopt extended_glob
 
+set -o ignoreeof
+
+
 # Rebind kill-region for zsh
 bindkey '^w' kill-region
 

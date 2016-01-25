@@ -2,7 +2,9 @@
 ### Install sxhkd on Ubuntu 15.10
 ### https://github.com/baskerville/sxhkd
 
-if (( ! $+commands[quicktile] )); then
+if (( ! $+commands[sxhkd] )); then
+    echo "Installing deps"
+    sudo apt-get install -y python-keybinder xsel
     echo "Installing sxhkd."
     ln -s $DOTFILES/linux/sxhkd ~/.config/ && \
     sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev && \
@@ -14,5 +16,3 @@ if (( ! $+commands[quicktile] )); then
     make && \
     sudo make install
 fi
-
-

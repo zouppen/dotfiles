@@ -30,9 +30,15 @@
 
 (scroll-bar-mode -1) ; Disable scroll bars
 
-(prelude-require-package 'solarized-theme)
+(setq frame-title-format (list "Emacs [%m-mode] - %b"))
 (disable-theme 'zenburn)
-(load-theme 'solarized-light)
+
+;;(prelude-require-package 'solarized-theme)
+(prelude-require-package 'idea-darkula-theme)
+;; TODO bug with idea-darkula loading..
+;;(load-theme 'solarized-light)
+(load-theme 'idea-darkula)
+;;(disable-theme 'solarized-light)
 
 ;; Make scratch-buffer more convenient
 (setq initial-scratch-message "")

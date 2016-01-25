@@ -2,7 +2,7 @@
 
 if (( ! $+commands[pip] )); then
     onlinux echo "Installing python-pip" && \
-        sudo apt-get install python-pip
+        sudo apt-get install python-pip 
 fi
 
 # Python package manager
