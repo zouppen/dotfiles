@@ -14,6 +14,7 @@
         c-electric-slash
         comment-or-uncomment-region
         completion-at-point
+        dired-flag-file-deletion
         easy-kill
         electric-newline-and-maybe-indent
         elpy-open-and-indent-line-above
@@ -25,6 +26,7 @@
         indent-for-tab-command
         iy-go-to-char--command
         kill-region
+        kill-visual-line
         ledger-magic-tab
         magit-section-toggle
         magit-stage-item
