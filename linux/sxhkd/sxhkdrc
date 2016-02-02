@@ -2,10 +2,10 @@
 control + alt + grave
     terminator
 control + alt + {1,2,3}
-    {thunar,x-www-browser,emacs}
+    {nemo,x-www-browser,emacs}
 
-super + space
-    xfce4-appfinder
+#super + space
+#    xfce4-appfinder
 
 #super + alt + space
 #   tracker-needle
@@ -22,8 +22,8 @@ control + alt + Delete
 control + shift + Escape
     xkill
 
-XF86WebCam
-    /home/jasalt/dev/window-manager/key-actions/toggle-redshift
+#XF86WebCam
+#    /home/jasalt/dev/window-manager/key-actions/toggle-redshift
 
 # Clipboard / Selections (Currently CopyQ handles this)
 ## Show clipboard history
@@ -79,10 +79,10 @@ super + s ; s ; f
     espeak -v europe/fi "$(echo `xsel`)"
 
 # Taking Screenshots
-hyper + super + alt + v
-    xfce4-screenshooter -r -s /home/jasalt/Desktop/
-hyper + super + alt + c
-    xfce4-screenshooter -c -r
+#hyper + super + alt + v
+#    xfce4-screenshooter -r -s /home/jasalt/Desktop/
+#hyper + super + alt + c
+#    xfce4-screenshooter -c -r
 
 # Messaging
 super + m ; c  
@@ -95,24 +95,24 @@ super + m ; t
 super + m ; i
     terminator -e "ssh jatasalt@irc-machine -t 'screen -rd'"
 super + m ; h
-    terminator -e "hangups"
+    terminator -e hangups
 super + m ; w
     x-www-browser --app=https://web.whatsapp.com/
+super + m ; g
+    x-www-browser --app=https://web.telegram.org/
 super + m ; S
     skype
 super + m ; s
     x-www-browser "https://putkilandia.slack.com/"
 
-super + c ; w
-    terminator -e "ssh pi@webkamera"
 super + c ; s
     terminator -e "ssh pi@wstation"
 super + c ; d
     terminator -e "mosh root@do"
+super + c ; k
+    terminator -e "mosh jasalt@ks"
 super + c ; m
     terminator -e "mosh jasalt@murskaaja"
-super + c ; h
-    terminator -e "mosh jasalt@192.168.1.103"
 
 # Web apps
 super + w ; h
@@ -141,22 +141,22 @@ super + w ; k
 #     sudo $HOME/konffit/linux/init-linux.sh
 
 # Display configurations
-XF86Display ; XF86Display
-    xrandr --output VGA1  --off \
-           --output HDMI1 --off \
-           --output HDMI2 --off \
-           --output LVDS1 --mode 1366x768
-XF86Display ; d
-    xrandr --output VGA1  --auto --above LVDS1  --primary \
-           --output HDMI1  --auto --above LVDS1  --primary  \
-           --output LVDS1 --mode 1366x768
-XF86Display ; m
-    xrandr --output VGA1  --mode 1024x768 --same-as LVDS1 \
-           --output LVDS1 --mode 1024x768 --primary
-XF86Display ; e
-    xrandr --output HDMI1  --auto \
-           --output VGA1  --auto \
-           --output LVDS1 --off
+# XF86Display ; XF86Display
+#     xrandr --output VGA1  --off \
+#            --output HDMI1 --off \
+#            --output HDMI2 --off \
+#            --output LVDS1 --mode 1366x768
+# XF86Display ; d
+#     xrandr --output VGA1  --auto --above LVDS1  --primary \
+#            --output HDMI1  --auto --above LVDS1  --primary  \
+#            --output LVDS1 --mode 1366x768
+# XF86Display ; m
+#     xrandr --output VGA1  --mode 1024x768 --same-as LVDS1 \
+#            --output LVDS1 --mode 1024x768 --primary
+# XF86Display ; e
+#     xrandr --output HDMI1  --auto \
+#            --output VGA1  --auto \
+#            --output LVDS1 --off
 
 # Spotify media keys
 XF86AudioNext
@@ -169,10 +169,10 @@ XF86AudioPrev
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
            
 super + t ; p
-    /home/jasalt/dotfiles/linux/bin/timer 30
+    $HOME/dotfiles/linux/bin/timer 30
 super + t ; 5
-    /home/jasalt/dotfiles/linux/bin/timer 5
+    $HOME/dotfiles/linux/bin/timer 5
 super + t ; 1 ; 5
-    /home/jasalt/dotfiles/linux/bin/timer 15
+    $HOME/jasalt/dotfiles/linux/bin/timer 15
 super + t ; 3 ; 0
-    /home/jasalt/dotfiles/linux/bin/timer 30
+    $HOME/jasalt/dotfiles/linux/bin/timer 30

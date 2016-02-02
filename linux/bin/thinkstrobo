@@ -6,21 +6,22 @@ import time
 # You need write permission for
 # /sys/class/leds/tpacpi::thinklight/brightness
 # It needs to be defined on each boot in /etc/rc.local
+# (Workaround by using sudo tee)
 
 # TODO hide output
 
 sleeptime = 0.03
 
-
+print("Strobo time!")
 def cycle_light(reps):
     i = 0
     while i < reps:
-        os.system("echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness")
+        os.system("echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness >/dev/null")
         time.sleep(sleeptime)
-        os.system("echo 1 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness")
+        os.system("echo 1 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness >/dev/null")
         time.sleep(sleeptime)
 	i += 1
 
 cycle_light(50)
 
-os.system("echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness")
+os.system("echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness" >/dev/null)

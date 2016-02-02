@@ -1,6 +1,6 @@
 # Shared shell configuration for debian systems. Sourced from eg. shell-mint.sh
 
-# plugins=(git autojump debian npm python pip pyenv screen sudo web-search extract)
+export PATH="$PATH:$HOME/dotfiles/linux/bin"
 
 # xclip enchancement
 # http://madebynathan.com/2011/10/04/a-nicer-way-to-use-xclip/
@@ -44,7 +44,7 @@ alias ar="sudo apt-get remove"
 alias as="aptitude search"
 alias aup="sudo apt-get update"
 alias aug="sudo apt-get upgrade"
-alias addppa="sudo add-apt-repository"
+alias addppa="sudo add-apt-repository && sudo apt-get upgrade"
 alias alog="less /var/log/apt/history.log"
 
 alias postgre-start="sudo service postgresql start"

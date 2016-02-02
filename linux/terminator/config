@@ -3,7 +3,7 @@
   enabled_plugins = ,
   title_inactive_fg_color = "#bfbfbf"
   suppress_multiple_term_dialog = True
-  geometry_hinting = False
+  #geometry_hinting = False
   title_transmit_bg_color = "#c8c8c8"
   tab_position = bottom
   inactive_color_offset = 1.0
@@ -42,8 +42,8 @@
     scroll_on_output = False
     show_titlebar = False
     color_scheme = custom
-    font = Inconsolata Medium 11
-    background_color = "#3f3f3f"
+    font = Inconsolata Medium 12
+    background_color = "#2b2b2b"
     scrollback_infinite = True
 [layouts]
   [[default]]

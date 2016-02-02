@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="046d", SYSFS{idProduct}=="c52b", RUN+="/home/jarkko/dotfiles/linux/input-config.sh"

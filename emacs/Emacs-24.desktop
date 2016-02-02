@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Emacs-24
+Exec=env UBUNTU_MENUPROXY=0 /usr/local/bin/emacs
+Terminal=false
+Icon=emacs
+Type=Application
+Categories=IDE
+X-Ayatana-Desktop-Shortcuts=NewWindow
+[NewWindow Shortcut Group]
+Name=New Window
+TargetEnvironment=Unity

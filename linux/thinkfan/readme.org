@@ -1,0 +1,7 @@
+Thinkfan fan speed controller tool for Thinkpad X220.
+
+Unarchive & build by =cmake . && make=. Move =thinkfan= to a directory in path. Symlink config file =sudo ln -s ~/dotfiles/linux/thinkfan/thinkfan.conf /etc/thinkfan.conf=. Run =sudo thinkfan=.
+
+Sources:
+- http://thinkfan.sourceforge.net/
+- http://zmalltalker.com/zlog/thinkfan.html

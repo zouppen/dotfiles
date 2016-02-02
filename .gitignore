@@ -1,3 +1,7 @@
 *~
 linux/bin/a.out
 /bin/.lein-env
+/linux/radiotray/config.xml
+/linux/radiotray/radiotray.log
+linux/radiotray/plugins/
+nohup.out
