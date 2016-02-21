@@ -24,4 +24,4 @@ def cycle_light(reps):
 
 cycle_light(50)
 
-os.system("echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness" >/dev/null)
+os.system("echo 0 | sudo tee /sys/class/leds/tpacpi\:\:thinklight/brightness >/dev/null")
