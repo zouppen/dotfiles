@@ -101,7 +101,12 @@ super + m ; w
 super + m ; g
     x-www-browser --app=https://web.telegram.org/
 super + m ; S
-    skype
+    x-www-browser --app=https://web.skype.com/
+super + m ; f
+    x-www-browser --app=https://www.facebook.com/messages/
+super + m ; F
+    x-www-browser --app=https://www.facebook.com/
+    ;;skype
 super + m ; s
     x-www-browser "https://putkilandia.slack.com/"
 
@@ -168,11 +173,13 @@ XF86AudioStop
 XF86AudioPrev
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
            
-super + t ; p
-    $HOME/dotfiles/linux/bin/timer 30
 super + t ; 5
     $HOME/dotfiles/linux/bin/timer 5
 super + t ; 1 ; 5
-    $HOME/jasalt/dotfiles/linux/bin/timer 15
+    $HOME/dotfiles/linux/bin/timer 15
 super + t ; 3 ; 0
-    $HOME/jasalt/dotfiles/linux/bin/timer 30
+    $HOME/dotfiles/linux/bin/timer 30
+super + t ; p
+    $HOME/dotfiles/linux/bin/timer 30
+super + t ; 6 ; 0
+    $HOME/dotfiles/linux/bin/timer 60
