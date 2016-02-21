@@ -2,8 +2,10 @@
 
 if (( ! $+commands[pip] )); then
     onlinux echo "Installing python-pip" && \
-        sudo apt-get install python-pip 
+        sudo apt-get install python-pip python3-pip python-dev python3-dev
 fi
+
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 # Python package manager
 alias pipi="pip install"
