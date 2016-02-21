@@ -30,6 +30,8 @@ alias rp="source ~/.zshrc"
 alias ee="ec"  # Emacsclient
 alias e="mg"   # Micro Gnu Emacs
 
+alias x="unarchive"
+
 ### Everyday file operations etc.
 take () {
   mkdir -p $1

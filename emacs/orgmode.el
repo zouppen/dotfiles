@@ -208,6 +208,7 @@
 
 (add-hook 'org-mode-hook 'own-org-mode-hook)
 
+
 (add-hook 'org-agenda-mode-hook
           (lambda ()
             (progn
@@ -219,10 +220,7 @@
 (defun sync-ext-agenda ()
   (interactive)
   (princ "Start syncing external calendar items. Rebuild agenda afterwards.")
-  (progn-on "darwin"
-            (start-process "cal-sync" "foo" "/home/js/dev/org-ext-agenda/sync-gtd.sh"))
-  (progn-on "gnu/linux"
-            (start-process "cal-sync" "foo" "/home/jasalt/dev/org-ext-agenda/sync-gtd.sh"))
+  (start-process "cal-sync" "foo" (concat dotfiles-folder "emacs/org-ext-calendar/importer.py"))
   ;; TODO watch for process completion and refresh agenda buffer accordingly
   ;; TODO portability problems
   )

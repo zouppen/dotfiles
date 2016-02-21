@@ -1,0 +1,13 @@
+#!/bin/bash -xeu
+while true
+      
+DEFAULT_DEVICE=/dev/video1
+DEVICE=${1-$DEFAULT_DEVICE}
+do
+    filename_timestamp=$(date +"%Y%m%d-%H%M%S")
+    filename=$filename_timestamp.jpg
+# frames 60
+    fswebcam -S 100 -d $DEVICE --frames 300 -r 1280x720 --jpeg 90 --no-banner --save $filename
+    echo "Frame captured $filename_timestamp, waiting."
+    sleep 5
+done

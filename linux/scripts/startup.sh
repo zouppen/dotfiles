@@ -1,7 +1,7 @@
 #!/bin/sh
 # startup script for mint 17.3
 
-/home/jarkko/dotfiles/linux/bin/pledoff
+sudo /home/jarkko/dotfiles/linux/bin/pledoff
 sudo /home/jarkko/dotfiles/linux/input-config.sh &
 
 if pgrep -f quicktile > /dev/null
