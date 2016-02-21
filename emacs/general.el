@@ -34,10 +34,11 @@
 (disable-theme 'zenburn)
 
 ;;(prelude-require-package 'solarized-theme)
-(prelude-require-package 'idea-darkula-theme)
+;;(prelude-require-package 'idea-darkula-theme)
 ;; TODO bug with idea-darkula loading..
-;;(load-theme 'solarized-light)
-(load-theme 'idea-darkula)
+(load-theme 'solarized-light)
+;;
+;;(load-theme 'idea-darkula)
 ;;(disable-theme 'solarized-light)
 
 ;; Make scratch-buffer more convenient

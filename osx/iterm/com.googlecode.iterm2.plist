@@ -567,6 +567,20 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x35-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x36-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x41-0x160000</key>
 		<dict>
 			<key>Action</key>
@@ -1109,21 +1123,21 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1255 1083 509 390 -82 1050 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>461 323 924 485 0 0 1680 1027 </string>
+	<string>122 305 924 485 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>507 203 384 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 443 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>843 30 829 481 0 0 1680 1027 </string>
+	<string>6 277 682 476 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>12 582 598 426 0 0 1680 1027 </string>
+	<string>6 6 951 1045 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>82 2 828 502 0 0 1680 1027 </string>
+	<string>426 551 682 476 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1009 578 598 426 0 0 1680 1027 </string>
+	<string>5 457 794 570 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>8 584 598 426 0 0 1680 1027 </string>
+	<string>998 551 682 476 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
 	<string>428 593 598 426 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
@@ -2581,10 +2595,12 @@
 			<string>/Users/js</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>465908898.37289798</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>472992268.75835502</real>
+	<real>475443758.87717998</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2629,7 +2645,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-28T10:44:27Z</date>
+	<date>2016-01-25T16:46:32Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
