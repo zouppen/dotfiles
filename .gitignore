@@ -5,3 +5,4 @@ linux/bin/a.out
 /linux/radiotray/radiotray.log
 linux/radiotray/plugins/
 nohup.out
+*.pyc

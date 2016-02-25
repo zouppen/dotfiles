@@ -1,7 +1,10 @@
 Gather due dates and events with required data/hyperlinks from Trello and Korppi task/calendar systems into a simple org-mode agenda file. Written on Ubuntu 15.10 & Python 2.7.10.
 
 * Usage
-1) Setup deps =pip install -r requirements.txt=.
+1) Setup deps =pip install -r requirements.txt=. Required pip installations are:
+   - python-dotenv
+   - requests
+   - icalendar
 2) Aquire Trello API keys
    1) Log in to Trello and visit https://trello.com/1/appKey/generate
    2) Get a user token by visiting the url below, replacing 'APIKEY' with your API key:    https://trello.com/1/authorize?key=APIKEY&name=trellorg&expiration=never&response_type=token
