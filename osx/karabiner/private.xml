@@ -8,17 +8,21 @@
         <equal>org.mixxx.mixxx</equal>
     </appdef>
     <appdef>
-        <appname>iterm2</appname>
+        <appname>EMACS</appname>
+        <equal>org.gnu.Emacs</equal>
+    </appdef>
+    <appdef>
+        <appname>ITERM2</appname>
         <equal>com.googlecode.iterm2</equal>
     </appdef>
     <item>
-        <name>Change Functional Keys for specific Apps - Custom (jasalt)</name>
+        <name>Change Functional Keys for specific Apps (jasalt)</name>
         <item>
-            <name>Emacs - Change Functional Keys to F1...F10</name>
+            <name>Change Functional Keys to F1...F12 for Emacs and Mixxx</name>
             <identifier>remap.app_emacs_functional2function</identifier>
             <only>EMACS, MIXXX</only>
-            <autogen>__KeyToKey__ KeyCode::BRIGHTNESS_DOWN, KeyCode::F1</autogen>
-            <autogen>__KeyToKey__ KeyCode::BRIGHTNESS_UP, KeyCode::F2</autogen>
+            <autogen>__KeyToKey__ ConsumerKeyCode::BRIGHTNESS_DOWN, KeyCode::F1</autogen>
+            <autogen>__KeyToKey__ ConsumerKeyCode::BRIGHTNESS_UP, KeyCode::F2</autogen>
             <autogen>__KeyToKey__ KeyCode::EXPOSE_ALL, KeyCode::F3</autogen>
             <autogen>__KeyToKey__ KeyCode::DASHBOARD, KeyCode::F4</autogen>
             <autogen>__KeyToKey__ KeyCode::LAUNCHPAD, KeyCode::F4</autogen>
@@ -28,6 +32,8 @@
             <autogen>__KeyToKey__ ConsumerKeyCode::MUSIC_PLAY, KeyCode::F8</autogen>
             <autogen>__KeyToKey__ ConsumerKeyCode::MUSIC_NEXT, KeyCode::F9</autogen>
             <autogen>__KeyToKey__ ConsumerKeyCode::VOLUME_MUTE, KeyCode::F10</autogen>
+            <autogen>__KeyToKey__ ConsumerKeyCode::VOLUME_DOWN, KeyCode::F11</autogen>
+            <autogen>__KeyToKey__ ConsumerKeyCode::VOLUME_UP, KeyCode::F12</autogen>
         </item>
     </item>
 </root>
