@@ -15,12 +15,15 @@
         <appname>ITERM2</appname>
         <equal>com.googlecode.iterm2</equal>
     </appdef>
+
     <item>
-        <name>Change Functional Keys for specific Apps (jasalt)</name>
+        <name>Palua Smart Mode imitation</name>
+        <appendix>Swap function keys to media keys in other applications than specified here. Inverted selection is used to make this configuration work for both wireless Apple keyboard (without keyboard brightness keys). This setting requires function keys to be enabled by default in keyboard settings.</appendix>
         <item>
-            <name>Change Functional Keys to F1...F12 for Emacs and Mixxx</name>
-            <identifier>remap.app_emacs_functional2function</identifier>
-            <only>EMACS, MIXXX</only>
+            <name>Change Functional Keys to F1...F12 for specific apps</name>
+            <identifier>remap.app_palua_smartmode</identifier>
+            <not>EMACS, MIXXX</not>
+
             <autogen>__KeyToKey__ ConsumerKeyCode::BRIGHTNESS_DOWN, KeyCode::F1</autogen>
             <autogen>__KeyToKey__ ConsumerKeyCode::BRIGHTNESS_UP, KeyCode::F2</autogen>
             <autogen>__KeyToKey__ KeyCode::EXPOSE_ALL, KeyCode::F3</autogen>
