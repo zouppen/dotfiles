@@ -1,0 +1,1 @@
+ACTION=="add", ATTRS{idVendor}=="****", ATTRS{idProduct}=="****", RUN+="/home/jasalt/dotfiles/linux/udev/kbd_udev", OWNER="jasalt"
