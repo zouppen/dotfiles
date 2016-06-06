@@ -83,10 +83,9 @@ onmac \
     alias cb="pbcopy" && \
     alias cbwd="pwd|pbcopy" && \
     # alias pfp="abspath" && \
-    alias cbfp="" && \
-    alias cbssh="cat ~/.ssh/id_rsa.pub|pbcopy" && \
+    # alias cbfp="" && \
+    alias cbssh="cat ~/.ssh/id_rsa.pub|"pbcopy && \
     alias efd="cdf && ec ."
-
 
 onmac \
     source $HOME/dotfiles/shell/shell-osx.zsh
