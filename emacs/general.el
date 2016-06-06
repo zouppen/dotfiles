@@ -1,19 +1,29 @@
 ;;; TODO add major mode agnostic settings
 
+;; TODO move
+
+(prelude-require-package 'web-beautify)
+
 ;;;; Disable some Prelude defaults
 (setq prelude-whitespace nil)
 (setq prelude-flyspell nil)
 (guru-mode 0)  ;; No need for gurus
 (global-hl-line-mode 0)
+(beacon-mode -1)
 
 ;; Used in some Finnish words
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "uu" nil)
+(key-chord-define-global "xx" nil)
 
 (key-chord-define-global "lj" nil) ;; .clj etc
 
 (global-unset-key (kbd "M-`"))
 (global-set-key (kbd "M-`") 'other-frame)
+
+;; Mac spotlight search workaround
+(global-unset-key (kbd " "))
+(global-set-key (kbd " ") 'just-one-space)
 
 ;;;; Customize default config variables
 
@@ -36,7 +46,7 @@
 ;;(prelude-require-package 'solarized-theme)
 ;;(prelude-require-package 'idea-darkula-theme)
 ;; TODO bug with idea-darkula loading..
-(load-theme 'solarized-light)
+;;(load-theme 'quasi-monochrome)
 ;;
 ;;(load-theme 'idea-darkula)
 ;;(disable-theme 'solarized-light)
@@ -71,7 +81,7 @@
        mac-function-modifier 'hyper)
  (set-variable 'magit-emacsclient-executable
                "/usr/local/bin/emacsclient")
- (set-face-attribute 'default nil :font "Inconsolata-16"))
+ (set-face-attribute 'default nil :font "Inconsolata-12"))
 
 (progn-on
  "gnu/linux"
@@ -193,7 +203,9 @@
 
 (add-hook 'dired-mode-hook
           '(lambda ()
-             (define-key dired-mode-map "0" 'dired-open-in-external-app)))
+             (define-key dired-mode-map "0" 'dired-open-in-external-app)
+             (define-key dired-mode-map (kbd "C-c C-c") 'wdired-change-to-wdired-mode)
+             ))
 
 (progn-on "darwin"
           (let ((terminal-app (concat dotfiles-folder "/osx/bin/iterm")))
