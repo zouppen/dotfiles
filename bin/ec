@@ -3,6 +3,6 @@
 if [ "$(pidof emacs)" ] ; then
     emacsclient -n -s ~/.emacs.d/server/jarkon-emacs "$@"
 else
-    [ $(uname -s) = "Darwin" ] && /Applications/Emacs.app/Contents/MacOS/Emacs "$@" &
+    [ $(uname -s) = "Darwin" ] && /usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs "$@" &
     [ $(uname -s) = "Linux" ] && emacs -mm "$@" &
 fi

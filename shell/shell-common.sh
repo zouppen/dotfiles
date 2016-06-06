@@ -40,7 +40,25 @@ take () {
 
 CDPATH=:$HOME/
 
-alias cbssh="cat ~/.ssh/id_rsa.pub|pbcopy"
+function abspath() {
+    # generate absolute path from relative path
+    # $1     : relative filename
+    # return : absolute path
+    if [ -d "$1" ]; then
+        # dir
+        (cd "$1"; pwd)
+    elif [ -f "$1" ]; then
+        # file
+        if [[ $1 == */* ]]; then
+            echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+        else
+            echo "$(pwd)/$1"
+        fi
+    fi
+}
+
+alias pfp="abspath"
+alias cbfp="$(abspath $1) | pbcopy"
 
 alias cdd="cd ~/Desktop/"
 alias cddo="cd ~/Documents/"
@@ -64,6 +82,10 @@ onmac \
     alias lsusb="system_profiler SPUSBDataType" && \
     alias cb="pbcopy" && \
     alias cbwd="pwd|pbcopy" && \
+    # alias pfp="abspath" && \
+    alias cbfp="" && \
+    alias cbssh="cat ~/.ssh/id_rsa.pub|pbcopy" && \
+    alias efd="cdf && ec ."
 
 
 onmac \
@@ -126,9 +148,7 @@ onlinux \
     alias sega="espeak -v europe/sv"
 
 onmac \
-    alias sano="say -v \"Mikko\"" && \
-    alias sega="say -v \"Oskar\""
-
+    alias sano="say -v \"Satu\""
 
 # ESC-ESC to sudo last command
 sudo-command-line() {
@@ -169,3 +189,7 @@ bindkey "\e\e" sudo-command-line
 # if [[ -z "$ZSH_LAST_WORKING_DIRECTORY" ]]; then
 # 	lwd 2>/dev/null && ZSH_LAST_WORKING_DIRECTORY=1 || true
 # fi
+
+
+source ~/dotfiles/shell/shell-fun.zsh
+
