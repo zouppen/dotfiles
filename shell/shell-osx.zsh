@@ -1,6 +1,36 @@
 # Some stuff from osx oh-my-zsh config
 # https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh
 
+### Unified operating system package manager commands
+
+
+# Toggle PostgreSQL service state
+alias postgre-start="launchctl load /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist"
+alias postgre-stop="launchctl unload /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist"
+
+
+
+
+alias sano="say -v \"Mikko\""
+alias sega="say -v \"Oskar\""
+
+
+alias lsblk="diskutil list" && \
+alias lsusb="system_profiler SPUSBDataType"
+alias cb="pbcopy"
+alias cbwd="pwd|pbcopy"
+source $HOME/dotfiles/shell/shell-osx.zsh
+
+alias ai="brew install"
+alias ar="brew uninstall"
+alias as="brew search"
+alias cask="brew cask"
+alias aii="brew cask install"
+alias ass="brew cask search"
+alias aup="brew update"
+alias aug="brew upgrade"
+
+
 alias fixui="killall -KILL Dock"
 alias fixui!="sudo killall -HUP WindowServer"
 
