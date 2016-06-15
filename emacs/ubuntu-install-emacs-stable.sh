@@ -2,8 +2,10 @@
 
 # Install stable emacs on ubuntu, see readme for notes.
 
-sudo apt-get install -y build-essential fonts-inconsolata
+# uncomment first dep-src line in /etc/apt/sources.list if missing
 sudo apt-get build-dep -y emacs24
+
+sudo apt-get install -y build-essential fonts-inconsolata
 
 wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
 tar -xvf emacs-24.5.tar.xz

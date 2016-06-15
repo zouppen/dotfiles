@@ -11,6 +11,7 @@
 (key-chord-define-global "uu" nil)
 
 (key-chord-define-global "lj" nil) ;; .clj etc
+(key-chord-define-global "xx" nil)
 
 (global-unset-key (kbd "M-`"))
 (global-set-key (kbd "M-`") 'other-frame)
@@ -31,12 +32,12 @@
 (scroll-bar-mode -1) ; Disable scroll bars
 
 (setq frame-title-format (list "Emacs [%m-mode] - %b"))
-(disable-theme 'zenburn)
+;;(disable-theme 'zenburn)
 
 ;;(prelude-require-package 'solarized-theme)
 ;;(prelude-require-package 'idea-darkula-theme)
 ;; TODO bug with idea-darkula loading..
-(load-theme 'solarized-light)
+;;(load-theme 'solarized-light)
 ;;
 ;;(load-theme 'idea-darkula)
 ;;(disable-theme 'solarized-light)
