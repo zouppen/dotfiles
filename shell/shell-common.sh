@@ -6,6 +6,7 @@
 # source ~/dotfiles/lang/python/python-shell.sh
 
 export PATH="$PATH:$HOME/bin:$HOME/dotfiles/bin"
+CDPATH=:$HOME/
 
 # Prefix functions for applying conditionally based on system type
 onlinux () { [ $(uname -s) = "Linux" ] && $* }
@@ -22,7 +23,6 @@ setopt extended_glob
 
 set -o ignoreeof
 
-
 # Rebind kill-region for zsh
 bindkey '^w' kill-region
 
@@ -32,7 +32,25 @@ alias rp="source ~/.zshrc"
 alias ee="ec"  # Emacsclient
 alias e="mg"   # Micro Gnu Emacs
 
-# CDPATH=:$HOME/
+function abspath() {
+    # generate absolute path from relative path
+    # $1     : relative filename
+    # return : absolute path
+    if [ -d "$1" ]; then
+        # dir
+        (cd "$1"; pwd)
+    elif [ -f "$1" ]; then
+        # file
+        if [[ $1 == */* ]]; then
+            echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+        else
+            echo "$(pwd)/$1"
+        fi
+    fi
+}
+
+alias pfp="abspath"
+alias cbfp="$(abspath $1) | pbcopy"
 
 alias cdd="cd ~/Desktop/"
 
@@ -54,8 +72,19 @@ onlinux \
     # Copy most recent command in bash history
     # alias cbhs="cat $HISTFILE | tail -n 2 | cb"
 
-alias o="open ." && \
+onmac \
+    alias o="open ." && \
+    alias lsblk="diskutil list" && \
+    alias lsusb="system_profiler SPUSBDataType" && \
+    alias cb="pbcopy" && \
+    alias cbwd="pwd|pbcopy" && \
+    # alias pfp="abspath" && \
+    # alias cbfp="" && \
+    alias cbssh="cat ~/.ssh/id_rsa.pub|"pbcopy && \
+    alias efd="cdf && ec ." && \
+    source $HOME/dotfiles/shell/shell-osx.zsh
 
+  
 # Download subtitles, requires sudo pip install subliminal
 alias sub="subliminal -l en --"
 
@@ -98,6 +127,9 @@ onlinux \
     alias sega="espeak -v europe/sv"
 
 
+onmac \
+    alias sano="say -v \"Satu\""
+
 # ESC-ESC to sudo last command
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
@@ -109,4 +141,6 @@ sudo-command-line() {
 }
 #zle -N sudo-command-line
 # Defined shortcut keys: [Esc] [Esc]
-#bindkey "\e\e" sudo-command-line
+
+source ~/dotfiles/shell/shell-fun.zsh
+
