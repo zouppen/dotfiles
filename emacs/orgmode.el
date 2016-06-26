@@ -34,7 +34,7 @@
 
 ;; Add some individual files to agenda files
 (add-to-list 'org-agenda-files (expand-file-name
-                                (concat org-folder "gtd.org")))
+                                (concat org-folder "todo.org")))
 (add-to-list 'org-agenda-files (expand-file-name
                                 (concat org-folder "future.org")))
 ;; (add-to-list 'org-agenda-files (expand-file-name
@@ -53,7 +53,7 @@
 (global-set-key (kbd "C-c <f2>")
                 (lambda ()
                   (interactive)
-                  (find-file (concat org-folder "gtd.org"))))
+                  (find-file (concat org-folder "todo.org"))))
 (global-set-key (kbd "C-c S-<f2>")
                 (lambda ()
                   (interactive)

@@ -14,6 +14,7 @@
         c-electric-slash
         comment-or-uncomment-region
         completion-at-point
+        crux-move-beginning-of-line
         crux-smart-open-line-above
         dired-flag-file-deletion
         easy-kill
