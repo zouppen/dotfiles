@@ -1,27 +1,29 @@
 #!/bin/sh
-# startup script for mint 17.3
+# Startup script for Ubuntu 16.04
 
-sudo /home/jarkko/dotfiles/linux/bin/pledoff
-sudo /home/jarkko/dotfiles/linux/input-config.sh &
+sudo /home/jasalt/dotfiles/linux/bin/pledoff
+sudo /home/jasalt/dotfiles/linux/udev/kbd &
 
 if pgrep -f quicktile > /dev/null
 then
     echo "Quicktile already running"
 else
-    quicktile --daemonize &
+    quicktile --daemonize >> /home/jasalt/.log/quicktile.log 2>&1
 fi
 
 if pgrep -f sxhkd > /dev/null
 then
     echo "Sxhkd already running"
-    killall sxhkd && sxhkd &
+    killall sxhkd && sxhkd >> /home/jasalt/.log/sxhkd.log 2>&1
 else
     sxhkd &
+    # >> /home/jasalt/.log/sxhkd.log 2>&1
 fi
 
-if pgrep -f thinkfan > /dev/null
-then
-    echo "Thinkfan already running"
-else
-    sudo thinkfan
-fi
+
+# if pgrep -f thinkfan > /dev/null
+# then
+#     echo "Thinkfan already running"
+# else
+#     sudo thinkfan
+# fi
