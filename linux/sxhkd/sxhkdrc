@@ -1,10 +1,16 @@
 XF86Launch1
     /home/jasalt/dotfiles/linux/scripts/startup.sh
+
 # Launch applications
 control + alt + grave
     jumpapp terminator
+shift + alt + grave
+    terminator
+
 control + alt + {1,2,3}
     {jumpapp thunar,jumpapp google-chrome-beta,jumpapp emacs}
+alt + shift + {1,2,3}
+    {thunar,google-chrome-beta,emacs}
 
 super + space
     xfce4-popup-whiskermenu
