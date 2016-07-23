@@ -5,7 +5,7 @@
 # TODO fix stupidities
 # source ~/dotfiles/lang/python/python-shell.sh
 
-export PATH="$PATH:$HOME/bin:$HOME/dotfiles/bin"
+export PATH="$PATH:$HOME/.bin:$HOME/dotfiles/bin"
 CDPATH=:$HOME/
 
 # Prefix functions for applying conditionally based on system type
