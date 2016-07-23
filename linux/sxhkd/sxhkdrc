@@ -112,7 +112,8 @@ super + m ; g
 super + m ; S
     x-www-browser https://web.skype.com/
 super + m ; f
-    x-www-browser https://www.facebook.com/messages/
+    jumpapp messengerfordesktop
+    ;;x-www-browser https://www.facebook.com/messages/
 super + m ; F
     x-www-browser https://www.facebook.com/
     ;;skype
