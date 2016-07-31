@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AutomapFile>
+    <PlugID PlugID="722721511" PlugID3="1444606871" PlugID2="121931358" PlugID1="1500714846" />
+    <DeviceID DeviceID="-1215975765" DeviceID3="-1866063922" DeviceID2="1279478674" DeviceID1="2136172004" />
+    <Type Type="0" />
+    <BrowserHint Value="0" />
+    <Group name="Controls">
+        <Group name="Page 1 Encoders">
+            <Param name="CC# 21" shortName="CC# 21" id="21" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 22" shortName="CC# 22" id="22" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 23" shortName="CC# 23" id="23" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 24" shortName="CC# 24" id="24" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 25" shortName="CC# 25" id="25" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 26" shortName="CC# 26" id="26" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 27" shortName="CC# 27" id="27" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+            <Param name="CC# 28" shortName="CC# 28" id="28" intStep="0" intMax="127" intMin="0" high="0" low="0" step="0.000000" />
+        </Group>
+        <Group name="Page 1 Pots">
+            <Param name="Apple+Unprintable " shortName="Apple+Unprintable " id="-1" intStep="0" intMax="127" intMin="0" high="127" low="127" step="0.000000">
+                <KeyEvent code="123" character="63234" modifiers="11534608" scancode="-67" />
+            </Param>
+            <Param name="Apple+Unprintable " shortName="Apple+Unprintable " id="-1" intStep="100" intMax="100" intMin="0" high="100" low="0" step="100.000000">
+                <KeyEvent code="124" character="63235" modifiers="11534608" scancode="-67" />
+            </Param>
+            <Param name="CC# 53" shortName="CC# 53" id="53" intStep="127" intMax="127" intMin="0" high="127" low="0" step="127.000000" />
+            <Param name="Apple+Del " shortName="Apple+Del " id="-1" intStep="127" intMax="127" intMin="0" high="127" low="0" step="127.000000">
+                <KeyEvent code="51" character="127" modifiers="1048848" scancode="-67" />
+            </Param>
+            <Param />
+            <Param />
+            <Param name="Apple+Shift+Ctrl+Alt+R " shortName="Apple+Shift+Ctrl+Alt+R " id="-1" intStep="127" intMax="127" intMin="0" high="127" low="0" step="127.000000">
+                <KeyEvent code="15" character="82" modifiers="1966379" scancode="-67" />
+            </Param>
+            <Param name="Apple+Ctrl+Alt+r " shortName="Apple+Ctrl+Alt+r " id="-1" intStep="0" intMax="127" intMin="0" high="127" low="127" step="0.000000">
+                <KeyEvent code="15" character="114" modifiers="1835305" scancode="-67" />
+            </Param>
+        </Group>
+        <Group name="Page 1 XFader">
+            <Param name="CC# 66" shortName="X-Fader" id="66" intStep="1" intMax="127" intMin="0" high="127" low="0" step="1.000000" />
+        </Group>
+    </Group>
+</AutomapFile>
