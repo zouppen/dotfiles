@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+if(scalar(@ARGV)==0) {
+	print "Usage: wavlength [-s] <File>\n";
+	print "-s option causes output to be in seconds only\n";
+	exit 0;
+}
+
+$secsonly = 0;
+foreach(@ARGV) {
+	if($_ eq '-s') {
+		$secsonly = 1;
+	}		
+	else {
+		$file = $_;
+	}
+}
+
+open(READ,$file) or die $!;
+binmode READ;
+
+seek(READ,24,0);
+read(READ,$buffer,2);
+seek(READ,32,0);
+read(READ,$bytespersample,1);
+
+close READ or die $!;
+
+$samplerate = hex sprintf('%x%x',ord substr($buffer,1,1),ord substr($buffer,0,1));
+$bytespersample = ord $bytespersample;
+$bytes = (-s $file);
+
+$seconds = int($bytes / $bytespersample / $samplerate);
+
+if($secsonly) {
+	print $seconds;
+}
+else {
+	printf('%x:%02x:%02x',int($seconds/3600),int(($seconds % 3600)/60),($seconds % 60));
+}

@@ -1,0 +1,134 @@
+#!/usr/bin/perl -X
+$|=1;
+$rwbsize=1024*1024;
+if(!@ARGV)
+{
+	die "no files specified ....\n";
+}
+if($ARGV[0]eq"-h"||$ARGV[0]eq"-help"||$ARGV[0]eq"--help")
+{
+	die "Usage: $0 music1.wav music2.wav ... musicn.wav\n"
+}
+if (-e "$ARGV[0]")
+{
+	open(READ, "$ARGV[0]")or die $!;
+	binmode READ;
+	seek(READ,24,0);
+	read(READ, $buffer, 4);
+	$temp=substr($buffer,1,1);
+	$c2=$temp;
+	$c1=ord $temp;
+	$samplerate=sprintf "%x",$c1;
+	$temp=substr($buffer,0,1);
+	$charsr="$temp$c2";
+	$temp=ord $temp;
+	$samplerate.=sprintf "%x",$temp;
+	$samplerate=sprintf hex $samplerate;
+	seek(READ,22,0);
+	read(READ, $channel, 2);
+
+	seek(READ,28,0);
+	read(READ, $bytespersec, 4);
+
+	seek(READ,32,0);
+	read(READ, $bytesps, 1);
+	$bytespersample=ord $bytesps;
+
+	seek(READ,34,0);
+	read(READ, $bitspersamp, 2);
+
+	$c=$bytespersample*$samplerate;
+	$riff=sprintf "\x52\x49\x46\x46";
+	$wave=sprintf "\x57\x41\x56\x45\x66\x6d\x74\x20\x10\x00\x00\x00\x01\x00".$channel.$charsr."\x00\x00".$bytespersec.$bytesps."\x00".$bitspersamp."\x64\x61\x74\x61";
+	print "First File $samplerate Hz. All files have to be unitary.\n"
+}
+else{die "File $ARGV[0] dont't exists or it couldn't be opened!\n"};
+$size = scalar(@ARGV);
+$tmp=0;
+print "At all $size files would be merge to merge.wav.\n";
+open(WRITE, ">merge.wav")or die $!;
+binmode WRITE;
+while($tmp<$size)
+{
+	if (-e "$ARGV[$tmp]")
+	{
+		$ibytesize=sprintf(-s "$ARGV[$tmp]");
+	}
+	else{die "File $ARGV[$tmp] dont't exists or it couldn't be opened!\n"};
+	$ibstmp=$ibytesize;
+	open (READ, "$ARGV[$tmp]")or die "File $ARGV[$tmp] dont't exists or it couldn't be opened!\n";
+	binmode READ;
+	seek(READ, 44,0);
+	$tmp++;
+	print "\n$ARGV[$tmp-1] ";
+	while($ibytesize>0)
+	{
+		printf <"%d\r\t\t\t%% ">,100/$ibstmp*($ibstmp-$ibytesize)+1,;
+		read(READ, $buffer, $rwbsize);
+		print WRITE $buffer;
+		seek(READ,0,1);
+		$ibytesize-=$rwbsize;
+	}
+
+
+}
+$size=sprintf (-s "merge.wav");
+$string =sprintf ("%X", "$size");
+&WORK;
+$b="$at0$at1$at2$at3";
+$string =sprintf ("%X", $size-36);
+&WORK;
+$a="$at0$at1$at2$at3";
+$header="$riff$b$wave$a";
+seek(WRITE,0,0);
+print WRITE $header;
+print "\n";
+
+
+sub WORK
+{
+$length=length($string);
+$riff=sprintf "\x52\x49\x46\x46";
+if($length==8)
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -6,2;
+$three=substr $string,$length -$length,2;
+}
+elsif($length==7)
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -6,2;
+$three=substr $string,$length -$length,1;
+}
+elsif($length==6)
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -$length,2;
+$three="00";
+}
+else
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -$length,1;
+$three="00";
+}
+
+use CGI;
+$null = CGI::unescape (hex $null);
+use CGI;
+$one = CGI::unescape (hex $one);
+use CGI;
+$two = CGI::unescape (hex $two);
+use CGI;
+$three = CGI::unescape (hex $three);
+
+$at0=sprintf ("%c","$null");
+$at1=sprintf ("%c","$one");
+$at2=sprintf ("%c","$two");
+$at3=sprintf ("%c","$three");
+}
