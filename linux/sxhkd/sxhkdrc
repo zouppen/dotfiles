@@ -1,20 +1,28 @@
+XF86Launch1
+    /home/jasalt/dotfiles/linux/scripts/startup.sh
+
 # Launch applications
 control + alt + grave
+    jumpapp terminator
+shift + alt + grave
     terminator
-control + alt + {1,2,3}
-    {nemo,x-www-browser,emacs}
 
-#super + space
-#    xfce4-appfinder
+control + alt + {1,2,3}
+    {jumpapp thunar,jumpapp google-chrome-beta,jumpapp emacs}
+alt + shift + {1,2,3}
+    {thunar,google-chrome-beta,emacs}
+
+super + space
+    xfce4-popup-whiskermenu
 
 #super + alt + space
 #   tracker-needle
 
-hyper + super + alt + Up
-    xrandr --orientation normal
+#hyper + super + alt + Up
+#    xrandr --orientation normal
 
-hyper + super + alt + Down
-    xrandr --orientation inverted 
+#hyper + super + alt + Down
+#    xrandr --orientation inverted 
 
 # Process utilities
 control + alt + Delete
@@ -25,10 +33,9 @@ control + shift + Escape
 #XF86WebCam
 #    /home/jasalt/dev/window-manager/key-actions/toggle-redshift
 
-# Clipboard / Selections (Currently CopyQ handles this)
 ## Show clipboard history
-##super + alt + v
-##  xfce4-popup-clipman
+super + alt + v
+  xfce4-popup-clipman
 
 ## Translate selection and give output as notification.
 ## Brief mode output is copied to clipboard also.
@@ -72,17 +79,18 @@ super + s ; m
 
 ## Speak selection with google, echo does unquoting
 super + s ; s ; e
-    gspeak "$(echo `xsel`)"
+    espeak "$(echo `xsel`)"
+    #gspeak "$(echo `xsel`)"
 
 ## Speak selection in finnish, echo does unquoting
 super + s ; s ; f
     espeak -v europe/fi "$(echo `xsel`)"
 
 # Taking Screenshots
-#hyper + super + alt + v
-#    xfce4-screenshooter -r -s /home/jasalt/Desktop/
-#hyper + super + alt + c
-#    xfce4-screenshooter -c -r
+ctrl + super + alt + v
+    xfce4-screenshooter -r -s /home/jasalt/Desktop/
+ctrl + super + alt + c
+    xfce4-screenshooter -c -r
 
 # Messaging
 super + m ; c  
@@ -94,30 +102,24 @@ super + m ; t
     x-www-browser "www.trello.com"
 super + m ; i
     terminator -e "ssh jatasalt@irc-machine -t 'screen -rd'"
-super + m ; h
-    terminator -e hangups
+#super + m ; h
+#    terminator -e hangups
+#### Add --app=url with cromium for opening simple browser window.
 super + m ; w
-    x-www-browser --app=https://web.whatsapp.com/
+    x-www-browser https://web.whatsapp.com/
 super + m ; g
-    x-www-browser --app=https://web.telegram.org/
+    x-www-browser https://web.telegram.org/
 super + m ; S
-    x-www-browser --app=https://web.skype.com/
+    x-www-browser https://web.skype.com/
 super + m ; f
-    x-www-browser --app=https://www.facebook.com/messages/
+    jumpapp messengerfordesktop
+    ;;x-www-browser https://www.facebook.com/messages/
 super + m ; F
-    x-www-browser --app=https://www.facebook.com/
+    x-www-browser https://www.facebook.com/
     ;;skype
-super + m ; s
-    x-www-browser "https://putkilandia.slack.com/"
 
-super + c ; s
-    terminator -e "ssh pi@wstation"
-super + c ; d
-    terminator -e "mosh root@do"
 super + c ; k
     terminator -e "mosh jasalt@ks"
-super + c ; m
-    terminator -e "mosh jasalt@murskaaja"
 
 # Web apps
 super + w ; h
@@ -164,14 +166,14 @@ super + w ; k
 #            --output LVDS1 --off
 
 # Spotify media keys
-XF86AudioNext
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+#XF86AudioNext
+#    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
     
-XF86AudioStop
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+#XF86AudioStop
+#    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
     
-XF86AudioPrev
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+#XF86AudioPrev
+#    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
            
 super + t ; 5
     $HOME/dotfiles/linux/bin/timer 5

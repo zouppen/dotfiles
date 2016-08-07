@@ -1,6 +1,7 @@
 ;; Configuration for writing and arranging text
 
 (prelude-require-package 'ledger-mode)
+(prelude-require-package 'htmlize)
 
 ;; setup files ending in “.ledger” to open in ledger-mode
 (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
@@ -33,7 +34,7 @@
 
 ;; Add some individual files to agenda files
 (add-to-list 'org-agenda-files (expand-file-name
-                                (concat org-folder "gtd.org")))
+                                (concat org-folder "todo.org")))
 (add-to-list 'org-agenda-files (expand-file-name
                                 (concat org-folder "future.org")))
 ;; (add-to-list 'org-agenda-files (expand-file-name
@@ -52,7 +53,7 @@
 (global-set-key (kbd "C-c <f2>")
                 (lambda ()
                   (interactive)
-                  (find-file (concat org-folder "gtd.org"))))
+                  (find-file (concat org-folder "todo.org"))))
 (global-set-key (kbd "C-c S-<f2>")
                 (lambda ()
                   (interactive)

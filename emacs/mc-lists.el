@@ -14,6 +14,8 @@
         c-electric-slash
         comment-or-uncomment-region
         completion-at-point
+        crux-move-beginning-of-line
+        crux-smart-open-line-above
         dired-flag-file-deletion
         easy-kill
         electric-newline-and-maybe-indent
@@ -84,4 +86,5 @@
         ibuffer-do-kill-on-deletion-marks
         mouse-set-region
         smex
+        text-scale-increase
         ))

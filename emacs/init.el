@@ -4,6 +4,8 @@
 
 (setq dotfiles-folder "~/dotfiles/")
 
+(setq ad-redefinition-action 'accept)
+
 ;; TODO dynamic loading?
 (let ((conf-files
        '("emacs/modes/acme-search.el"

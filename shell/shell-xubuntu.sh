@@ -1,4 +1,4 @@
-# Entry point for Xubuntu 15.10 zsh configuration
+# Source from .zshrc on debian/ubuntu with xfce
 source $HOME/dotfiles/shell/shell-debian.sh
 
 alias o="thunar ."

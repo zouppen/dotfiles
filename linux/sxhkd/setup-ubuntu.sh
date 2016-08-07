@@ -2,6 +2,8 @@
 ### Install sxhkd on Ubuntu 15.10
 ### https://github.com/baskerville/sxhkd
 
+DOTFILES=~/dotfiles/
+
 if (( ! $+commands[sxhkd] )); then
     echo "Installing deps"
     sudo apt-get install -y python-keybinder xsel
@@ -16,3 +18,6 @@ if (( ! $+commands[sxhkd] )); then
     make && \
     sudo make install
 fi
+echo "installing some utilities for xfce"
+sudo apt-get install -y xfce4-clipman-plugin xsel 
+echo "please install trans, notify-pipe, gspeak,"

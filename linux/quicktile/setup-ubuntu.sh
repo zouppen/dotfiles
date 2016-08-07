@@ -15,5 +15,7 @@ if (( ! $+commands[quicktile] )); then
     mv quicktile.py quicktile
     ln -s $HOME/dotfiles/linux/quicktile/quicktile.cfg $HOME/.config/
     echo "Add 'quicktile --daemonize' as a startup script."
+    echo "To fix buggy terminator resizing, change it's settings:"
+    echo "Terminator>Preferences>Global>Window geometry hints>OFF"
 fi
 

@@ -1,0 +1,145 @@
+#!/usr/bin/perl
+if ($ARGV[0] == "-h")
+{
+	print "Usage: wavsplit <seconds> <File>\n";
+	exit 0;
+}
+open(READ,"$ARGV[1]") or die $!;
+binmode READ;
+seek(READ,24,0);
+read(READ, $buffer, 4);
+$tmp=substr($buffer,1,1);
+$c2=$tmp;
+$c1=ord $tmp;
+$samplerate=sprintf "%x",$c1;
+$tmp=substr($buffer,0,1);
+$charsr="$tmp$c2";
+$tmp=ord $tmp;
+$samplerate.=sprintf "%x",$tmp;
+$samplerate=sprintf hex $samplerate;
+seek(READ,22,0);
+read(READ, $channel, 2);
+
+seek(READ,28,0);
+read(READ, $bytespersec, 4);
+
+seek(READ,32,0);
+read(READ, $bytesps, 1);
+$bytespersample=ord $bytesps;
+
+seek(READ,34,0);
+read(READ, $bitspersamp, 2);
+
+$c=$bytespersample*$samplerate;
+$riff=sprintf "\x52\x49\x46\x46";
+#print "$charsr\n$bytepersample\n";exit;
+$wave=sprintf "\x57\x41\x56\x45\x66\x6d\x74\x20\x10\x00\x00\x00\x01\x00".$channel.$charsr."\x00\x00".$bytespersec.$bytesps."\x00".$bitspersamp."\x64\x61\x74\x61";
+print "Input hat $samplerate Hz\n";
+
+
+$string =sprintf ("%X", $ARGV[0]*$c);
+sub ROUTINE
+{
+&WORK;
+$a="$at0$at1$at2$at3";
+if ( $bytes < $splitted)
+{
+	$string =sprintf ("%X", $bytes+36);
+}
+else
+{
+	$string =sprintf ("%X", ($ARGV[0]*$c)+36);
+}
+&WORK;
+$b="$at0$at1$at2$at3";
+$header="$riff$b$wave$a";
+}
+$bytes=(-s "$ARGV[1]");
+$sFile=S01;
+$free=1;
+while ($free==1)
+{
+	if (-e "$sFile.wav")
+	{
+		$sFile++;
+	}
+	else
+	{
+		$free=0;
+	}
+}
+$splitted=$ARGV[0]*$c;
+&ROUTINE;
+seek(READ,44,0);
+while ($bytes > 0)
+{
+        if ( $bytes < $splitted)
+        {
+                print "$sFile wird erstellt :) Bytes (ohne Header)=$bytes\n";
+		$string=sprintf ("%X", $bytes);
+		&ROUTINE;
+                $bytes =0;
+        }
+        else
+        {
+                $bytes -=$splitted;
+                print "$sFile wird erstellt :) Bytes (ohne Header)=$splitted\n"
+        }
+	open(WRITE, ">$sFile.wav") or die $!;
+	binmode WRITE;
+	print WRITE $header;
+	seek(READ, 0, 1);
+	read(READ, $buffer, $splitted);
+	print WRITE $buffer;
+	close WRITE or die $!;
+        $sFile++;
+}
+close READ or die $!;
+sub WORK
+{
+$length=length($string);
+$riff=sprintf "\x52\x49\x46\x46";
+
+if($length==8)
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -6,2;
+$three=substr $string,$length -$length,2;
+}
+elsif($length==7)
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -6,2;
+$three=substr $string,$length -$length,1;
+}
+elsif($length==6)
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -$length,2;
+$three="00";
+}
+else
+{
+$null=substr $string,$length-2,2;
+$one=substr $string,$length -4,2;
+$two=substr $string,$length -$length,1;
+$three="00";
+}
+
+use CGI;
+$null = CGI::unescape (hex $null);
+use CGI;
+$one = CGI::unescape (hex $one);
+use CGI;
+$two = CGI::unescape (hex $two);
+use CGI;
+$three = CGI::unescape (hex $three);
+
+$at0=sprintf ("%c","$null");
+$at1=sprintf ("%c","$one");
+$at2=sprintf ("%c","$two");
+$at3=sprintf ("%c","$three");
+}

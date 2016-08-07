@@ -1,57 +1,57 @@
 [global_config]
-  handle_size = 1
   enabled_plugins = ,
-  title_inactive_fg_color = "#bfbfbf"
-  suppress_multiple_term_dialog = True
-  #geometry_hinting = False
-  title_transmit_bg_color = "#c8c8c8"
-  tab_position = bottom
+  geometry_hinting = False
+  handle_size = 1
   inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+  tab_position = bottom
   title_inactive_bg_color = "#000000"
+  title_inactive_fg_color = "#bfbfbf"
+  title_transmit_bg_color = "#c8c8c8"
 [keybindings]
-  cycle_prev = <Primary><Shift>Tab
-  toggle_zoom = None
   cycle_next = <Primary>Tab
-  switch_to_tab_3 = <Alt>3
-  switch_to_tab_1 = <Alt>1
+  cycle_prev = <Primary><Shift>Tab
+  go_next = <Alt>grave
+  hide_window = None
   split_horiz = <Primary><Shift>o
-  switch_to_tab_6 = <Alt>6
-  switch_to_tab_7 = <Alt>7
+  split_vert = <Primary><Alt>o
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
   switch_to_tab_4 = <Alt>4
   switch_to_tab_5 = <Alt>5
-  switch_to_tab_2 = <Alt>2
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+  toggle_scrollbar = None
+  toggle_zoom = None
   ungroup_all = None
   ungroup_tab = None
-  split_vert = <Primary><Alt>o
-  go_next = <Alt>grave
-  switch_to_tab_9 = <Alt>9
-  hide_window = None
-  switch_to_tab_8 = <Alt>8
-  toggle_scrollbar = None
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    background_image = None
-    background_darkness = 0.9
-    scrollback_lines = 5000
-    background_type = transparent
-    use_system_font = False
-    cursor_color = "#808080"
-    foreground_color = "#ffffff"
-    scroll_on_output = False
-    show_titlebar = False
-    color_scheme = custom
-    font = Inconsolata Medium 12
-    background_color = "#2b2b2b"
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#2b2b2b"
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    color_scheme = custom
+    cursor_blink = False
+    cursor_color = "#808080"
+    font = Inconsolata Medium 12
+    foreground_color = "#ffffff"
+    scroll_on_output = False
+    scrollback_infinite = True
+    scrollback_lines = 5000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

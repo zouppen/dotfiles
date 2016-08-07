@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#!/bin/bash
+sleep 1
+DISPLAY=":0.0"
+HOME=/home/jasalt/
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+
+xset r rate 200 45
+setxkbmap -option ctrl:nocaps
+
+#daskb_id=`xinput -list | grep -i 'daskeyboard' | grep -o id=[0-9]. | grep -o [0-9]. | head -1`
+#if [ "${daskb_id}" ]; then
+#    setxkbmap -device "${daskb_id}" -option altwin:swap_lalt_lwin
+#fi
+
