@@ -3,23 +3,32 @@
 
 ### Unified operating system package manager commands
 
+source $HOME/dotfiles/shell/shell-common.sh
+export PATH="$PATH:$HOME/dotfiles/osx/bin"
 
 # Toggle PostgreSQL service state
 alias postgre-start="launchctl load /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist"
 alias postgre-stop="launchctl unload /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist"
 
 
+alias o="open ."
+alias lsblk="diskutil list"
+alias lsusb="system_profiler SPUSBDataType"
 
+
+# alias pfp="abspath"
+# alias cbfp=""
+alias cbssh="cat ~/.ssh/id_rsa.pub|"pbcopy
+alias efd="cdf && ec ."
 
 alias sano="say -v \"Mikko\""
+# alias sano="say -v \"Satu\""
 alias sega="say -v \"Oskar\""
 
-
-alias lsblk="diskutil list" && \
+alias lsblk="diskutil list"
 alias lsusb="system_profiler SPUSBDataType"
 alias cb="pbcopy"
 alias cbwd="pwd|pbcopy"
-source $HOME/dotfiles/shell/shell-osx.zsh
 
 alias ai="brew install"
 alias ar="brew uninstall"

@@ -9,8 +9,8 @@ export PATH="$PATH:$HOME/.bin:$HOME/dotfiles/bin"
 CDPATH=:$HOME/
 
 # Prefix functions for applying conditionally based on system type
-onlinux () { [ $(uname -s) = "Linux" ] && $* }
-onmac () { [ $(uname -s) = "Darwin" ] && $* }
+# onlinux () { [ $(uname -s) = "Linux" ] && $* }
+# onmac () { [ $(uname -s) = "Darwin" ] && $* }
 # Eg. `onmac echo "Yes!" && echo "No!"`
 # Should echo Yes! and No! on Mac and do nothing on Linux.
 
@@ -62,29 +62,7 @@ alias cbp="clippaste"
 
 alias cbssh="cat ~/.ssh/id_rsa.pub|cb"
 
-onlinux \
-    alias open="xdg-open" && \
-    ## Clipboard interop helpers
-    # Copy SSH public key
-    # alias cbssh="echo `gpgkey2ssh 2190701CC614FD52` | cb" && \
-    # Copy current working directory
-    alias cbwd="pwd | cb"
-    # Copy most recent command in bash history
-    # alias cbhs="cat $HISTFILE | tail -n 2 | cb"
-
-onmac \
-    alias o="open ." && \
-    alias lsblk="diskutil list" && \
-    alias lsusb="system_profiler SPUSBDataType" && \
-    alias cb="pbcopy" && \
-    alias cbwd="pwd|pbcopy" && \
-    # alias pfp="abspath" && \
-    # alias cbfp="" && \
-    alias cbssh="cat ~/.ssh/id_rsa.pub|"pbcopy && \
-    alias efd="cdf && ec ." && \
-    source $HOME/dotfiles/shell/shell-osx.zsh
-
-  
+    
 # Download subtitles, requires sudo pip install subliminal
 alias sub="subliminal -l en --"
 
@@ -97,7 +75,6 @@ alias speedtest="ping -c 3 www.funet.fi && wget -O /dev/null ftp://ftp.funet.fi/
 
 alias get-mp3="youtube-dl --extract-audio --audio-format mp3"
 alias get-ogg="youtube-dl --extract-audio --audio-format vorbis"
-
 
 # alias ga="git add"
 # alias gp="git push"
@@ -121,14 +98,6 @@ alias tf="trans en:fi"
 alias ts="trans fi:sv"
 alias stf="trans sv:fi"
 
-onlinux \
-    alias say="espeak" && \
-    alias sano="espeak -v europe/fi" && \
-    alias sega="espeak -v europe/sv"
-
-
-onmac \
-    alias sano="say -v \"Satu\""
 
 # ESC-ESC to sudo last command
 sudo-command-line() {
@@ -143,4 +112,3 @@ sudo-command-line() {
 # Defined shortcut keys: [Esc] [Esc]
 
 source ~/dotfiles/shell/shell-fun.zsh
-
