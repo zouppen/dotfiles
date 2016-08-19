@@ -1,7 +1,5 @@
 ;; General customization for programming modes.
 
-(prelude-require-package 'ess)
-
 (defun my-smartparens-mode-hook ()
   (define-key smartparens-mode-map (kbd "H-n") 'sp-splice-sexp-killing-forward)
   (define-key smartparens-mode-map (kbd "H-p") 'sp-splice-sexp-killing-backward)
