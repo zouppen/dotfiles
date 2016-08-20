@@ -87,9 +87,9 @@ super + s ; s ; f
     espeak -v europe/fi "$(echo `xsel`)"
 
 # Taking Screenshots
-ctrl + super + alt + v
+hyper + super + alt + v
     xfce4-screenshooter -r -s /home/jasalt/Desktop/
-ctrl + super + alt + c
+hyper + super + alt + c
     xfce4-screenshooter -c -r
 
 # Messaging
