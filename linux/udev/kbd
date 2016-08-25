@@ -8,7 +8,9 @@ XAUTHORITY=$HOME/.Xauthority
 export DISPLAY XAUTHORITY HOME
 
 xset r rate 200 45
-setxkbmap -option ctrl:nocaps
+# setxkbmap -option ctrl:nocaps
+sudo /home/jasalt/dotfiles/linux/input-config.sh
+xmodmap /home/jasalt/dotfiles/linux/Xmodmap
 
 #daskb_id=`xinput -list | grep -i 'daskeyboard' | grep -o id=[0-9]. | grep -o [0-9]. | head -1`
 #if [ "${daskb_id}" ]; then
