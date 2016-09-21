@@ -82,5 +82,5 @@ function tick()
     console.log('Tick ' + mins);
 }
 
-setInterval(tick, 1000);
+setInterval(tick, 60000);
 alertLight();
