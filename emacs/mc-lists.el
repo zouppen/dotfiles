@@ -37,6 +37,7 @@
         markdown-cycle
         markdown-exdent-or-delete
         move-text-up
+        operate-on-number-at-point
         org-beginning-of-line
         org-cycle
         org-delete-char
@@ -84,6 +85,7 @@
         handle-select-window
         handle-switch-frame
         ibuffer-do-kill-on-deletion-marks
+        js2-mode-show-node
         mouse-set-region
         smex
         text-scale-increase

@@ -85,7 +85,7 @@
 
 (progn-on
  "gnu/linux"
- (set-face-attribute 'default nil :font "Inconsolata-12")
+ (set-face-attribute 'default nil :font "Mononoki Bold-16")
  (set-variable 'magit-emacsclient-executable
                (concat dotfiles-folder "bin/ec"))
  (setq browse-url-browser-function 'browse-url-generic
@@ -119,7 +119,7 @@
 (global-set-key (kbd "H-m j") 'javascript-mode)
 (global-set-key (kbd "H-m h") 'html-mode)
 
-(global-set-key (kbd "<C-M-backspace>") 'prelude-top-join-line)
+(global-set-key (kbd "<C-M-backspace>") 'crux-top-join-line)
 (global-set-key (kbd "C-c C-SPC") 'comment-or-uncomment-region)
 
 ;; Window splitting keys as seen in Terminator
@@ -251,6 +251,8 @@
       )
     (add-hook 'eww-mode-hook 'xah-rename-eww-hook 'my-eww-mode-hook)
     ))
+
+(setq tramp-auto-save-directory "~/.emacs.d/savefile")
 
 (provide 'general)
 ;;; general.el ends here
