@@ -108,7 +108,8 @@ super + m ; i
 super + m ; w
     x-www-browser https://web.whatsapp.com/
 super + m ; g
-    x-www-browser https://web.telegram.org/
+    jumpapp /home/jasalt/.bin/Telegram
+    # x-www-browser https://web.telegram.org/
 super + m ; S
     x-www-browser https://web.skype.com/
 super + m ; f

@@ -7,3 +7,4 @@ linux/radiotray/plugins/
 nohup.out
 *.pyc
 .DS_Store
+node_modules
