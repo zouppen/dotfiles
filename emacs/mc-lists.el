@@ -84,6 +84,7 @@
         handle-select-window
         handle-switch-frame
         ibuffer-do-kill-on-deletion-marks
+        mouse-drag-mode-line
         mouse-set-region
         smex
         text-scale-increase
