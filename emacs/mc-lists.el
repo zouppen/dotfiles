@@ -17,6 +17,8 @@
         crux-move-beginning-of-line
         crux-smart-open-line-above
         dired-flag-file-deletion
+        dired-next-line
+        dired-previous-line
         easy-kill
         electric-newline-and-maybe-indent
         elpy-open-and-indent-line-above
@@ -87,4 +89,5 @@
         mouse-set-region
         smex
         text-scale-increase
+        wdired-finish-edit
         ))
