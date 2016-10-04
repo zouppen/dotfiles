@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
 <!-- https://pqrs.org/osx/karabiner/xml.html.en -->
 <!-- https://github.com/tekezo/Karabiner/blob/version_10.18.0/src/bridge/generator/keycode/data/ConsumerKeyCode.data -->
+<!-- TODO not working in all cases -->
 
 <root>
     <appdef>
         <appname>MIXXX</appname>
         <equal>org.mixxx.mixxx</equal>
+    </appdef>
+    <appdef>
+        <appname>BITWIG</appname>
+        <equal>org.bitwig.studio</equal>
     </appdef>
     <appdef>
         <appname>EMACS</appname>

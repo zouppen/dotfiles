@@ -21,8 +21,8 @@ alias lsusb="system_profiler SPUSBDataType"
 alias cbssh="cat ~/.ssh/id_rsa.pub|"pbcopy
 alias efd="cdf && ec ."
 
-alias sano="say -v \"Mikko\""
-# alias sano="say -v \"Satu\""
+# alias sano="say -v \"Mikko\""
+alias sano="say -v \"Satu\""
 alias sega="say -v \"Oskar\""
 
 alias lsblk="diskutil list"
