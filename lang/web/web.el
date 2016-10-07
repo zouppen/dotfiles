@@ -1,4 +1,4 @@
-(prelude-require-packages '(emmet-mode ;; jsx-mode
+(prelude-require-packages '(emmet-mode skewer-mode
                                        ))
 
 (defun my-emmet-mode-hook ()
@@ -15,3 +15,10 @@
 
 ;; Fix yasnippet activation
 (add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'html-mode)))
+
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+(provide 'web.el)
+;;; web.el ends here
