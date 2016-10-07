@@ -81,7 +81,7 @@
        mac-function-modifier 'hyper)
  (set-variable 'magit-emacsclient-executable
                "/usr/local/bin/emacsclient")
- (set-face-attribute 'default nil :font "Inconsolata-12"))
+ (set-face-attribute 'default nil :font "Inconsolata-14"))
 
 (progn-on
  "gnu/linux"
