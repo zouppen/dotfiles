@@ -42,9 +42,8 @@
 (scroll-bar-mode -1) ; Disable scroll bars
 
 (setq frame-title-format (list "Emacs [%m-mode] - %b"))
-;;(disable-theme 'zenburn)
 
-;;(prelude-require-package 'solarized-theme)
+(prelude-require-package 'solarized-theme)
 ;;(prelude-require-package 'idea-darkula-theme)
 ;; TODO bug with idea-darkula loading..
 
