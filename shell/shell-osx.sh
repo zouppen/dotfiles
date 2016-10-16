@@ -3,7 +3,7 @@
 
 ### Unified operating system package manager commands
 
-source $HOME/dotfiles/shell/shell-common.sh
+
 export PATH="$PATH:$HOME/dotfiles/osx/bin"
 
 # Toggle PostgreSQL service state
@@ -84,3 +84,5 @@ function man-preview() {
 function vncviewer() {
     open vnc://$@
 }
+
+source $HOME/dotfiles/shell/shell-common.sh

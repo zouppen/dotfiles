@@ -9,8 +9,8 @@ export PATH="$PATH:$HOME/.bin:$HOME/dotfiles/bin"
 # CDPATH=:$HOME/
 
 # Prefix functions for applying conditionally based on system type
-# onlinux () { [ $(uname -s) = "Linux" ] && $* }
-# onmac () { [ $(uname -s) = "Darwin" ] && $* }
+onlinux () { [ $(uname -s) = "Linux" ] && $* }
+onmac () { [ $(uname -s) = "Darwin" ] && $* }
 # Eg. `onmac echo "Yes!" && echo "No!"`
 # Should echo Yes! and No! on Mac and do nothing on Linux.
 
@@ -61,7 +61,6 @@ alias cb="clipcopy"
 alias cbp="clippaste"
 
 alias cbssh="cat ~/.ssh/id_rsa.pub|cb"
-
     
 # Download subtitles, requires sudo pip install subliminal
 alias sub="subliminal -l en --"
@@ -76,13 +75,14 @@ alias speedtest="ping -c 3 www.funet.fi && wget -O /dev/null ftp://ftp.funet.fi/
 alias get-mp3="youtube-dl --extract-audio --audio-format mp3"
 alias get-ogg="youtube-dl --extract-audio --audio-format vorbis"
 
+## These are on ohmyzsh
 # alias ga="git add"
 # alias gp="git push"
 # alias gl="git pull"
 # alias gc="git commit"
 # alias gcm="git commit -m"
 
-# alias qc="git commit -a -m 'up' && git push"
+alias qc="git commit -a -m 'up' && git push"
 
 # BFG Repo Cleaner https://rtyley.github.io/bfg-repo-cleaner/
 # alias bfg="java -jar ~/dotfiles/bin/bfg-1.11.8.jar"
@@ -98,7 +98,6 @@ alias tf="trans en:fi"
 alias ts="trans fi:sv"
 alias stf="trans sv:fi"
 
-
 # ESC-ESC to sudo last command
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
@@ -110,5 +109,5 @@ sudo-command-line() {
 }
 #zle -N sudo-command-line
 # Defined shortcut keys: [Esc] [Esc]
-
 source ~/dotfiles/shell/shell-fun.zsh
+
