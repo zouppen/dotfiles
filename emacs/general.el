@@ -44,6 +44,7 @@
 (setq frame-title-format (list "Emacs [%m-mode] - %b"))
 
 (prelude-require-package 'solarized-theme)
+(load-theme 'solarized-dark)
 ;;(prelude-require-package 'idea-darkula-theme)
 ;; TODO bug with idea-darkula loading..
 
