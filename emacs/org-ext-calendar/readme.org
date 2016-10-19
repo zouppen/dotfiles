@@ -5,23 +5,24 @@ Gather due dates and events with required data/hyperlinks from Trello and Korppi
    - python-dotenv
    - requests
    - icalendar
-2) Aquire Trello API keys
-   1) Log in to Trello and visit https://trello.com/1/appKey/generate
-   2) Get a user token by visiting the url below, replacing 'APIKEY' with your API key:    https://trello.com/1/authorize?key=APIKEY&name=trellorg&expiration=never&response_type=token
-   3) Get personal Korppi iCal sync address from https://korppi.jyu.fi/kotka/servlet/calendar/export/ui/ical/
-3) Set env vars and load them before running script:
+2) Aquire Trello API token
+   +1) Log in to Trello and visit https://trello.com/1/appKey/generate+
+   +2) Get a user token by visiting the url below, replacing 'APIKEY' with your API key:    https://trello.com/1/authorize?key=APIKEY&name=trellorg&expiration=never&response_type=token+
+   https://trello.com/app-key and click Token link https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Server%20Token&key=d2fdfb37861298cbe47a3229e15f08a6
+3) Get personal Korppi iCal sync address from https://korppi.jyu.fi/kotka/servlet/calendar/export/ui/ical/
+4) Set env vars and load them before running script:
    #+begin_src sh
-   export TRELLO_TOKEN=XXXXXXXXXXXXXXXX
+   export TRELLO_TOKEN=XXXXXX*XXXXXXXXXX
    export KORPPI_ICAL="https://korppi.jyu.fi/calendar/ical/XXXXXXXXXXXXX/3"
-   #+end_src
+   #+end_src*
 
    Alternatively set variables to secrets.py file (for running process via emacs start-process etc.).
-4) Add "~/.ext-calendar.org" to org-mode org-agenda-files list:
+5) Add "~/.ext-calendar.org" to org-mode org-agenda-files list:
    #+begin_src elisp
    (add-to-list 'org-agenda-files (expand-file-name
                                    "~/.ext-calendar.org"))
    #+end_src
-5) Schedule with anacron so it's run first thing in the morning on the laptop. Note that cron handles env vars different from normal shell login via terminal emulator. Eg. add following to =/etc/cron.daily/sync-org-calendar= and make it runnable by =chmod +x <the file>=.
+6) Schedule with anacron so it's run first thing in the morning on the laptop. Note that cron handles env vars different from normal shell login via terminal emulator. Eg. add following to =/etc/cron.daily/sync-org-calendar= and make it runnable by =chmod +x <the file>=.
    #+begin_src sh
    # (not verified working yet)
    TRELLO_KEY=XXXXXXXXXXXXXX
