@@ -103,6 +103,8 @@
          (file+headline (concat org-folder "gtd.org") "Scheduled") "* APPT %?\n  %i\n")
         ("j" "Journal entry" entry (file+datetree (concat org-folder "texts/meta/notetoself.org"))
          "* %?\nEntered on %U\n  %i\n")
+        ("d" "Dream entry" entry (file+datetree (concat org-folder "texts/meta/dream.org"))
+         "* %?\nEntered on %U\n  %i\n")
         ("r" "Save Recommendation" entry (file+headline (concat org-folder "inbox.org") "Recommendations") "* %?\n  %i\n")
         ("p" "New project file" entry
          (file (concat org-folder "projects/"
