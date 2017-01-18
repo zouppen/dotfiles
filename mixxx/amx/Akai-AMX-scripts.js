@@ -175,9 +175,9 @@ var AMX = {
 
         // Use gain knob for pitch control when shift is pressed.
         if (!AMX.activeModes.shift) {
-            AMX.stepGain(group, isLeftTwist);
-        } else {
             AMX.stepRate(group, isLeftTwist);
+        } else {
+            AMX.stepGain(group, isLeftTwist);
         }
     },
 

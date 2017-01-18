@@ -2,8 +2,8 @@
 <MixxxControllerPreset mixxxVersion="1.12.0+" schemaVersion="1">
     <info>
         <name>Akai AMX</name>
-        <author>Prism</author>
-        <description>This preset file is still a work in progress. Being mapped with Mixxx 1.12.0-beta1 (build 1.12 r5442) on Ubuntu 15.04</description>
+        <author>Jasalt</author>
+        <description>This preset file is still a work in progress. Being mapped with Mixxx 1.12.0-beta1 (build 1.12 r5442) on Ubuntu 15.04. Original author Prism.</description>
     </info>
     <controller id="AMX">
         <scriptfiles>
