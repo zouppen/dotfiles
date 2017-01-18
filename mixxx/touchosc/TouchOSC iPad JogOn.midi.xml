@@ -88,7 +88,18 @@
       <control>
         <!--jog 1-->
         <group>[Channel1]</group>
-        <key>TouchOSC.jog</key>
+        <!-- <key>TouchOSC.jog</key> -->
+        <key>TouchOSC.wheelTouch</key>
+        <status>0XB0</status>
+        <midino>0X1A</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <group>[Channel1]</group>
+        <!-- <key>TouchOSC.jog</key> -->
+        <key>TouchOSC.wheelTurn</key>
         <status>0XB0</status>
         <midino>0X1A</midino>
         <options>
@@ -98,7 +109,19 @@
       <control>
         <!--jog 2-->
         <group>[Channel2]</group>
-        <key>TouchOSC.jog</key>
+        <!-- <key>TouchOSC.jog</key> -->
+        <key>TouchOSC.wheelTouch</key>
+        <status>0XB0</status>
+        <midino>0X21</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--jog 2-->
+        <group>[Channel2]</group>
+        <!-- <key>TouchOSC.jog</key> -->
+        <key>TouchOSC.wheelTurn</key>
         <status>0XB0</status>
         <midino>0X21</midino>
         <options>

@@ -174,6 +174,51 @@ TouchOSC.toggle_jog_mode = function(channel, control, value, status, group) {
     }
 };
 
+// The button that enables/disables scratching
+TouchOSC.wheelTouch = function (channel, control, value, status, group) {
+    //if ((status & 0xF0) === 0x90) {    // If button down
+  if (value === 0x7F) {  // Some wheels send 0x90 on press and release, so you need to check the value
+        var alpha = 1.0/8;
+        var beta = alpha/32;
+        // engine.scratchEnable(TouchOSC.currentDeck, 128, 33+1/3, alpha, beta);
+        engine.scratchEnable(1, 128, 33+1/3, alpha, beta);
+    } else {    // If button up
+        // engine.scratchDisable(TouchOSC.currentDeck);
+        engine.scratchDisable(1);
+    }
+}
+ 
+// The wheel that actually controls the scratching
+TouchOSC.wheelTurn = function (channel, control, value, status, group) {
+    // --- Choose only one of the following!
+ 
+    // A: For a control that centers on 0:
+    // => Getting 00 and 7F
+    var newValue;
+    if (value < 64) {
+        newValue = value;
+    } else {
+        newValue = value - 128;
+    }
+ 
+    // B: For a control that centers on 0x40 (64):
+    // var newValue = value - 64;
+ 
+    // --- End choice
+ 
+    // In either case, register the movement
+    // if (engine.isScratching(TouchOSC.currentDeck)) {
+    //     engine.scratchTick(TouchOSC.currentDeck, newValue); // Scratch!
+    // } else {
+    //     engine.setValue('[Channel'+TouchOSC.currentDeck+']', 'jog', newValue); // Pitch bend
+    // }
+    if (engine.isScratching(1)) {
+        engine.scratchTick(1, newValue); // Scratch!
+    } else {
+        engine.setValue('[Channel'+1+']', 'jog', newValue); // Pitch bend
+    }
+}
+
 
 // load_track()
 //________________________________________________________________________________________
