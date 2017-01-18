@@ -1,15 +1,16 @@
-mixxx_touchosc_mapping
-======================
+# Mixxx TouchOSC layout and mapping script.
 
-Mapping to use the TouchOSC Jog-On iPad template to control the Mixxx DJ software
+Mapping to use the TouchOSC Jog-On iPad template to control the Mixxx DJ software.
 
-Installation on OSX
--------------------
+Designed for use with Akai AMX, providing jog controllers and a couple less important controls.
 
-ln -s `pwd`/Touch* ~/Library/ApplicationSupport/Mixxx/controllers/
+# Installation on OSX
 
+- ln -s `pwd`/Touch* ~/Library/ApplicationSupport/Mixxx/controllers/
+- Upload .touchosc file with TouchOSC Editor to device
+- Run and enable TouchOSC midi bridge on Mixxx controller settings
 
-TODO
-----
-Volume, crossfader, pitch control, play, cue, beatsync, playposition, and jog wheel are mapped so far.
-I will add more controls when I have time.
+# TODO
+
+# Resources
+- Mapping jog wheel https://www.youtube.com/watch?v=QUT8tZmwM00

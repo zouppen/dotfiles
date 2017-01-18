@@ -100,18 +100,18 @@ TouchOSC.crossfader_status = function(value, group, control) {
 //________________________________________________________________________________________
 TouchOSC.jog = function(channel, control, value, status, group) {
 
-    if(TouchOSC.jog_mode[group] == 'browse') {
-        if (0 == value) {
-            engine.setValue('[Playlist]', 'SelectPrevTrack', true);
-        } else {
-            engine.setValue('[Playlist]', 'SelectNextTrack', true);
-        }
-        return;
-    }
+    // TODO remove
+    // if(TouchOSC.jog_mode[group] == 'browse') {
+    //     if (0 == value) {
+    //         engine.setValue('[Playlist]', 'SelectPrevTrack', true);
+    //     } else {
+    //         engine.setValue('[Playlist]', 'SelectNextTrack', true);
+    //     }
+    //     return;
+    // }
 
     var jog_dir;
     var action;
-
 
     var currently_playing = engine.getValue(group, 'play');
     if (currently_playing) {
