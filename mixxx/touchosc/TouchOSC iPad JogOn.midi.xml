@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MixxxMIDIPreset schemaVersion="1" mixxxVersion="1.10.0+">
+  <info>
+    <name>TouchOSC iPad Jog-On</name>
+    <author>rajbot</author>
+    <description>TouchOSC iPad application mapping for the Jog-On layout. Please file bugs at https://github.com/rajbot/mixxx_touchosc_mapping</description>
+  </info>
+  <controller id="Network" port="">
+    <scriptfiles>
+      <file functionprefix="TouchOSC" filename="TouchOSC-iPad-scripts.js"/>
+    </scriptfiles>
+    <controls>
+      <control>
+        <!--crossfader-->
+        <group>[Master]</group>
+        <key>crossfader</key>
+        <status>0XB0</status>
+        <midino>0X11</midino>
+      </control>
+      <control>
+        <!--volume 1-->
+        <group>[Channel1]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X25</midino>
+      </control>
+      <control>
+        <!--volume 2-->
+        <group>[Channel2]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X2A</midino>
+      </control>
+      <control>
+        <!--cut 1-->
+        <group>[Channel1]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X05</midino>
+        <options>
+            <invert/>
+        </options>
+      </control>
+      <control>
+        <!--cut 2-->
+        <group>[Channel2]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X06</midino>
+        <options>
+            <invert/>
+        </options>
+      </control>
+      <control>
+        <!--pitch control 1-->
+        <group>[Channel1]</group>
+        <key>rate</key>
+        <status>0XB0</status>
+        <midino>0X19</midino>
+      </control>
+      <control>
+        <!--pitch control 2-->
+        <group>[Channel2]</group>
+        <key>rate</key>
+        <status>0XB0</status>
+        <midino>0X20</midino>
+      </control>
+      <control>
+        <!--play 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.play</key>
+        <status>0XB0</status>
+        <midino>0X04</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--play 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.play</key>
+        <status>0XB0</status>
+        <midino>0X07</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--jog 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.jog</key>
+        <status>0XB0</status>
+        <midino>0X1A</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--jog 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.jog</key>
+        <status>0XB0</status>
+        <midino>0X21</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--cue_default 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X03</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--cue_default 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X08</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--beatsync 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X02</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--beatsync 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X09</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--playposition 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.play_position</key>
+        <status>0XB0</status>
+        <midino>0X34</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--playposition 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.play_position</key>
+        <status>0XB0</status>
+        <midino>0X33</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--toggle cue_mode 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.toggle_cue_mode</key>
+        <status>0XB0</status>
+        <midino>0X0C</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_1 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X0D</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_2 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X0E</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_3 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X0F</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_4 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X10</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_1 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X12</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_2 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X13</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_3 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X14</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_5 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X15</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--toggle cue_mode 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.toggle_cue_mode</key>
+        <status>0XB0</status>
+        <midino>0X16</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterLow 1-->
+        <group>[Channel1]</group>
+        <key>filterLow</key>
+        <status>0XB0</status>
+        <midino>0X36</midino>
+      </control>
+      <control>
+        <!--filterMid 1-->
+        <group>[Channel1]</group>
+        <key>filterMid</key>
+        <status>0XB0</status>
+        <midino>0X37</midino>
+      </control>
+      <control>
+        <!--filterHigh 1-->
+        <group>[Channel1]</group>
+        <key>filterHigh</key>
+        <status>0XB0</status>
+        <midino>0X38</midino>
+      </control>
+      <control>
+        <!--filterLow 2-->
+        <group>[Channel2]</group>
+        <key>filterLow</key>
+        <status>0XB0</status>
+        <midino>0X41</midino>
+      </control>
+      <control>
+        <!--filterMid 2-->
+        <group>[Channel2]</group>
+        <key>filterMid</key>
+        <status>0XB0</status>
+        <midino>0X42</midino>
+      </control>
+      <control>
+        <!--filterHigh 2-->
+        <group>[Channel2]</group>
+        <key>filterHigh</key>
+        <status>0XB0</status>
+        <midino>0X43</midino>
+      </control>
+      <control>
+        <!--filterLowKill 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X39</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterMidKill 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X3A</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterHighKill 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X3B</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterLowKill 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X44</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterMidKill 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X45</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterHighKill 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X46</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--toggle jog mode 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.toggle_jog_mode</key>
+        <status>0XB0</status>
+        <midino>0X1B</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--toggle jog mode 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.toggle_jog_mode</key>
+        <status>0XB0</status>
+        <midino>0X22</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--load track 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.load_track</key>
+        <status>0XB0</status>
+        <midino>0X1C</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--load track 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.load_track</key>
+        <status>0XB0</status>
+        <midino>0X23</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+    </controls>
+  </controller>
+</MixxxMIDIPreset>
