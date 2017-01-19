@@ -21,8 +21,8 @@ function TouchOSC() {
 
     // Using Channel 2
     this.MUTES = 0;
-    this.SOLOS = 7;
-    this.ARMS = 15;
+    this.SOLOS = 8;
+    this.ARMS = 16;
     this.STOPS = 23;
 
     this.XY = 12; // Start of the XY Pads - 4 x X and Y, 8 total
@@ -369,7 +369,7 @@ function printobj(object){
 // React to incoming MIDI:
 function onMidi(status, data1, data2)
 {
-    printMidi(status, data1, data2);
+    // printMidi(status, data1, data2);
 
     // Check if it's CC values:
     // status 177 is port 2
@@ -377,6 +377,7 @@ function onMidi(status, data1, data2)
     if (isChannelController(status)) {
         if (status == 177) {
             println("Channel 2");
+            // printMidi(status, data1, data2);
 
             // Check for Mute:
             if (data1 >= tOSC.MUTES && data1 < tOSC.MUTES + 8 ) {
