@@ -321,12 +321,34 @@ function flush()
 
         }
 
-        //TODO
         if (tOSC.trackMuteHasChanged[k]) {
-            println("tOSC.trackMuteHasChanged[k] not enabled yet");
-            //sendChannelController(1, tOSC.MUTES + k, tOSC.trackMute[k]);
+            //println("tOSC.trackMuteHasChanged[k] not enabled yet");
+            if (tOSC.trackMute[k]){
+                sendChannelController(1, tOSC.MUTES + k, 127);
+            } else {
+                sendChannelController(1, tOSC.MUTES + k, 0);
+            }
             tOSC.trackMuteHasChanged[k] = false;
         }
+        
+        if (tOSC.trackSoloHasChanged[k]) {
+            if (tOSC.trackSolo[k]){
+                sendChannelController(1, tOSC.SOLOS + k, 127);
+            } else {
+                sendChannelController(1, tOSC.SOLOS + k, 0);
+            }
+            tOSC.trackSoloHasChanged[k] = false;
+        }
+
+        if (tOSC.trackArmHasChanged[k]) {
+            if (tOSC.trackArm[k]){
+                sendChannelController(1, tOSC.ARMS + k, 127);
+            } else {
+                sendChannelController(1, tOSC.ARMS + k, 0);
+            }
+            tOSC.trackArmHasChanged[k] = false;
+        }
+        
         /* if (tOSC.trackSoloHasChanged[k]) {
            sendChannelController(0, tOSC.PANS + k, tOSC.trackSolo[k]);
            tOSC.trackSoloHasChanged[k] = false;
