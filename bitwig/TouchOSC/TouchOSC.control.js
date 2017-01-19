@@ -323,9 +323,8 @@ function flush()
         //TODO
         if (tOSC.trackMuteHasChanged[k]) {
             println("tOSC.trackMuteHasChanged[k] not enabled yet");
-            // sendChannelController(0, tOSC.MUTES + k, tOSC.trackMute[k]);
+            //sendChannelController(1, tOSC.MUTES + k, tOSC.trackMute[k]);
             tOSC.trackMuteHasChanged[k] = false;
-
         }
         /* if (tOSC.trackSoloHasChanged[k]) {
            sendChannelController(0, tOSC.PANS + k, tOSC.trackSolo[k]);
@@ -382,6 +381,16 @@ function onMidi(status, data1, data2)
             if (data1 >= tOSC.MUTES && data1 < tOSC.MUTES + 8 ) {
                 println("Setting mute")
                 tOSC.tracks.getTrack(data1 - tOSC.MUTES).getMute().toggle();
+            }
+            // Check for Solo:
+            if (data1 >= tOSC.SOLOS && data1 < tOSC.SOLOS + 8 ) {
+                println("Setting mute")
+                tOSC.tracks.getTrack(data1 - tOSC.SOLOS).getSolo().toggle();
+            }
+            // Check for Arm:
+            if (data1 >= tOSC.ARMS && data1 < tOSC.ARMS + 8 ) {
+                println("Setting mute")
+                tOSC.tracks.getTrack(data1 - tOSC.ARMS).getArm().toggle();
             }
         }
         
