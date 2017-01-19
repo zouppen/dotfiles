@@ -23,6 +23,7 @@ function TouchOSC() {
     this.MUTES = 0;
     this.SOLOS = 7;
     this.ARMS = 15;
+    this.STOPS = 23;
 
     this.XY = 12; // Start of the XY Pads - 4 x X and Y, 8 total
     this.MACROS = 20; // Start of Device Macro Range - 8 macro knobs on the cursor device
@@ -379,18 +380,19 @@ function onMidi(status, data1, data2)
 
             // Check for Mute:
             if (data1 >= tOSC.MUTES && data1 < tOSC.MUTES + 8 ) {
-                println("Setting mute")
                 tOSC.tracks.getTrack(data1 - tOSC.MUTES).getMute().toggle();
             }
             // Check for Solo:
             if (data1 >= tOSC.SOLOS && data1 < tOSC.SOLOS + 8 ) {
-                println("Setting mute")
                 tOSC.tracks.getTrack(data1 - tOSC.SOLOS).getSolo().toggle();
             }
             // Check for Arm:
             if (data1 >= tOSC.ARMS && data1 < tOSC.ARMS + 8 ) {
-                println("Setting mute")
                 tOSC.tracks.getTrack(data1 - tOSC.ARMS).getArm().toggle();
+            }
+            // Check for Stop:
+            if (data1 >= tOSC.STOPS && data1 < tOSC.STOPS + 8 ) {
+                tOSC.tracks.getTrack(data1 - tOSC.STOPS).stop();
             }
         }
         
