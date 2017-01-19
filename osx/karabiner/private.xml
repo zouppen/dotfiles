@@ -59,4 +59,14 @@
             <autogen>__KeyToKey__ KeyCode::F12, ConsumerKeyCode::VOLUME_UP</autogen>
         </item>
     </item>
+
+    <item>
+        <name>Wheel Scroll for Logitech Marble Mouse</name>
+        <appendix>Scroll with pressing primary and secondary buttons plus scrolling the wheel.</appendix>
+        <item>
+            <name>Scroll with buttons pressed</name>
+            <identifier>remap.logitech_marble_scroll</identifier>
+            <autogen>__SimultaneousKeyPresses__ PointingButton::LEFT, PointingButton::RIGHT, KeyCode::VK_CONFIG_SYNC_KEYDOWNUP_notsave_pointing_relative_to_scroll</autogen>
+        </item>
+    </item>
 </root>
