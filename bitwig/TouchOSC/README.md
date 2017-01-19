@@ -1,10 +1,15 @@
-# TouchOSC mappings for Mixxx
+# TouchOSC mappings for Bitwig
+## TODO
 
+- Mute, Solo, Arm
+  - Need to use channel2 because channel1 is full
+- Track stop buttons
+
+### Thinking
+
+
+## Original readme stuff
 - http://hexler.net/software/touchosc
-
-
-
-
 
 Features:
 
@@ -25,13 +30,9 @@ Features:
 - Setup Page with One-Off Buttons to Midi-Learn the XY Pads (sending the same CCs).
 
 
-Script Based on the Multi Bi-Directional Script from Thomas Henzle.
-
-Basic TouchOSC Layout by Astartes, improved and extended a lot by Thomas Helzle ;-)
+Script Based on the Multi Bi-Directional Script from Thomas Henzle. Basic TouchOSC Layout by Astartes, improved and extended a lot by Thomas Helzle.
 
 Find Screenshots of the Layout here:
 https://github.com/ThomasHelzle/TouchOSC-Bitwig/wiki
-
-Enjoy!
 
 Tom
