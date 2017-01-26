@@ -355,6 +355,12 @@ function flush()
             sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackSend1[k]);
             tOSC.trackSend1HasChanged[k] = false;
             break;
+        case 3:
+            sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMacro[k]);
+            break;
+        case 4:
+            sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMapping[k]);
+            break;
         }
 
         // if (tOSC.knobmode == 0 && tOSC.trackPanHasChanged[k]) {
@@ -391,16 +397,10 @@ function flush()
 
         if (tOSC.deviceMacroHasChanged[k]) {
             sendChannelController(0, tOSC.MACROS + k, tOSC.deviceMacro[k]);
-            if (tOSC.knobmode == 3){
-                sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMacro[k]);
-            }
             tOSC.deviceMacroHasChanged[k] = false;
         }
         if (tOSC.deviceMappingHasChanged[k]) {
             sendChannelController(0, tOSC.PARAMS + k, tOSC.deviceMapping[k]);
-            if (tOSC.knobmode == 4){
-                sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMapping[k]);
-            }
             tOSC.deviceMappingHasChanged[k] = false;
         }
         if (tOSC.xyPadHasChanged[k]) {
@@ -452,12 +452,6 @@ function onMidi(status, data1, data2)
                             sendChannelController(1, tOSC.KNOBMODES + i, 0);
                         }
                     }
-
-                    // HACK: For some reason these are not updated after knobmode change as vol,pan,sends.
-                    //       So in this possibly ugly way they are enforced to be updated.
-                    if (newVal == 3){ tOSC.deviceMacroHasChanged = [true,true,true,true,true,true,true,true]; }
-                    if (newVal == 4){ tOSC.deviceMappingHasChanged = [true,true,true,true,true,true,true,true]; }
-                    
                 } else { // Just light the buttom back on
                     sendChannelController(1, data1, 127);
                 }
@@ -550,6 +544,7 @@ function onMidi(status, data1, data2)
                 break;
             case 30:
                 tOSC.cTrack.selectNext();
+                //refreshMappings()
                 tOSC.trackHasChanged = true;
                 break;
             case 31:
@@ -650,7 +645,7 @@ function onMidi(status, data1, data2)
             }
         }
         else {
-            // hack to get the touchOSC buttons to light up correctly.
+            // HACK: to get the touchOSC buttons to light up correctly.
             // Many Controllers overwrite their own lights on buttons when the button is
             // released, so here I tell the flush() function to update the buttons to update on release also:
             tOSC.transpHasChanged = true;
