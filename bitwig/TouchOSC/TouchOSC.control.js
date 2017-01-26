@@ -62,8 +62,13 @@ function TouchOSC() {
     
     this.trackPan = [];
     this.trackPanHasChanged = [];
-    //TODO Sends etc.
 
+    //TODO Sends etc.
+    this.trackSend0 = [];
+    this.trackSend0HasChanged = [];
+    this.trackSend1 = [];
+    this.trackSend1HasChanged = [];
+    
     this.trackMute = [];
     this.trackMuteHasChanged = [];
     this.trackSolo = [];
@@ -102,6 +107,12 @@ function TouchOSC() {
         this.trackVolumeHasChanged[i] = false;
         this.trackPan[i] = 0;
         this.trackPanHasChanged[i] = false;
+        
+        this.trackSend0[i] = 0;
+        this.trackSend0HasChanged[i] = false;
+        this.trackSend1[i] = 0;
+        this.trackSend1HasChanged[i] = false;
+        
 
         this.trackMute[i] = 0;
         this.trackMuteHasChanged[i] = false;
@@ -143,7 +154,7 @@ function TouchOSC() {
     // Creating Views:
     this.transport = host.createTransport();  // this creates the ability to control transport
     this.masterTrack = host.createMasterTrack(0);
-    this.tracks = host.createMainTrackBank(8, 0, 0);
+    this.tracks = host.createMainTrackBank(8, 2, 0);
     this.cTrack = host.createCursorTrack(1, 0);
     this.cDevice = tOSC.cTrack.getPrimaryDevice();
     this.uMap = host.createUserControls(8);
@@ -202,6 +213,12 @@ function init()
         // Pan
         tOSC.tracks.getTrack(i).getPan().setIndication(true);
         tOSC.tracks.getTrack(i).getPan().addValueObserver(127, getTrackValueFunc(i, tOSC.trackPan, tOSC.trackPanHasChanged));
+
+        tOSC.tracks.getTrack(i).getSend(0).setIndication(true);
+        tOSC.tracks.getTrack(i).getSend(0).addValueObserver(127, getTrackValueFunc(i, tOSC.trackSend0, tOSC.trackSend0HasChanged));
+
+        tOSC.tracks.getTrack(i).getSend(1).setIndication(true);
+        tOSC.tracks.getTrack(i).getSend(1).addValueObserver(127, getTrackValueFunc(i, tOSC.trackSend1, tOSC.trackSend1HasChanged));
 
         // Mute
         // tOSC.tracks.getTrack(i).getMute().setIndication(true);
@@ -330,11 +347,17 @@ function flush()
             tOSC.trackPanHasChanged[k] = false;
             //tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getPan().set(data2, 128);
             break;
+        case 1: // send a
+            sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackSend0[k]);
+            tOSC.trackSend0HasChanged[k] = false;
+            break;
+        case 2: // send b
+            sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackSend1[k]);
+            tOSC.trackSend1HasChanged[k] = false;
+            break;
         }
 
         // if (tOSC.knobmode == 0 && tOSC.trackPanHasChanged[k]) {
-            
-            
             
         // }
 
@@ -479,6 +502,14 @@ function onMidi(status, data1, data2)
             switch(tOSC.knobmode) {
             case 0: // pan
                 tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getPan().set(data2, 128);
+                break;
+            
+            case 1: // send a
+                tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getSend(0).set(data2, 128);
+                break;
+            
+            case 2: // send b
+                tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getSend(1).set(data2, 128);
                 break;
             }
             
