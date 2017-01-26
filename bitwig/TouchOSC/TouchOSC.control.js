@@ -17,14 +17,14 @@ function TouchOSC() {
 
     // Constants:
     this.FADERS = 101; // Start of Fader Range - 8 x track volume + 1 x master volume
-    this.PANS = 91; // Start of Pan Range - 8 x track pan
-
+    
     // Using Channel 2
     this.MUTES = 0;
     this.SOLOS = 8;
     this.ARMS = 16;
     this.STOPS = 24;
     this.KNOBMODES = 32; // 5 of them
+    this.MAINKNOBS = 91; // Start of Pan Range - 8 x track pan
 
     this.XY = 12; // Start of the XY Pads - 4 x X and Y, 8 total
     this.MACROS = 20; // Start of Device Macro Range - 8 macro knobs on the cursor device
@@ -59,9 +59,10 @@ function TouchOSC() {
     this.masterVolumeHasChanged = false;
     this.trackVolume = [];
     this.trackVolumeHasChanged = [];
+    
     this.trackPan = [];
     this.trackPanHasChanged = [];
-
+    //TODO Sends etc.
 
     this.trackMute = [];
     this.trackMuteHasChanged = [];
@@ -160,7 +161,7 @@ function TouchOSC() {
 function init()
 {
     // instantiate a new TouchOSC Object:
-    new TouchOSC()
+    new TouchOSC();
 
     // Creating Observers, indications etc.:
 
@@ -182,7 +183,7 @@ function init()
     tOSC.masterTrack.getVolume().addValueObserver(128, function(volume){
         tOSC.masterVolume = volume;
         tOSC.masterVolumeHasChanged = true;
-    })
+    });
 
     for (var j=0; j<4; j++) {
         tOSC.cClipTrack[j] = tOSC.cClipWindow.getTrack(j);
@@ -221,7 +222,7 @@ function init()
         tOSC.cPage[i].setIndication(true);
         tOSC.cPage[i].addValueObserver(127, getTrackValueFunc(i, tOSC.deviceMapping, tOSC.deviceMappingHasChanged));
         // XY Pads
-        tOSC.uMap.getControl(i).setLabel("XY Pad " + (Math.ceil(i/2+0.2)) + " - " + ((i%2<1) ? "X":"Y"))
+        tOSC.uMap.getControl(i).setLabel("XY Pad " + (Math.ceil(i/2+0.2)) + " - " + ((i%2<1) ? "X":"Y"));
         tOSC.uMap.getControl(i).addValueObserver(127, getTrackValueFunc(i, tOSC.xyPad, tOSC.xyPadHasChanged));
         // Clips
         // for(var k=0; k<4; k++) {
@@ -322,10 +323,20 @@ function flush()
         }
 
         //TODO
-        if (tOSC.knobmode == 0 && tOSC.trackPanHasChanged[k]) {
-            sendChannelController(0, tOSC.PANS + k, tOSC.trackPan[k]);
+
+        switch(tOSC.knobmode) {
+        case 0: // pan
+            sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackPan[k]);
             tOSC.trackPanHasChanged[k] = false;
+            //tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getPan().set(data2, 128);
+            break;
         }
+
+        // if (tOSC.knobmode == 0 && tOSC.trackPanHasChanged[k]) {
+            
+            
+            
+        // }
 
         if (tOSC.trackMuteHasChanged[k]) {
             //println("tOSC.trackMuteHasChanged[k] not enabled yet");
@@ -356,11 +367,11 @@ function flush()
         }
 
         /* if (tOSC.trackSoloHasChanged[k]) {
-           sendChannelController(0, tOSC.PANS + k, tOSC.trackSolo[k]);
+           sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackSolo[k]);
            tOSC.trackSoloHasChanged[k] = false;
            }
            if (tOSC.trackArmHasChanged[k]) {
-           sendChannelController(0, tOSC.PANS + k, tOSC.trackArm[k]);
+           sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackArm[k]);
            tOSC.trackArmHasChanged[k] = false;
            } */
 
@@ -460,9 +471,17 @@ function onMidi(status, data1, data2)
                 tOSC.tracks.getTrack(data1 - tOSC.FADERS).getVolume().set(data2, 128);
             }
         }
-        // Check for Track Panning:
-        else if (data1 >= tOSC.PANS && data1 < tOSC.PANS + 8 ) {
-            tOSC.tracks.getTrack(data1 - tOSC.PANS).getPan().set(data2, 128);
+        // Check for MAINKNOBS:
+        //TODO
+        else if (data1 >= tOSC.MAINKNOBS && data1 < tOSC.MAINKNOBS + 8 ) {
+            println("Received mainknob " + data1 + " " + data2);
+            println("knobmode is " + tOSC.knobmode);
+            switch(tOSC.knobmode) {
+            case 0: // pan
+                tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getPan().set(data2, 128);
+                break;
+            }
+            
         }
         // Check for Device Macros:
         else if (data1 >= tOSC.MACROS && data1 < tOSC.MACROS + 8 ) {
@@ -632,7 +651,7 @@ function getValueObserverFunc(index, varToStore)
     return function(value)
     {
         varToStore[index] = value;
-    }
+    };
 }
 
 // A function to create an indexed function for the Observers with an added state variable:
@@ -642,7 +661,7 @@ function getTrackValueFunc(index, varToStore, varToSet)
     {
         varToStore[index] = value;
         varToSet[index] = true;
-    }
+    };
 }
 
 // A function to create an indexed function for the Observers for Clips including a Color-Update:
@@ -652,7 +671,7 @@ function getClipValueFunc(slot, varToStore)
     {
         varToStore[slot+index*4] = value;
         updateClipColors();
-    }
+    };
 }
 
 // A function to set the Note Table for Midi Inputs and add / subtrackt an Offset to Transpose:
