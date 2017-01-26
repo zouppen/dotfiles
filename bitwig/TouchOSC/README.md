@@ -1,12 +1,13 @@
 # TouchOSC mappings for Bitwig
 ## TODO
-
-- Mute, Solo, Arm
-  - Need to use channel2 because channel1 is full
-- Track stop buttons
+- Send A's and other controls
+- VU's
+- Change tracks as changed on Launchpad (possible to pass data between different control scripts?)
 
 ### Thinking
-
+## Done
+- Mute, Solo, Arm
+- Track stop buttons
 
 ## Original readme stuff
 - http://hexler.net/software/touchosc
