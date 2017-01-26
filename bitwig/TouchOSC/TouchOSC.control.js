@@ -24,6 +24,7 @@ function TouchOSC() {
     this.SOLOS = 8;
     this.ARMS = 16;
     this.STOPS = 23;
+    this.KNOBMODES = 31; // 5 of them
 
     this.XY = 12; // Start of the XY Pads - 4 x X and Y, 8 total
     this.MACROS = 20; // Start of Device Macro Range - 8 macro knobs on the cursor device
@@ -60,7 +61,7 @@ function TouchOSC() {
     this.trackVolumeHasChanged = [];
     this.trackPan = [];
     this.trackPanHasChanged = [];
-    
+
 
     this.trackMute = [];
     this.trackMuteHasChanged = [];
@@ -69,6 +70,9 @@ function TouchOSC() {
     this.trackArm = [];
     this.trackArmHasChanged = [];
 
+    // Main page knob mode selection
+    // 0 = pan, 1 = Send A, 2 = Send B, 3 = Device, 4 = Macro
+    this.knobmode = 0;
 
     // Macros:
     this.deviceMacro = [];
@@ -158,12 +162,12 @@ function init()
     // instantiate a new TouchOSC Object:
     new TouchOSC()
 
-        // Creating Observers, indications etc.:
+    // Creating Observers, indications etc.:
 
-        tOSC.transport.addIsPlayingObserver(function(on){
-            tOSC.isPlaying = on;
-            tOSC.transpHasChanged = true;
-        });
+    tOSC.transport.addIsPlayingObserver(function(on){
+        tOSC.isPlaying = on;
+        tOSC.transpHasChanged = true;
+    });
     tOSC.transport.addIsRecordingObserver(function(on){
         tOSC.isRecording = on;
         tOSC.transpHasChanged = true;
@@ -180,15 +184,15 @@ function init()
         tOSC.masterVolumeHasChanged = true;
     })
 
-        for (var j=0; j<4; j++) {
-            tOSC.cClipTrack[j] = tOSC.cClipWindow.getTrack(j);
-            tOSC.cSlots[j] = tOSC.cClipTrack[j].getClipLauncherSlots();
-            tOSC.cSlots[j].setIndication(true);
-            tOSC.cSlots[j].addIsPlayingObserver(getClipValueFunc(j, tOSC.clIsPlaying));
-            tOSC.cSlots[j].addIsRecordingObserver(getClipValueFunc(j, tOSC.clIsRecording));
-            tOSC.cSlots[j].addIsQueuedObserver(getClipValueFunc(j, tOSC.clIsQueued));
-            tOSC.cSlots[j].addHasContentObserver(getClipValueFunc(j, tOSC.clHasContent));
-        }
+    for (var j=0; j<4; j++) {
+        tOSC.cClipTrack[j] = tOSC.cClipWindow.getTrack(j);
+        tOSC.cSlots[j] = tOSC.cClipTrack[j].getClipLauncherSlots();
+        tOSC.cSlots[j].setIndication(true);
+        tOSC.cSlots[j].addIsPlayingObserver(getClipValueFunc(j, tOSC.clIsPlaying));
+        tOSC.cSlots[j].addIsRecordingObserver(getClipValueFunc(j, tOSC.clIsRecording));
+        tOSC.cSlots[j].addIsQueuedObserver(getClipValueFunc(j, tOSC.clIsQueued));
+        tOSC.cSlots[j].addHasContentObserver(getClipValueFunc(j, tOSC.clHasContent));
+    }
 
     for (var i=0; i<8; i++) {
         // Volume
@@ -218,73 +222,73 @@ function init()
         tOSC.cPage[i].addValueObserver(127, getTrackValueFunc(i, tOSC.deviceMapping, tOSC.deviceMappingHasChanged));
         // XY Pads
         tOSC.uMap.getControl(i).setLabel("XY Pad " + (Math.ceil(i/2+0.2)) + " - " + ((i%2<1) ? "X":"Y"))
-            tOSC.uMap.getControl(i).addValueObserver(127, getTrackValueFunc(i, tOSC.xyPad, tOSC.xyPadHasChanged));
+        tOSC.uMap.getControl(i).addValueObserver(127, getTrackValueFunc(i, tOSC.xyPad, tOSC.xyPadHasChanged));
         // Clips
-        for(var k=0; k<4; k++) {
+        // for(var k=0; k<4; k++) {
 
-        }
+        // }
 
     }
 
     tOSC.tracks.addCanScrollTracksUpObserver(function (on)
-        {
-            host.getMidiOutPort(0).sendMidi(177, 99, ((on) ? 5 : 0) );
-        });
+                                             {
+                                                 host.getMidiOutPort(0).sendMidi(177, 99, ((on) ? 5 : 0) );
+                                             });
 
     tOSC.tracks.addCanScrollTracksDownObserver(function (on)
-        {
-            host.getMidiOutPort(0).sendMidi(177, 100, ((on) ? 5 : 0) );
-        });
+                                               {
+                                                   host.getMidiOutPort(0).sendMidi(177, 100, ((on) ? 5 : 0) );
+                                               });
 
     tOSC.cDevice.addPresetNameObserver(50, "None", function(on)
-        {
-            if(tOSC.presetHasChanged) {
-                host.showPopupNotification(on);
-                tOSC.presetHasChanged = false;
-            }
-        });
+                                       {
+                                           if(tOSC.presetHasChanged) {
+                                               host.showPopupNotification(on);
+                                               tOSC.presetHasChanged = false;
+                                           }
+                                       });
     tOSC.cDevice.addPresetCategoryObserver(50, "None", function(on)
-        {
-            if(tOSC.categoryHasChanged) {
-                host.showPopupNotification(on);
-                tOSC.categoryHasChanged = false;
-            }
-        });
+                                           {
+                                               if(tOSC.categoryHasChanged) {
+                                                   host.showPopupNotification(on);
+                                                   tOSC.categoryHasChanged = false;
+                                               }
+                                           });
     tOSC.cDevice.addPresetCreatorObserver(50, "None", function(on)
-        {
-            if(tOSC.creatorHasChanged) {
-                host.showPopupNotification(on);
-                tOSC.creatorHasChanged = false;
-            }
-        });
+                                          {
+                                              if(tOSC.creatorHasChanged) {
+                                                  host.showPopupNotification(on);
+                                                  tOSC.creatorHasChanged = false;
+                                              }
+                                          });
     tOSC.cDevice.addNameObserver(50, "None", function(on)
-        {
-            if(tOSC.deviceHasChanged) {
-                host.showPopupNotification(on);
-                tOSC.deviceHasChanged = false;
-            }
-        });
+                                 {
+                                     if(tOSC.deviceHasChanged) {
+                                         host.showPopupNotification(on);
+                                         tOSC.deviceHasChanged = false;
+                                     }
+                                 });
     tOSC.cTrack.addNameObserver(50, "None", function(on)
-        {
-            if(tOSC.trackHasChanged) {
-                host.showPopupNotification(on);
-                tOSC.trackHasChanged = false;
-            }
-        });
+                                {
+                                    if(tOSC.trackHasChanged) {
+                                        host.showPopupNotification(on);
+                                        tOSC.trackHasChanged = false;
+                                    }
+                                });
     tOSC.cDevice.addPageNamesObserver(function(names)
-        {
-            tOSC.pageNames = [];
-            for(var i=0; i<arguments.length; i++) {
-                tOSC.pageNames[i] = arguments[i];
-            }
-        });
+                                      {
+                                          tOSC.pageNames = [];
+                                          for(var i=0; i<arguments.length; i++) {
+                                              tOSC.pageNames[i] = arguments[i];
+                                          }
+                                      });
     tOSC.cDevice.addSelectedPageObserver(0, function(on)
-        {
-            if(tOSC.pPageHasChanged) {
-                host.showPopupNotification(tOSC.pageNames[on]);
-                tOSC.pPageHasChanged = false;
-            }
-        });
+                                         {
+                                             if(tOSC.pPageHasChanged) {
+                                                 host.showPopupNotification(tOSC.pageNames[on]);
+                                                 tOSC.pPageHasChanged = false;
+                                             }
+                                         });
 
     // Pheww, that was a lot of Boilerplate ;-)
 
@@ -316,10 +320,11 @@ function flush()
             //sendChannelController(1, tOSC.FADERS + k, tOSC.trackVolume[k]);
             tOSC.trackVolumeHasChanged[k] = false;
         }
-        if (tOSC.trackPanHasChanged[k]) {
+
+        //TODO
+        if (tOSC.knobmode == 0 && tOSC.trackPanHasChanged[k]) {
             sendChannelController(0, tOSC.PANS + k, tOSC.trackPan[k]);
             tOSC.trackPanHasChanged[k] = false;
-
         }
 
         if (tOSC.trackMuteHasChanged[k]) {
@@ -331,7 +336,7 @@ function flush()
             }
             tOSC.trackMuteHasChanged[k] = false;
         }
-        
+
         if (tOSC.trackSoloHasChanged[k]) {
             if (tOSC.trackSolo[k]){
                 sendChannelController(1, tOSC.SOLOS + k, 127);
@@ -349,7 +354,7 @@ function flush()
             }
             tOSC.trackArmHasChanged[k] = false;
         }
-        
+
         /* if (tOSC.trackSoloHasChanged[k]) {
            sendChannelController(0, tOSC.PANS + k, tOSC.trackSolo[k]);
            tOSC.trackSoloHasChanged[k] = false;
@@ -384,7 +389,7 @@ function flush()
 function printobj(object){
     var output = '';
     for (var property in object) {
-    output += property + ': ' + object[property]+'; \n';
+        output += property + ': ' + object[property]+'; \n';
     }
     println(output);
 }
@@ -401,6 +406,27 @@ function onMidi(status, data1, data2)
         if (status == 177) {
             // println("Channel 2");
             // printMidi(status, data1, data2);
+
+            // Check main page knobmode changes
+            if (data1 >= tOSC.KNOBMODES && data1 < tOSC.KNOBMODES + 5 ) {
+                println("knobmode " + data1 + " " + data2);
+                if (data2 == 127) {
+                    var newVal = data1 - tOSC.KNOBMODES;
+                    println("setting to " + newVal);
+                    tOSC.knobmode = newVal;
+
+                    // Dim others
+                    for (var i = 0; i<5; i++){
+                        if (i != newVal){
+                            println("dimming knobmode btn " + i);
+                            sendChannelController(1, tOSC.KNOBMODES + i, 0);
+                        }
+                    }
+                    // todo handle data2==0
+                } else { // Just light the buttom back on
+                    sendChannelController(1, data1, 127);
+                }
+            }
 
             // Check for Mute:
             if (data1 >= tOSC.MUTES && data1 < tOSC.MUTES + 8 ) {
@@ -420,44 +446,44 @@ function onMidi(status, data1, data2)
             }
             return;
         }
-        
-    
 
-    // Check if its the Volume Faders:
-    if (data1 >= tOSC.FADERS && data1 < tOSC.FADERS + 9 ) {
-        // Is it the Master Fader?
-        if (data1 === tOSC.FADERS+8) {
-            tOSC.masterTrack.getVolume().set(data2, 128);
-        }
-        // Otherwise its a Track Volume Fader:
-        else {
-            tOSC.tracks.getTrack(data1 - tOSC.FADERS).getVolume().set(data2, 128);
-        }
-    }
-    // Check for Track Panning:
-    else if (data1 >= tOSC.PANS && data1 < tOSC.PANS + 8 ) {
-        tOSC.tracks.getTrack(data1 - tOSC.PANS).getPan().set(data2, 128);
-    }
-    // Check for Device Macros:
-    else if (data1 >= tOSC.MACROS && data1 < tOSC.MACROS + 8 ) {
-        tOSC.cMacro[data1 - tOSC.MACROS].getAmount().set(data2, 128);
-    }
 
-    // Check for Device Mappings:
-    else if (data1 >= tOSC.PARAMS && data1 < tOSC.PARAMS + 8 ) {
-        tOSC.cPage[data1 - tOSC.PARAMS].set(data2, 128);
-    }
-    // Check for XY Pads:
-    else if (data1 >= tOSC.XY && data1 < tOSC.XY + 8 ) {
-        tOSC.uMap.getControl(data1 - tOSC.XY).set(data2, 128);
-    }
-    // If we got this far, it's not a continuous controller but some one-off Button.
-    // We only want to react to it when it's pressed (usually the value is 127 then),
-    // not on release, which usually sends a value of 0:
-    else if (data2 > 0)
-    {
-        // checking what CC value we get and react accordingly:
-        switch (data1)  {
+
+        // Check if its the Volume Faders:
+        if (data1 >= tOSC.FADERS && data1 < tOSC.FADERS + 9 ) {
+            // Is it the Master Fader?
+            if (data1 === tOSC.FADERS+8) {
+                tOSC.masterTrack.getVolume().set(data2, 128);
+            }
+            // Otherwise its a Track Volume Fader:
+            else {
+                tOSC.tracks.getTrack(data1 - tOSC.FADERS).getVolume().set(data2, 128);
+            }
+        }
+        // Check for Track Panning:
+        else if (data1 >= tOSC.PANS && data1 < tOSC.PANS + 8 ) {
+            tOSC.tracks.getTrack(data1 - tOSC.PANS).getPan().set(data2, 128);
+        }
+        // Check for Device Macros:
+        else if (data1 >= tOSC.MACROS && data1 < tOSC.MACROS + 8 ) {
+            tOSC.cMacro[data1 - tOSC.MACROS].getAmount().set(data2, 128);
+        }
+
+        // Check for Device Mappings:
+        else if (data1 >= tOSC.PARAMS && data1 < tOSC.PARAMS + 8 ) {
+            tOSC.cPage[data1 - tOSC.PARAMS].set(data2, 128);
+        }
+        // Check for XY Pads:
+        else if (data1 >= tOSC.XY && data1 < tOSC.XY + 8 ) {
+            tOSC.uMap.getControl(data1 - tOSC.XY).set(data2, 128);
+        }
+        // If we got this far, it's not a continuous controller but some one-off Button.
+        // We only want to react to it when it's pressed (usually the value is 127 then),
+        // not on release, which usually sends a value of 0:
+        else if (data2 > 0)
+        {
+            // checking what CC value we get and react accordingly:
+            switch (data1)  {
             case 99:
                 tOSC.tracks.scrollTracksUp();
                 break;
@@ -567,32 +593,32 @@ function onMidi(status, data1, data2)
             case 114:
                 tOSC.transport.toggleOverdub();
                 break;
+            }
+        }
+        else {
+            // hack to get the touchOSC buttons to light up correctly.
+            // Many Controllers overwrite their own lights on buttons when the button is
+            // released, so here I tell the flush() function to update the buttons to update on release also:
+            tOSC.transpHasChanged = true;
         }
     }
-    else {
-        // hack to get the touchOSC buttons to light up correctly.
-        // Many Controllers overwrite their own lights on buttons when the button is
-        // released, so here I tell the flush() function to update the buttons to update on release also:
-        tOSC.transpHasChanged = true;
-    }
-}
-// Now checking for some Note-On Commands I use for the Cliplauncher. First the Scenes:
-else if (isNoteOnC2(status)) {
-    if (data1 >=100 && data1 < 108) {
-        tOSC.cScenes.launch(data1-100);
-    }
-    // and then for the Clip Matrix:
-    else if (data1 >=0 && data1 <32) {
-        // If the clip is Playing or Queued, Stop it:
-        if (tOSC.clIsPlaying[data1] || tOSC.clIsQueued[data1]) {
-            tOSC.cClipTrack[data1%4].getClipLauncherSlots().stop();
+    // Now checking for some Note-On Commands I use for the Cliplauncher. First the Scenes:
+    else if (isNoteOnC2(status)) {
+        if (data1 >=100 && data1 < 108) {
+            tOSC.cScenes.launch(data1-100);
         }
-        // otherwise launch it:
-        else{
-            tOSC.cClipTrack[data1%4].getClipLauncherSlots().launch(Math.floor(data1*0.25));
+        // and then for the Clip Matrix:
+        else if (data1 >=0 && data1 <32) {
+            // If the clip is Playing or Queued, Stop it:
+            if (tOSC.clIsPlaying[data1] || tOSC.clIsQueued[data1]) {
+                tOSC.cClipTrack[data1%4].getClipLauncherSlots().stop();
+            }
+            // otherwise launch it:
+            else{
+                tOSC.cClipTrack[data1%4].getClipLauncherSlots().launch(Math.floor(data1*0.25));
+            }
         }
     }
-}
 }
 
 function onSysex(data)
