@@ -23,8 +23,8 @@ function TouchOSC() {
     this.MUTES = 0;
     this.SOLOS = 8;
     this.ARMS = 16;
-    this.STOPS = 23;
-    this.KNOBMODES = 31; // 5 of them
+    this.STOPS = 24;
+    this.KNOBMODES = 32; // 5 of them
 
     this.XY = 12; // Start of the XY Pads - 4 x X and Y, 8 total
     this.MACROS = 20; // Start of Device Macro Range - 8 macro knobs on the cursor device
@@ -415,7 +415,7 @@ function onMidi(status, data1, data2)
                     println("setting to " + newVal);
                     tOSC.knobmode = newVal;
 
-                    // Dim others
+                    // dim others
                     for (var i = 0; i<5; i++){
                         if (i != newVal){
                             println("dimming knobmode btn " + i);
