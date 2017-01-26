@@ -1,11 +1,13 @@
 # TouchOSC mappings for Bitwig
 ## TODO
-- Send A's and other controls
 - VU's
 - Change tracks as changed on Launchpad (possible to pass data between different control scripts?)
 
-### Thinking
 ## Done
+- Switch for different control modes as in APC40
+    - Pan
+    - Two sends
+    - Device ctrl, macros
 - Mute, Solo, Arm
 - Track stop buttons
 
