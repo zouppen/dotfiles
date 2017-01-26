@@ -389,28 +389,19 @@ function flush()
             tOSC.trackArmHasChanged[k] = false;
         }
 
-        /* if (tOSC.trackSoloHasChanged[k]) {
-           sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackSolo[k]);
-           tOSC.trackSoloHasChanged[k] = false;
-           }
-           if (tOSC.trackArmHasChanged[k]) {
-           sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.trackArm[k]);
-           tOSC.trackArmHasChanged[k] = false;
-           } */
-
         if (tOSC.deviceMacroHasChanged[k]) {
             sendChannelController(0, tOSC.MACROS + k, tOSC.deviceMacro[k]);
-            tOSC.deviceMacroHasChanged[k] = false;
             if (tOSC.knobmode == 3){
                 sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMacro[k]);
             }
+            tOSC.deviceMacroHasChanged[k] = false;
         }
         if (tOSC.deviceMappingHasChanged[k]) {
             sendChannelController(0, tOSC.PARAMS + k, tOSC.deviceMapping[k]);
-            tOSC.deviceMappingHasChanged[k] = false;
             if (tOSC.knobmode == 4){
                 sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMapping[k]);
             }
+            tOSC.deviceMappingHasChanged[k] = false;
         }
         if (tOSC.xyPadHasChanged[k]) {
             sendChannelController(0, tOSC.XY + k, tOSC.xyPad[k]);
@@ -443,26 +434,30 @@ function onMidi(status, data1, data2)
     // status 177 is port 2
     // status 176 is port 1
     if (isChannelController(status)) {
+        //// Check Channel 2 first
         if (status == 177) {
             // println("Channel 2");
             // printMidi(status, data1, data2);
 
             // Check main page knobmode changes
             if (data1 >= tOSC.KNOBMODES && data1 < tOSC.KNOBMODES + 5 ) {
-                println("knobmode " + data1 + " " + data2);
+                //println("knobmode " + data1 + " " + data2);
                 if (data2 == 127) {
                     var newVal = data1 - tOSC.KNOBMODES;
-                    println("setting to " + newVal);
                     tOSC.knobmode = newVal;
 
                     // dim others
                     for (var i = 0; i<5; i++){
                         if (i != newVal){
-                            println("dimming knobmode btn " + i);
                             sendChannelController(1, tOSC.KNOBMODES + i, 0);
                         }
                     }
-                    // todo handle data2==0
+
+                    // HACK: For some reason these are not updated after knobmode change as vol,pan,sends.
+                    //       So in this possibly ugly way they are enforced to be updated.
+                    if (newVal == 3){ tOSC.deviceMacroHasChanged = [true,true,true,true,true,true,true,true]; }
+                    if (newVal == 4){ tOSC.deviceMappingHasChanged = [true,true,true,true,true,true,true,true]; }
+                    
                 } else { // Just light the buttom back on
                     sendChannelController(1, data1, 127);
                 }
@@ -487,7 +482,7 @@ function onMidi(status, data1, data2)
             return;
         }
 
-
+        //// Channel 1:
 
         // Check if its the Volume Faders:
         if (data1 >= tOSC.FADERS && data1 < tOSC.FADERS + 9 ) {
@@ -501,10 +496,8 @@ function onMidi(status, data1, data2)
             }
         }
         // Check for MAINKNOBS:
-        //TODO
         else if (data1 >= tOSC.MAINKNOBS && data1 < tOSC.MAINKNOBS + 8 ) {
-            println("Received mainknob " + data1 + " " + data2);
-            println("knobmode is " + tOSC.knobmode);
+            // println("Received mainknob " + data1 + " " + data2 + " knobmode is "+tOSC.knobmode);
             switch(tOSC.knobmode) {
             case 0: // pan
                 tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getPan().set(data2, 128);
@@ -513,7 +506,6 @@ function onMidi(status, data1, data2)
             case 1: // send a
                 tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getSend(0).set(data2, 128);
                 break;
-            
             case 2: // send b
                 tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getSend(1).set(data2, 128);
                 break;
