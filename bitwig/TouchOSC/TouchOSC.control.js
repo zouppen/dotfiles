@@ -60,6 +60,7 @@ function TouchOSC() {
     this.trackVolumeHasChanged = [];
     this.trackPan = [];
     this.trackPanHasChanged = [];
+    
 
     this.trackMute = [];
     this.trackMuteHasChanged = [];
@@ -398,7 +399,7 @@ function onMidi(status, data1, data2)
     // status 176 is port 1
     if (isChannelController(status)) {
         if (status == 177) {
-            println("Channel 2");
+            // println("Channel 2");
             // printMidi(status, data1, data2);
 
             // Check for Mute:
@@ -417,6 +418,7 @@ function onMidi(status, data1, data2)
             if (data1 >= tOSC.STOPS && data1 < tOSC.STOPS + 8 ) {
                 tOSC.tracks.getTrack(data1 - tOSC.STOPS).stop();
             }
+            return;
         }
         
     
