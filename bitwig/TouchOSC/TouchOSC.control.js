@@ -401,10 +401,16 @@ function flush()
         if (tOSC.deviceMacroHasChanged[k]) {
             sendChannelController(0, tOSC.MACROS + k, tOSC.deviceMacro[k]);
             tOSC.deviceMacroHasChanged[k] = false;
+            if (tOSC.knobmode == 3){
+                sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMacro[k]);
+            }
         }
         if (tOSC.deviceMappingHasChanged[k]) {
             sendChannelController(0, tOSC.PARAMS + k, tOSC.deviceMapping[k]);
             tOSC.deviceMappingHasChanged[k] = false;
+            if (tOSC.knobmode == 4){
+                sendChannelController(0, tOSC.MAINKNOBS + k, tOSC.deviceMapping[k]);
+            }
         }
         if (tOSC.xyPadHasChanged[k]) {
             sendChannelController(0, tOSC.XY + k, tOSC.xyPad[k]);
@@ -511,9 +517,15 @@ function onMidi(status, data1, data2)
             case 2: // send b
                 tOSC.tracks.getTrack(data1 - tOSC.MAINKNOBS).getSend(1).set(data2, 128);
                 break;
+            case 3:
+                tOSC.cMacro[data1 - tOSC.MAINKNOBS].getAmount().set(data2, 128);
+                break;
+            case 4:
+                tOSC.cPage[data1 - tOSC.MAINKNOBS].set(data2, 128);
+                break;
             }
-            
         }
+        
         // Check for Device Macros:
         else if (data1 >= tOSC.MACROS && data1 < tOSC.MACROS + 8 ) {
             tOSC.cMacro[data1 - tOSC.MACROS].getAmount().set(data2, 128);
