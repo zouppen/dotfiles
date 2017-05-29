@@ -1,13 +1,9 @@
 ;;; TODO add major mode agnostic settings
 
-;; TODO move
-
-(prelude-require-package 'web-beautify)
-
 ;;;; Disable some Prelude defaults
 (setq prelude-whitespace nil)
 (setq prelude-flyspell nil)
-(guru-mode 0)  ;; No need for gurus
+(guru-mode 0)
 (global-hl-line-mode 0)
 (beacon-mode -1)
 
@@ -22,9 +18,6 @@
 (global-unset-key (kbd "M-`"))
 (global-set-key (kbd "M-`") 'other-frame)
 
-;; Mac spotlight search workaround
-(global-unset-key (kbd " "))
-(global-set-key (kbd " ") 'just-one-space)
 
 ;;;; Customize default config variables
 
@@ -41,15 +34,14 @@
 
 (scroll-bar-mode -1) ; Disable scroll bars
 
-(setq frame-title-format (list "Emacs [%m-mode] - %b"))
+(setq frame-title-format (list "Jarkon Emacs [%m-mode] - %b"))
 
-(prelude-require-package 'solarized-theme)
-(load-theme 'solarized-dark)
-;;(prelude-require-package 'idea-darkula-theme)
+;; (disable-theme 'zenburn)
+;; (prelude-require-package 'solarized-theme)
+;; (load-theme 'solarized-dark)
+;; (prelude-require-package 'idea-darkula-theme)
 ;; TODO bug with idea-darkula loading..
-
-;;(load-theme 'idea-darkula)
-;;(disable-theme 'solarized-light)
+;; (load-theme 'idea-darkula)
 
 ;; Make scratch-buffer more convenient
 (setq initial-scratch-message "")
@@ -57,6 +49,7 @@
 
 ;; Yank from linux selection to point when using middle mouse
 ;;(setq mouse-yank-at-point t)
+
 ;; Nicer mousewheel scrolling
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
@@ -81,11 +74,15 @@
        mac-function-modifier 'hyper)
  (set-variable 'magit-emacsclient-executable
                "/usr/local/bin/emacsclient")
- (set-face-attribute 'default nil :font "Inconsolata-14"))
+ (set-face-attribute 'default nil :font "Inconsolata-14")
+ ;; Mac spotlight search workaround
+ (global-unset-key (kbd " "))
+ (global-set-key (kbd " ") 'just-one-space)
+ )
 
 (progn-on
  "gnu/linux"
- (set-face-attribute 'default nil :font "Mononoki Bold-16")
+ ;(set-face-attribute 'default nil :font "Mononoki Bold-16")
  (set-variable 'magit-emacsclient-executable
                (concat dotfiles-folder "bin/ec"))
  (setq browse-url-browser-function 'browse-url-generic
@@ -98,6 +95,7 @@
 ;;(transparency 90)
 
 ;; Pop marks faster by repeated spacing
+;; Eg. C-u <space> <space> <space>
 (setq set-mark-command-repeat-pop 't)
 
 (global-set-key (kbd "<XF86Launch1>") 'writeroom-mode)
@@ -134,15 +132,30 @@
                                  (delete-window)))
 
 
-;; Chromium like window changing
+;; Change panes by M-<num>
 (prelude-require-package 'window-numbering)
 (window-numbering-mode t)
 
 (prelude-require-package 'multiple-cursors)
 (setq mc/list-file (concat dotfiles-folder "emacs/mc-lists.el"))
 
+
+;; TODO OSX support
+(prelude-require-package 'smartscan)
+(global-smartscan-mode 1)
+
+(define-key smartscan-map (kbd "M-n") nil)
+(define-key smartscan-map (kbd "M-p") nil)
+(define-key smartscan-map (kbd "M-'") nil)
+
+(define-key smartscan-map (kbd "s-n") 'smartscan-symbol-go-forward)
+(define-key smartscan-map (kbd "s-p") 'smartscan-symbol-go-backward)
+(define-key smartscan-map (kbd "s-'") 'smartscan-symbol-replace)
+
+;; Jump to a word in window
 (key-chord-define-global "jf" 'avy-goto-word-1)
 
+;; Jump to next character, repeat the character to jump to next one.
 (prelude-require-package 'iy-go-to-char)
 (key-chord-define-global "jj" nil)
 (key-chord-define-global "jj" 'iy-go-to-char)
