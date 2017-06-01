@@ -1,0 +1,3 @@
+[submodule "mixxx/mixxx-threere-theme"]
+	path = mixxx/mixxx-threere-theme
+	url = git@github.com:jasalt/mixxx-threere-theme.git
