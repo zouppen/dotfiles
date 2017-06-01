@@ -1,1 +1,14 @@
 Configuration files and utilities specific for Linux.
+
+# Deps
+
+apt-get install wmctrl
+jumpapp https://github.com/mkropat/jumpapp
+
+# Xubuntu 16.04 - Fix ColorD bug 
+wget https://launchpad.net/ubuntu/+archive/primary/+files/sane-backends_1.0.25+git20150528.orig.tar.gz -O sane.tar.gz
+tar -xf sane.tar.gz
+cd sane-backends-git20150528
+./configure
+make
+sudo make install

@@ -8,9 +8,9 @@ shift + alt + grave
     terminator
 
 control + alt + {1,2,3}
-    {jumpapp thunar,jumpapp google-chrome-beta,jumpapp emacs}
+    {jumpapp thunar,jumpapp chromium-browser,jumpapp emacs}
 alt + shift + {1,2,3}
-    {thunar,google-chrome-beta,emacs}
+    {thunar,chromium-browser,emacs}
 
 super + space
     xfce4-popup-whiskermenu
