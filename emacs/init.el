@@ -15,6 +15,6 @@
          "emacs/orgmode.el"
          "lang/web/web.el"
          "lang/python/python.el"
-         "lang/clojure/clojure.el"
+         ;;"lang/clojure/clojure.el"
 )))
   (dolist (entry conf-files) (load (concat dotfiles-folder entry))))

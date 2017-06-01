@@ -72,6 +72,7 @@
         sp-delete-char
         sp-forward-sexp
         sp-forward-slurp-sexp
+        sp-kill-region
         sp-kill-word
         sp-splice-sexp-killing-backward
         sp-splice-sexp-killing-forward
@@ -87,8 +88,8 @@
         handle-select-window
         handle-switch-frame
         ibuffer-do-kill-on-deletion-marks
-        mouse-drag-mode-line
         js2-mode-show-node
+        mouse-drag-mode-line
         mouse-set-region
         smex
         text-scale-increase
