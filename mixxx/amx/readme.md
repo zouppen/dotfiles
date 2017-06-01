@@ -12,7 +12,7 @@ In progress mixxx wiki page http://mixxx.org/wiki/doku.php/akai_amx
 
 ## Linux: /home/<username>/.mixxx/controllers
 
-    ln -s `pwd`/Akai-AMX* ~/.mixxx/Mixxx/controllers/
+    ln -s `pwd`/Akai-AMX* ~/.mixxx/controllers/
     #TODO untested command
 
 ## Mac OSX: /Users/<username>/Library/ApplicationSupport/Mixxx/controllers
