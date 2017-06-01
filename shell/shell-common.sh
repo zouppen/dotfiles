@@ -23,6 +23,12 @@ setopt extended_glob
 
 set -o ignoreeof
 
+autoload bashcompinit
+bashcompinit
+
+# wp-cli completion
+source ~/dotfiles/shell/completion/wp-completion.bash
+
 # Rebind kill-region for zsh
 bindkey '^w' kill-region
 
