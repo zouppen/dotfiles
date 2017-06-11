@@ -35,6 +35,7 @@
 (scroll-bar-mode -1) ; Disable scroll bars
 
 (setq frame-title-format (list "Jarkon Emacs [%m-mode] - %b"))
+(prelude-require-package 'smartscan)
 
 ;; (disable-theme 'zenburn)
 ;; (prelude-require-package 'solarized-theme)
@@ -82,7 +83,12 @@
 
 (progn-on
  "gnu/linux"
- ;(set-face-attribute 'default nil :font "Mononoki Bold-16")
+                                        ;(set-face-attribute 'default nil :font "Mononoki Bold-16")
+
+ ;; Fix exit delay "saving to x clipboard manager"
+ ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Clipboard.html
+ (setq x-select-enable-clipboard-manager nil)
+ 
  (set-variable 'magit-emacsclient-executable
                (concat dotfiles-folder "bin/ec"))
  (setq browse-url-browser-function 'browse-url-generic
@@ -266,6 +272,10 @@
     ))
 
 (setq tramp-auto-save-directory "~/.emacs.d/savefile")
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 (provide 'general)
 ;;; general.el ends here
