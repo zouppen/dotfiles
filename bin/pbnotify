@@ -3,13 +3,12 @@
 # Simple curl script for sending pushbullet notifications to mobile device.
 # Requires PB_KEY to be defined in ~/.keys and a working Pushbullet subscription.
 # Single-word notification can be sent as declaration.
-# TODO allow multi word comments in quotes.
 
 source ~/.keyfiles/.keys
 
 if [ "$#" -gt 0 ]
 then
-    message=$1
+    message="'$*'"
 else
     message="Sent_a_notification!"
 fi

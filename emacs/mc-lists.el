@@ -73,6 +73,7 @@
         sp-delete-char
         sp-forward-sexp
         sp-forward-slurp-sexp
+        sp-kill-region
         sp-kill-word
         sp-splice-sexp-killing-backward
         sp-splice-sexp-killing-forward

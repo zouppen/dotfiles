@@ -7,7 +7,7 @@ xset b off
 
 ##### Keyboard
 # Keylayout
-# setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option
+setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option
 # Note: Set via dpkg-reconfigure if fails.
 # sudo dpkg-reconfigure keyboard-configuration
 #      -> us alt international dead keys

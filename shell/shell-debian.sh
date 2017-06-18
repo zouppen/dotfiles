@@ -4,6 +4,9 @@ export PATH="$PATH:$HOME/dotfiles/linux/bin"
 
 alias aup="sudo apt-get update"
 alias aug="sudo apt-get upgrade"
+alias as="sudo aptitude search"
+alias ai="sudo apt-get install"
+
 
 alias alog="less /var/log/apt/history.log"
 

@@ -1,27 +1,29 @@
 ;; Configuration for writing and arranging text
 
-(prelude-require-package 'ledger-mode)
+
 (prelude-require-package 'htmlize)
 
+;; (prelude-require-package 'ledger-mode)
 ;; setup files ending in “.ledger” to open in ledger-mode
-(add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
+;; (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
 
 (prelude-require-package 'writeroom-mode)
 
 ;; https://www.languagetool.org
-(prelude-require-package 'langtool)
-(setq langtool-language-tool-jar
-      "/vendor/languagetool/languagetool-commandline.jar")
-(defun langtool-autoshow-detail-popup (overlays)
-  (when (require 'popup nil t)
-    ;; Do not interrupt current popup
-    (unless (or popup-instances
-                ;; suppress popup after type `C-g` .
-                (memq last-command '(keyboard-quit)))
-      (let ((msg (langtool-details-error-message overlays)))
-        (popup-tip msg)))))
-(setq langtool-autoshow-message-function
-      'langtool-autoshow-detail-popup)
+;; (prelude-require-package 'langtool)
+;; (setq langtool-language-tool-jar
+;;       "/vendor/languagetool/languagetool-commandline.jar")
+
+;; (defun langtool-autoshow-detail-popup (overlays)
+;;   (when (require 'popup nil t)
+;;     ;; Do not interrupt current popup
+;;     (unless (or popup-instances
+;;                 ;; suppress popup after type `C-g` .
+;;                 (memq last-command '(keyboard-quit)))
+;;       (let ((msg (langtool-details-error-message overlays)))
+;;         (popup-tip msg)))))
+;; (setq langtool-autoshow-message-function
+;;       'langtool-autoshow-detail-popup)
 
 (require 'org)
 (setq org-folder "~/notes/")
