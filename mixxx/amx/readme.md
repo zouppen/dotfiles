@@ -15,9 +15,9 @@ In progress mixxx wiki page http://mixxx.org/wiki/doku.php/akai_amx
     ln -s `pwd`/Akai-AMX* ~/.mixxx/Mixxx/controllers/
     #TODO untested command
 
-## Mac OSX: /Users/<username>/Library/ApplicationSupport/Mixxx/controllers
+## Mac OSX: /Users/<username>/Library/Application\ Support/Mixxx/controllers
 
-    ln -s `pwd`/Akai-AMX* ~/Library/ApplicationSupport/Mixxx/controllers/
+    ln -s `pwd`/Akai-AMX* ~/Library/Application\ Support/Mixxx/controllers/
 
 # Windows: %LOCALAPPDATA%\Mixxx\controllers
 

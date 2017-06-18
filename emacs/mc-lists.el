@@ -65,6 +65,7 @@
         repeat
         select-window-1
         select-window-2
+        sgml-slash
         sp--self-insert-command
         sp-backward-delete-char
         sp-backward-kill-word
@@ -77,6 +78,7 @@
         sp-splice-sexp-killing-forward
         tern-ac-dot-complete
         transpose-words
+        wdired-capitalize-word
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         ))
@@ -87,9 +89,10 @@
         handle-select-window
         handle-switch-frame
         ibuffer-do-kill-on-deletion-marks
-        mouse-drag-mode-line
         js2-mode-show-node
+        mouse-drag-mode-line
         mouse-set-region
+        other-frame
         smex
         text-scale-increase
         wdired-finish-edit

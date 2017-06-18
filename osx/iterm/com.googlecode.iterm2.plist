@@ -635,7 +635,7 @@
 			<key>Action</key>
 			<integer>26</integer>
 			<key>Text</key>
-			<string>091278DA-FD22-42C8-900F-A8743818742F</string>
+			<string>DD3FCBD2-4360-4554-9C9B-5A2D63ECB64F</string>
 		</dict>
 		<key>0x4f-0x60000</key>
 		<dict>
@@ -1114,13 +1114,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 552 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 122 796 473 0 0 1680 1027 </string>
+	<string>47 149 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 7 954 1017 0 0 1680 1027 </string>
+	<string>1020 91 634 513 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>987 564 682 477 0 0 1920 1057 </string>
+	<string>523 533 682 477 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>844 537 682 477 0 0 1680 1027 </string>
+	<string>1047 566 682 477 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1686,7 +1686,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>10000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -2604,6 +2604,8 @@
 	<false/>
 	<key>PasteFromClipboard</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -2680,7 +2682,7 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string> </string>
+	<string>ä</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>
