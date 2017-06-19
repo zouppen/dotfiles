@@ -2,8 +2,7 @@
 # On OSX source this from .zshrc
 # On Linux source a distro-specific file instead (eg. shell-mint.sh)  
 
-# TODO fix stupidities
-# source ~/dotfiles/lang/python/python-shell.sh
+source ~/dotfiles/shell/shell-python.sh
 
 export PATH="$PATH:$HOME/.bin:$HOME/dotfiles/bin"
 # CDPATH=:$HOME/
@@ -91,8 +90,7 @@ alias get-ogg="youtube-dl --extract-audio --audio-format vorbis"
 alias qc="git commit -a -m 'up' && git push"
 
 # BFG Repo Cleaner https://rtyley.github.io/bfg-repo-cleaner/
-# alias bfg="java -jar ~/dotfiles/bin/bfg-1.11.8.jar"
-
+alias bfg="java -jar ~/dotfiles/bin/bfg-1.11.8.jar"
 
 ### Language translation utilities
 # See also: Linux selection hotkeys on sxhkd config
