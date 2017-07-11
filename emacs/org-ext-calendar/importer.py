@@ -6,16 +6,13 @@ import requests
 # import tempfile
 from datetime import datetime
 from dotenv import load_dotenv
-from korppi import get_korppi_events
+# from korppi import get_korppi_events
 
-load_dotenv(environ['HOME'] + '/.keyfiles/.keys')
+load_dotenv(environ['HOME'] + '/.keys')
 
-try:
-    TRELLO_KEY = environ['TRELLO_KEY']
-    TRELLO_TOKEN = environ['TRELLO_TOKEN']
-    KORPPI_ICAL = environ['KORPPI_ICAL']
-except:
-    from secrets import TRELLO_KEY, TRELLO_TOKEN, KORPPI_ICAL
+TRELLO_KEY = environ['TRELLO_KEY']
+TRELLO_TOKEN = environ['TRELLO_TOKEN']
+    # KORPPI_ICAL = environ['KORPPI_ICAL']
 
 orgfile = ''
 
@@ -62,22 +59,24 @@ for board in my_boards:
 
 ##### Korppi
 
-korppi_events = get_korppi_events(KORPPI_ICAL)
-orgfile += '* Korppi\n#+CATEGORY:JYU\n'
-for event in korppi_events:
-    orgfile += '** %s [%s] :jyu:\n' % (event['description'], event['location'])
-
-    datestr = datetime.strftime(event['timestamp'], "%Y-%m-%d %H:%M")
-    now_dt = datetime.now()
-    since = now_dt - event['timestamp']
-
-    if (since.days > 0):
-        orgfile += ( 'SCHEDULED: [%s]\n' %(datestr) )
-    else:
-        orgfile += ( 'SCHEDULED: <%s>\n' %(datestr) )
+# korppi_events = get_korppi_events(KORPPI_ICAL)
+# orgfile += '* Korppi\n#+CATEGORY:JYU\n'
+# for event in korppi_events:
+#     orgfile += '** %s [%s] :jyu:\n' % (event['description'], event['location'])
+# 
+#     datestr = datetime.strftime(event['timestamp'], "%Y-%m-%d %H:%M")
+#     now_dt = datetime.now()
+#     since = now_dt - event['timestamp']
+# 
+#     if (since.days > 0):
+#         orgfile += ( 'SCHEDULED: [%s]\n' %(datestr) )
+#     else:
+#         orgfile += ( 'SCHEDULED: <%s>\n' %(datestr) )
 
 
     ## TODO gmaps link
+
+# Google Calendar
 
 #### Write to file
 orgfile = orgfile.encode('utf-8')
