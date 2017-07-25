@@ -2,6 +2,60 @@
 
 (prelude-require-package 'web-beautify)
 
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+;;(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
+;;;;; PHP Config
+
+(flycheck-define-checker my-php
+  "A PHP syntax checker using the PHP command line interpreter.
+See URL `http://php.net/manual/en/features.commandline.php'."
+  :command ("php" "-l" "-d" "error_reporting=E_ALL" "-d" "display_errors=1"
+            "-d" "log_errors=0" source)
+  :error-patterns
+  ((error line-start (or "Parse" "Fatal" "syntax") " error" (any ":" ",") " "
+          (message) " in " (file-name) " on line " line line-end))
+  :modes (php-mode php+-mode web-mode))
+
+(defun my-setup-php ()
+  ;; enable web mode
+  (web-mode)
+
+  ;; make these variables local
+  (make-local-variable 'web-mode-code-indent-offset)
+  (make-local-variable 'web-mode-markup-indent-offset)
+  (make-local-variable 'web-mode-css-indent-offset)
+
+  ;; set indentation, can set different indentation level for different code type
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
+
+  (flycheck-select-checker 'my-php)
+  (flycheck-mode t)
+  )
+
+(add-to-list 'auto-mode-alist '("\\.php$" . my-setup-php))
+
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  ;;(local-set-key '[backtab] 'indent-relative)
+  ;;   ;;(setq indent-tabs-mode nil)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  )
+
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+
+
 (defun my-smartparens-mode-hook ()
   (define-key smartparens-mode-map (kbd "H-n") 'sp-splice-sexp-killing-forward)
   (define-key smartparens-mode-map (kbd "H-p") 'sp-splice-sexp-killing-backward)
