@@ -68,7 +68,7 @@ alias cbp="clippaste"
 alias cbssh="cat ~/.ssh/id_rsa.pub|cb"
     
 # Download subtitles, requires sudo pip install subliminal
-alias sub="subliminal -l en --"
+alias sub="subliminal download -l en"
 
 ### Networking helpers
 # Echo public IP
