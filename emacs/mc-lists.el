@@ -11,6 +11,7 @@
         bibtex-next-field
         c-electric-delete-forward
         c-electric-paren
+        c-electric-semi&comma
         c-electric-slash
         comment-or-uncomment-region
         completion-at-point
