@@ -4,8 +4,6 @@
 # Requires PB_KEY to be defined in ~/.keys and a working Pushbullet subscription.
 # Single-word notification can be sent as declaration.
 
-source ~/.keyfiles/.keys
-
 if [ "$#" -gt 0 ]
 then
     message="'$*'"

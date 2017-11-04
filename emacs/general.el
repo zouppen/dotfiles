@@ -7,6 +7,7 @@
 (global-hl-line-mode 0)
 (beacon-mode -1)
 
+
 ;; Used in some Finnish words
 (key-chord-define-global "yy" nil)
 (key-chord-define-global "uu" nil)
@@ -33,6 +34,7 @@
 (unless (server-running-p) (server-start))
 
 (scroll-bar-mode -1) ; Disable scroll bars
+(setq cursor-type '(bar . 1))
 
 (setq frame-title-format (list "Jarkon Emacs [%m-mode] - %b"))
 (prelude-require-package 'smartscan)
@@ -47,6 +49,7 @@
 ;; Make scratch-buffer more convenient
 (setq initial-scratch-message "")
 (setq initial-major-mode 'org-mode)
+
 
 ;; Yank from linux selection to point when using middle mouse
 ;;(setq mouse-yank-at-point t)
@@ -106,7 +109,7 @@
 
 (global-set-key (kbd "<XF86Launch1>") 'writeroom-mode)
 (global-set-key (kbd "H-m w") 'writeroom-mode)
-(setq writeroom-width 110)
+(setq writeroom-width 90)
 
 (global-set-key (kbd "H-m a") 'artist-mode)
 (global-set-key (kbd "H-m o") 'org-mode)

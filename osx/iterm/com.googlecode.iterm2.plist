@@ -1061,6 +1061,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -1120,9 +1122,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>310 178 796 473 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 39 1361 729 0 0 1366 768 </string>
+	<string>0 577 697 477 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>200 331 522 369 0 0 1366 768 </string>
+	<string>115 309 1657 477 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>685 4 681 369 0 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -2647,7 +2649,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-31T13:15:23Z</date>
+	<date>2017-08-06T07:00:11Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2697,6 +2699,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.1.beta.5</string>
 </dict>
 </plist>

@@ -17,6 +17,7 @@
         completion-at-point
         crux-move-beginning-of-line
         crux-smart-open-line-above
+        dired-clean-directory
         dired-flag-file-deletion
         dired-next-line
         dired-previous-line
