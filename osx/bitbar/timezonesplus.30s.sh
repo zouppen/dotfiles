@@ -8,7 +8,7 @@
 # <bitbar.image>http://i.imgur.com/Y4nhdZo.png</bitbar.image>
 # <bitbar.dependencies>Bash GNU AWK</bitbar.dependencies>
 
-echo -n "FI " ; TZ=":Europe/Helsinki" date +'%l:%M %p'
+echo -n "FI " ; TZ=":Europe/Helsinki" date +'%R'
 # echo -n "SF " ; TZ=":US/Pacific" date +'%l:%M %p'
 # echo -n "LN " ; TZ=":Europe/London" date +'%l:%M %p'
 # echo -n "HK " ; TZ="Asia/Hong_Kong" date +'%l:%M %p'
