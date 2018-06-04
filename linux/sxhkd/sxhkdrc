@@ -8,12 +8,12 @@ shift + alt + grave
     terminator
 
 control + alt + {1,2,3}
-    {jumpapp thunar,jumpapp chromium-browser,jumpapp emacs}
+    {jumpapp nautilus,jumpapp chromium-browser,jumpapp emacs}
 alt + shift + {1,2,3}
-    {thunar,chromium-browser,emacs}
+    {nautilus,chromium-browser,emacs}
 
-super + space
-    xfce4-popup-whiskermenu
+# super + space
+#    xfce4-popup-whiskermenu
 
 #super + alt + space
 #   tracker-needle
@@ -34,8 +34,8 @@ control + shift + Escape
 #    /home/jasalt/dev/window-manager/key-actions/toggle-redshift
 
 ## Show clipboard history
-super + alt + v
-  xfce4-popup-clipman
+#super + alt + v
+#  xfce4-popup-clipman
 
 ## Translate selection and give output as notification.
 ## Brief mode output is copied to clipboard also.
@@ -87,10 +87,10 @@ super + s ; s ; f
     espeak -v europe/fi "$(echo `xsel`)"
 
 # Taking Screenshots
-hyper + super + alt + v
-    xfce4-screenshooter -r -s /home/jasalt/Desktop/
-hyper + super + alt + c
-    xfce4-screenshooter -c -r
+#hyper + super + alt + v
+#    xfce4-screenshooter -r -s /home/jasalt/Desktop/
+#hyper + super + alt + c
+#    xfce4-screenshooter -c -r
 
 # Messaging
 super + m ; c  
@@ -176,13 +176,13 @@ super + w ; k
 #XF86AudioPrev
 #    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
            
-super + t ; 5
-    $HOME/dotfiles/linux/bin/timer 5
-super + t ; 1 ; 5
-    $HOME/dotfiles/linux/bin/timer 15
-super + t ; 3 ; 0
-    $HOME/dotfiles/linux/bin/timer 30
-super + t ; p
-    $HOME/dotfiles/linux/bin/timer 30
-super + t ; 6 ; 0
-    $HOME/dotfiles/linux/bin/timer 60
+#super + t ; 5
+#    $HOME/dotfiles/linux/bin/timer 5
+#super + t ; 1 ; 5
+#    $HOME/dotfiles/linux/bin/timer 15
+#super + t ; 3 ; 0
+#    $HOME/dotfiles/linux/bin/timer 30
+#super + t ; p
+#    $HOME/dotfiles/linux/bin/timer 30
+#super + t ; 6 ; 0
+#    $HOME/dotfiles/linux/bin/timer 60
