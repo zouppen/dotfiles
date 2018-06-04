@@ -2,17 +2,15 @@
 
 export PATH="$PATH:$HOME/dotfiles/linux/bin"
 
-alias aup="sudo apt-get update"
-alias aug="sudo apt-get upgrade"
-alias as="sudo aptitude search"
-alias ai="sudo apt-get install"
-
+alias aup="sudo apt update"
+alias aug="sudo apt upgrade"
+alias as="sudo apt search"
+alias ai="sudo apt install"
 
 alias alog="less /var/log/apt/history.log"
 
 alias open="xdg-open"
 alias cbwd="pwd | cb"
-
 
 alias say="espeak"
 alias sano="espeak -v europe/fi"
