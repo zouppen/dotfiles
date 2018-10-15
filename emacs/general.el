@@ -7,6 +7,7 @@
 (global-hl-line-mode 0)
 (beacon-mode -1)
 
+(prelude-require-package 'twittering-mode)
 
 ;; Used in some Finnish words
 (key-chord-define-global "yy" nil)
