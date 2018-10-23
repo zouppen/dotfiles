@@ -1,13 +1,13 @@
 #!/bin/bash
 ### Linux system startup script to setup input devices ###
 # Run as sudo to get everything working
-echo `date` >> /home/jasalt/.tmp.txt
+# echo `date` >> /home/jasalt/.tmp.txt
 # Disable bell
-xset b off
+#xset b off
 
 ##### Keyboard
 # Keylayout
-setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option
+# setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option
 # Note: Set via dpkg-reconfigure if fails.
 # sudo dpkg-reconfigure keyboard-configuration
 #      -> us alt international dead keys
@@ -15,13 +15,15 @@ setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl -option
 # Apply custom layout customizations for modifier keys & äö key.
 # xmodmap /home/`awk -F':' '{ print $1}' /etc/passwd | grep ja`/dotfiles/linux/Xmodmap
 
+xmodmap /home/jasalt/dotfiles/linux/Xmodmap
+
 # Key repeat delay and rate
-setxkbmap -option "ctrl:nocaps"
+# setxkbmap -option "ctrl:nocaps"
 xset r rate 250 40
 
 ##### Mouses
-echo -n 255 > /sys/devices/platform/i8042/serio1/serio2/sensitivity
-echo -n 255 > /sys/devices/platform/i8042/serio1/serio2/speed
+#echo -n 255 > /sys/devices/platform/i8042/serio1/serio2/sensitivity
+#echo -n 255 > /sys/devices/platform/i8042/serio1/serio2/speed
 
 ### Kensington Expert Mouse trackball
 xinput set-button-map "Kensington      Kensington Expert Mouse" 1 8 3 4 5 6 7 2 9 10 11 12
