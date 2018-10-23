@@ -11,13 +11,12 @@ if (( ! $+commands[sxhkd] )); then
     ln -s $DOTFILES/linux/sxhkd ~/.config/ && \
     sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev && \
     mkdir -p $HOME/building/ && \
-    cd $HOME/building/ && \
+    cd $HOME/.building/ && \
     git clone https://github.com/baskerville/sxhkd.git && \
-    cd $HOME/building/ && \
+    cd $HOME/.building/ && \
     cd sxhkd && \
     make && \
     sudo make install
 fi
-echo "installing some utilities for xfce"
-sudo apt-get install -y xfce4-clipman-plugin xsel 
+sudo apt-get install -y xsel wmctrl
 echo "please install trans, notify-pipe, gspeak,"
