@@ -1,2 +1,12 @@
-#!/bin/bash
-/home/jasalt/dotfiles/linux/udev/kbd &
+#!/bin/bash -eux
+
+
+exec </dev/null >/home/jasalt/.udev.log 2>&1
+set -x
+cd /home/jasalt || exit
+(
+    /home/jasalt/dotfiles/linux/udev/kbd
+) &
+
+# (su jasalt /bin/bash -c "/home/jasalt/dotfiles/linux/udev/kbd &") & disown
+# 

@@ -1,16 +1,28 @@
-#!/bin/bash
+#!/bin/bash -x 
+echo "***************************************************************************************************************************************************************************************************************************************"
 
-#!/bin/bash
-sleep 1
-DISPLAY=":0.0"
+DISPLAY=":0"
 HOME=/home/jasalt/
-XAUTHORITY=$HOME/.Xauthority
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+
+#XAUTHORITY=$HOME/.Xauthority
 export DISPLAY XAUTHORITY HOME
 
-xset r rate 200 45
+# sleep 2
+#xset r rate 200 45
 # setxkbmap -option ctrl:nocaps
-sudo /home/jasalt/dotfiles/linux/input-config.sh
-xmodmap /home/jasalt/dotfiles/linux/Xmodmap
+
+#xmodmap /home/jasalt/dotfiles/linux/Xmodmap
+#/bin/sh -c "sleep 5 ; /home/jasalt/dotfiles/linux/bin/thinkstrobo" &
+
+sleep 5
+
+/home/jasalt/dotfiles/linux/input-config.sh
+/home/jasalt/dotfiles/linux/bin/thinkstrobo
+# sleep 5
+
+# xmodmap /home/jasalt/dotfiles/linux/Xmodmap
+# sudo /home/jasalt/dotfiles/linux/input-config.sh
 
 #daskb_id=`xinput -list | grep -i 'daskeyboard' | grep -o id=[0-9]. | grep -o [0-9]. | head -1`
 #if [ "${daskb_id}" ]; then
