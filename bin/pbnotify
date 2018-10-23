@@ -13,4 +13,8 @@ fi
 
 echo "Sending PB-notification: "$message
 
-curl -X POST -H 'Authorization: Bearer '$PB_KEY "https://api.pushbullet.com/v2/pushes" --header 'Content-Type: application/json' --data-binary '{"type": "note", "title": "'`hostname`'", "body": "'$message'"}'
+#curl -X POST -H 'Authorization: Bearer '$PB_KEY 'https://api.pushbullet.com/v2/pushes' \
+#             --header 'Content-Type: application/json' \
+#             --data-binary '{"type": "note", "title": "'`hostname`'", "body": "'$message'"}'
+
+curl --silent -u """$PB_KEY"":" -d type="note" -d body="$message" -d title="`whoami`@`hostname`" 'https://api.pushbullet.com/v2/pushes'
