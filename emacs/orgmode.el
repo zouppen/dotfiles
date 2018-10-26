@@ -83,8 +83,8 @@
   (if (equal "capture" (frame-parameter nil 'name))
       (delete-frame)))
 
-(defun capture-report-data-file (path)
-  )
+;; (defun capture-report-data-file (path)
+;;   )
 
 (setq org-capture-templates
       '(
@@ -98,20 +98,20 @@
         ;; Body")
 
         ("i" "Save to Inbox" entry
-         (file (concat org-folder "inbox.org") "inbox") "* %?\n  %i\n")
+         (file (lambda () (concat org-folder "inbox.org")) "inbox") "* %?\n  %i\n")
         ("t" "TODO Item" entry
-         (file+headline (concat org-folder "gtd.org") "Tasks") "* TODO %?\n  %i\n")
+         (file+headline (lambda () (concat org-folder "gtd.org")) "Tasks") "* TODO %?\n  %i\n")
         ("a" "Appointment or other scheduled item" entry
-         (file+headline (concat org-folder "gtd.org") "Scheduled") "* APPT %?\n  %i\n")
-        ("j" "Journal entry" entry (file+datetree (concat org-folder "texts/meta/notetoself.org"))
+         (file+headline (lambda () (concat org-folder "gtd.org")) "Scheduled") "* APPT %?\n  %i\n")
+        ("j" "Journal entry" entry (file+datetree (lambda () (concat org-folder "texts/meta/notetoself.org")))
          "* %?\nEntered on %U\n  %i\n")
-        ("d" "Dream entry" entry (file+datetree (concat org-folder "texts/meta/dream.org"))
+        ("d" "Dream entry" entry (file+datetree (lambda () (concat org-folder "texts/meta/dream.org")))
          "* %?\nEntered on %U\n  %i\n")
-        ("r" "Save Recommendation" entry (file+headline (concat org-folder "inbox.org") "Recommendations") "* %?\n  %i\n")
+        ("r" "Save Recommendation" entry (file+headline (lambda () (concat org-folder "inbox.org")) "Recommendations") "* %?\n  %i\n")
         ("p" "New project file" entry
-         (file (concat org-folder "projects/"
+         (file (lambda () (concat org-folder "projects/"
                        (let ((prompt (read-string "New project [filename].org: ")))
-                         (concat prompt ".org")))) "* %?\n  %i\n")))
+                         (concat prompt ".org"))))) "* %?\n  %i\n")))
 
 (setq org-agenda-skip-scheduled-if-done 'nil)
 
