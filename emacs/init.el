@@ -3,8 +3,6 @@
 ;; This file is symlinked into ~/.emacs.d/personal/init.el
 
 
-
-
 (setq dotfiles-folder "~/dotfiles/")
 
 (setq ad-redefinition-action 'accept)
@@ -21,4 +19,4 @@
          ;"lang/python/python.el"
          ;;"lang/clojure/clojure.el"
 )))
-  (dolist (entry conf-files) (load (concat dotfiles-folder entry))))
+(dolist (entry conf-files) (load (concat dotfiles-folder entry))))
