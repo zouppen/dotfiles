@@ -181,7 +181,7 @@
   (visual-line-mode 1)
   (org-indent-mode 1)
   (company-mode 0)
-
+  (electric-pair-mode 1)
   ;;(indent-guide-mode -1)
   ;;(whitespace-mode -1)
 
