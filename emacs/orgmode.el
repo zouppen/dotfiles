@@ -1,6 +1,5 @@
 ;; Configuration for writing and arranging text
 
-
 (prelude-require-package 'htmlize)
 
 ;; (prelude-require-package 'ledger-mode)
@@ -26,6 +25,9 @@
 ;;       'langtool-autoshow-detail-popup)
 
 (require 'org)
+;; https://stackoverflow.com/questions/12432093/get-rid-of-reference-to-free-variable-byte-compilation-warnings
+
+(defvar org-folder)
 (setq org-folder "~/notes/")
 
 (require 'find-lisp)
@@ -79,7 +81,7 @@
 
 (defadvice org-capture-finalize
     (after delete-capture-frame activate)
-  "Advise capture-finalize to close the frame"
+  "Advise capture-finalize to close the frame."
   (if (equal "capture" (frame-parameter nil 'name))
       (delete-frame)))
 
