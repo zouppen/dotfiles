@@ -15,6 +15,7 @@
         c-electric-slash
         comment-or-uncomment-region
         completion-at-point
+        crux-duplicate-current-line-or-region
         crux-move-beginning-of-line
         crux-smart-open-line-above
         dired-clean-directory
