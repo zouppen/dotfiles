@@ -1,6 +1,10 @@
 ;; Entry point for custom Emacs configuration.
 ;; See README for installation guide
 ;; This file is symlinked into ~/.emacs.d/personal/init.el
+(if (string-equal system-type "windows-nt")
+    (setenv "HOME" "c:/Users/Admin/")
+    )
+
 
 
 (setq dotfiles-folder "~/dotfiles/")

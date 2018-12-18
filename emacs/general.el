@@ -98,6 +98,10 @@
  (setq browse-url-browser-function 'browse-url-generic
        browse-url-generic-program "x-www-browser"))
 
+(progn-on "windows-nt"
+          (set-face-attribute 'default nil :font "Inconsolata-13")
+          )
+
 (defun transparency (value)
   "Set the transparency of the frame window.  VALUE = 0-100."
   (interactive "nTransparency Value 0 - 100 opaque:")

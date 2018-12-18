@@ -224,15 +224,15 @@
               (setq org-icalendar-combined-agenda-file "~/Dropbox/Public/org.ics")
               (setq org-icalendar-use-scheduled '(event-if-not-todo event-if-todo)))))
 
-(defun sync-ext-agenda ()
-  (interactive)
-  (princ "Start syncing external calendar items. Rebuild agenda afterwards.")
-  (start-process "cal-sync" "foo" (concat dotfiles-folder "emacs/org-ext-calendar/importer.py"))
-  ;; TODO watch for process completion and refresh agenda buffer accordingly
-  ;; TODO portability problems
-  )
+;; (defun sync-ext-agenda ()
+;;   (interactive)
+;;   (princ "Start syncing external calendar items. Rebuild agenda afterwards.")
+;;   (start-process "cal-sync" "foo" (concat dotfiles-folder "emacs/org-ext-calendar/importer.py"))
+;;   ;; TODO watch for process completion and refresh agenda buffer accordingly
+;;   ;; TODO portability problems
+;;   )
 
-(sync-ext-agenda)
+;; (sync-ext-agenda)
 
 ;; Create filename with datestamp
 (defun capture-report-date-file (path)
