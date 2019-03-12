@@ -88,6 +88,8 @@
 ;; (defun capture-report-data-file (path)
 ;;   )
 
+(setq org-log-done 'nil)
+
 (setq org-capture-templates
       '(
         ;; ("p" "Post skeleton" entry (file (capture-report-date-file
