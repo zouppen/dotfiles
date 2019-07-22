@@ -3,7 +3,5 @@ Custom "Finnish flavored" US keylayout with additional physical key next to left
 # Installation
 Copy .keylayout file to `~/Library/Keyboard Layouts/`
 
-`cp futurefin.keylayout ~/Library/Keyboard\ Layouts/`
-
-Select input source from system configuration.
+U.S.FIN2019.keylayout is for US macbook keyboard and adds umlaut ao keys to alt+a and alt+o. Shows up as "U.S. copy" in keyboard settings.
     
