@@ -1,7 +1,9 @@
 #!/bin/sh
 # Emacsclient script
-# Requires symlinking emacsclient to the used emacs gui version
+# Requires replacing emacsclient and emacs emacs binaries with symlinks to the used emacs gui version (needs SIP disabled on mac)
+# Eg. /Applications/Emacs.app/Contents/MacOS/bin/emacs
 # Eg. /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+
 if [ "$(pidof emacs)" ] ; then
     emacsclient -n -s ~/.emacs.d/server/jarkon-emacs "$@"
 else
