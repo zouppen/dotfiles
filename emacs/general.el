@@ -7,6 +7,15 @@
 (global-hl-line-mode 0)
 (beacon-mode -1)
 
+;; Setup custom default theme
+;; First comment out loading of default prelude theme
+;; In .emacs.d/core/prelude-ui.el:
+;; (when prelude-theme
+;;   (load-theme prelude-theme t))
+
+;;(prelude-require-package 'quasi-monochrome-theme)
+;;(load-theme 'quasi-monochrome)
+
 (prelude-require-package 'twittering-mode)
 
 ;; Used in some Finnish words
