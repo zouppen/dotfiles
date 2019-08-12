@@ -9,6 +9,9 @@
 
 (setq dotfiles-folder "~/dotfiles/")
 
+; Fix prelude package problem with undo-tree being unsigned
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (setq ad-redefinition-action 'accept)
 
 ;; TODO dynamic loading?
