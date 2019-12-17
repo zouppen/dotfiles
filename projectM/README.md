@@ -1,0 +1,1 @@
+Stripped down presets directory for ProjectMilkSyphon audioreactive visualization app based on ProjectM. The stock presets are 95% crap while 5% are quite nice. Aim is to remove all crappy ones and rename the good ones so that they can be quickly selected with keyboard keys while the preset selection listbox is active.
