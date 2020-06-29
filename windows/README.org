@@ -1,1 +1,20 @@
-TODO Check out https://github.com/babun/babun/
+# Keyboard configuration
+Windows keyboard settings gui allows setting key repeat delay and time to fast enough.
+
+## Caps to Control
+
+Sharpkeys allows modifying caps lock to control easily on registry level. Seems to work by swapping "keysyms" (as on Android) https://www.randyrants.com/category/sharpkeys/.
+## "US-FIN" layout:
+
+Zip on this folder has the layout. Was made on British ISO keyboard, modifications can be made to mapping sources in the source-directory.
+
+### How it was created?
+
+For ISO keyboards the a and o keys should give ä and ö when pressed with AltGr modifier (as using alt in Mac key mapping). Needs to be done on higher level with keyboard layout creator 1.4.
+
+https://www.microsoft.com/en-us/download/details.aspx?id=22339
+
+On Win10 Requires old framework version for the installer: https://docs.microsoft.com/en-gb/dotnet/framework/install/dotnet-35-windows-10
+
+
+
