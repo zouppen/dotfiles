@@ -1,0 +1,1 @@
+curl -s https://lab.jkl.hacklab.fi:5944/visitors/api/v1/visitors?format=json | jq 'map (.nick)'
