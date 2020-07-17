@@ -27,8 +27,6 @@
 (require 'org)
 ;; https://stackoverflow.com/questions/12432093/get-rid-of-reference-to-free-variable-byte-compilation-warnings
 
-(defvar org-folder)
-(setq org-folder "~/notes/")
 
 (require 'find-lisp)
 ;; Add projects folder to agenda files

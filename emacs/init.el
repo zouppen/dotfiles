@@ -14,16 +14,26 @@
 
 (setq ad-redefinition-action 'accept)
 
-;; TODO dynamic loading?
+
+
+
+
 (let ((conf-files
        '(
          ;"emacs/modes/acme-search.el"
  ;        "emacs/modes/google-translate-mode.el"
          "emacs/general.el"
          "emacs/programming.el"
-         "emacs/orgmode.el"
+   ;;      
          ;"lang/web/web.el"
          ;"lang/python/python.el"
          ;;"lang/clojure/clojure.el"
 )))
 (dolist (entry conf-files) (load (concat dotfiles-folder entry))))
+
+(defvar org-folder)
+(setq org-folder "~/notes/")
+
+;; check if org-folder exists, skip this file if it doesn't
+(if (file-directory-p org-folder)
+    (eval-file "emacs/orgmode.el"))
