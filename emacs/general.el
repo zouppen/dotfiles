@@ -7,6 +7,11 @@
 (global-hl-line-mode 0)
 (beacon-mode -1)
 
+;; Fix ansi-term C-a keybinding with prelude stealing it
+(add-hook 'term-mode-hook (lambda ()
+                            (setq-local prelude-mode
+                                        nil)))
+
 ;; Setup custom default theme
 ;; First comment out loading of default prelude theme
 ;; In .emacs.d/core/prelude-ui.el:
