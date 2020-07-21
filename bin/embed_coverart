@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# usage
+# embed_coverart "<jpeg_file>" "<mp3_file>"
+
+ffmpeg -i "$2" -i "$1" -map 0:0 -map 1:0 -c copy -id3v2_version 3  -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "temp-$2" && \
+
+rm "$2" && mv "temp-$2" "$2"
