@@ -15,6 +15,7 @@
 		<string>~/Desktop</string>
 		<string>~/Documents</string>
 		<string>~/Downloads</string>
+		<string>~/GDrive</string>
 		<string>~/Library/Caches/Metadata</string>
 		<string>~/Library/Mobile Documents</string>
 		<string>~/Library/PreferencePanes</string>
@@ -22,6 +23,7 @@
 		<string>~/Music</string>
 		<string>~/notes</string>
 		<string>~/Pictures</string>
+		<string>~/TODO</string>
 		<string>~/VirtualBox VMs</string>
 	</array>
 </dict>
