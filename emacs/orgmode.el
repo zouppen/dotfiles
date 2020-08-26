@@ -49,7 +49,7 @@
                                 "~/.ext-calendar.org"))
 
 ;; HACK fix terminal org-mode RET-j binding
-(define-key org-mode-map (kbd "C-j""") 'org-insert-heading-respect-content)
+(define-key org-mode-map (kbd "C-j") 'org-insert-heading-respect-content)
 
 (global-set-key (kbd "C-c 1")
                 (lambda ()
