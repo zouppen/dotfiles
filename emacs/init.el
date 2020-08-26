@@ -36,4 +36,4 @@
 
 ;; check if org-folder exists, skip this file if it doesn't
 (if (file-directory-p org-folder)
-    (eval-file "emacs/orgmode.el"))
+    (load "~/dotfiles/emacs/orgmode.el"))
