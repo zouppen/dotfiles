@@ -48,6 +48,9 @@
 (add-to-list 'org-agenda-files (expand-file-name
                                 "~/.ext-calendar.org"))
 
+;; HACK fix terminal org-mode RET-j binding
+(define-key org-mode-map (kbd "C-j") 'org-insert-heading-respect-content)
+
 (global-set-key (kbd "C-c 1")
                 (lambda ()
                   (interactive)
@@ -63,7 +66,7 @@
 (global-set-key (kbd "C-c 3")
                 (lambda ()
                   (interactive)
-                  (find-file (concat org-folder "blog.org"))))
+                  (find-file (concat org-folder "/projects/as.org"))))
                 ;; (lambda ()
                 ;;   (interactive)
                 ;;   (find-file (concat org-folder "/projects"))))

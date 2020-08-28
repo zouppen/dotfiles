@@ -84,6 +84,7 @@
             (get-buffer-create "*scratch*")))))
 
 (global-set-key (kbd "C-c <escape>") 'show-or-create-scratch)
+(global-set-key (kbd "C-c `") 'show-or-create-scratch)  ;; terminal workaround
 
 (progn-on
  "darwin"
