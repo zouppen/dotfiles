@@ -1,70 +1,29 @@
-* Install
-Building stable emacs on Ubuntu. http://ubuntuhandbook.org/index.php/2014/10/emacs-24-4-released-install-in-ubuntu-14-04/
+* MacOS Catalina problems with Emacs 37.1 (2020/12)
+Fix issue with launching the app or returning the focus (via Spotlight or Alfred 4). Using `brew install --cask emacs` (emacsformacos).
 
-1) Get latest sources from http://ftp.gnu.org/gnu/emacs/
-2) Build & Install
+```
+cd /Applications/Emacs.app/Contents/MacOS
+mv Emacs Emacs-launcher
+ln -s Emacs-x86_64-10_14 Emacs
+# cd /Applications/Emacs.app/Contents/
+# rm -rf _CodeSignature
 
-#+begin_src sh
-sudo apt-get install build-essential
-sudo apt-get build-dep emacs24
-cd ~/Downloads && tar -xf emacs-24.5.tar.* && cd emacs-24.5
-./configure
-make
-sudo make install
-sudo gedit /usr/share/applications/Emacs-24.desktop
+```
+Commented on: https://spin.atomicobject.com/2019/12/12/fixing-emacs-macos-catalina/
 
-#+end_src
-
-3) Add desktop entry to /usr/share/applications/Emacs-24.desktop
-#+begin_src sh
-
-[Desktop Entry]
-Version=1.0
-Name=Emacs-24
-Exec=env UBUNTU_MENUPROXY=0 /usr/local/bin/emacs
-Terminal=false
-Icon=emacs
-Type=Application
-Categories=IDE
-X-Ayatana-Desktop-Shortcuts=NewWindow
-[NewWindow Shortcut Group]
-Name=New Window
-TargetEnvironment=Unity
-
-#+end_src
-
-4) Install =fonts-inconsolata= on Ubuntu or =ttf-inconsolata= on Debian.
-* Setup
-** Application Installation
-*** OSX
-Using fork with some OSX integrations https://github.com/railwaycat/homebrew-emacsmacport
-
-#+begin_src bash
-echo "Installing OSX ported Emacs"
-brew cask install emacs-mac
-
-echo "Renaming original emacs binaries."
-sudo mv /usr/bin/emacs /usr/bin/emacs-old
-sudo mv /usr/bin/emacsclient /usr/bin/emacsclient-old
-
-echo "Creating symlinks to a location that's in $PATH."
-ln -s /usr/local/Cellar/emacs-mac/emacs-25.1-z-mac-6.0/bin/emacs ~/.bin
-ln -s /usr/local/Cellar/emacs-mac/emacs-25.1-z-mac-6.0/bin/emacsclient ~/.bin
-#+end_src
-
-** Config initialization
+* Config initialization
 Emacs 25 configuration based on [[https://github.com/bbatsov/prelude][Emacs Prelude]].
 
-1) Install Prelude with =curl -L https://git.io/epre | sh= (check prelude page for updated command)
+1) Install Prelude first with =curl -L https://git.io/epre | sh= (check prelude page for updated command)
 2) Symlink prelude-modules.el =ln -s ~/dotfiles/emacs/prelude-modules.el ~/.emacs.d/=
 3) Symlink init.el =ln -s ~/dotfiles/emacs/init.el ~/.emacs.d/personal/=
-4) Startup Emacs, packages are downloaded and editor is ready for work.
+4) Startup Emacs, packages are downloaded.
 
 Configuration is mostly copy pasted from around the net and there's also a few `home made` commands (find them by [[grep:jasalt][rgrep "jasalt"]]).
 
 - emacs/modes/ directory contains some rare-ish elisp files
 
-* Notes
+* Old Notes  
 ** Problem with grep 2.21 (Ubuntu 15.10)
 Error messagee when running rgrep command: =grep: warning: GREP_OPTIONS is deprecated; please use an alias or script=. Fix by commenting out from grep.el source file =/usr/local/share/emacs/24.5/lisp/progmodes/grep.el.gz= lines:
 #+begin_src elisp
@@ -78,3 +37,4 @@ Afterwards byte compile file again by removing =/usr/local/share/emacs/24.5/lisp
 Source: http://ju.outofmemory.cn/entry/161810
 ** Using daemon on OSX
 http://emacs.stackexchange.com/questions/141/emacsdaemon-and-emacsclient-on-mac
+
