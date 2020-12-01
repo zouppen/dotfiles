@@ -5,6 +5,7 @@
 (setq prelude-flyspell nil)
 (guru-mode 0)
 (global-hl-line-mode 0)
+(global-nlinum-mode 0)
 (beacon-mode -1)
 
 ;; Fix ansi-term C-a keybinding with prelude stealing it
