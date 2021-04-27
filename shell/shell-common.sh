@@ -34,7 +34,6 @@ bindkey '^w' kill-region
 # Reload shell profile
 alias rp="source ~/.zshrc"
 alias sl="ls"
-alias ee="ec"  # Emacsclient
 alias e="mg"   # Micro Gnu Emacs
 
 function abspath() {
