@@ -1,0 +1,20 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.activityBar.visible": true,
+    "editor.minimap.enabled": false,
+    "git.confirmSync": false,
+    "todo-tree.tree.showScanModeButton": false,
+    "python.languageServer": "Pylance",
+    "python.pythonPath": "/Users/a554/.pyenv/versions/odoo/bin/python",
+    "git.suggestSmartCommit": false,
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "python.showStartPage": false,
+    "editor.largeFileOptimizations": false,
+    "window.zoomLevel": 1
+}

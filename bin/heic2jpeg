@@ -1,0 +1,2 @@
+mogrify -format jpg *.HEIC
+mogrify -format jpg *.heic
