@@ -2,11 +2,20 @@
 Windows keyboard settings gui allows setting key repeat delay and time to fast enough.
 
 ## Caps to Control
+Run in powershell as admin:
+```
+$hexified = "00,00,00,00,00,00,00,00,02,00,00,00,1d,00,3a,00,00,00,00,00".Split(',') | % { "0x$_"};
 
-Sharpkeys allows modifying caps lock to control easily on registry level. Seems to work by swapping "keysyms" (as on Android) https://www.randyrants.com/category/sharpkeys/.
+$kbLayout = 'HKLM:\System\CurrentControlSet\Control\Keyboard Layout';
+
+New-ItemProperty -Path $kbLayout -Name "Scancode Map" -PropertyType Binary -Value ([byte[]]$hexified);
+```
+
+-- https://gist.github.com/joshschmelzle/5e88dabc71014d7427ff01bca3fed33d
+
 ## "US-FIN" layout:
 
-Zip on this folder has the layout. Was made on British ISO keyboard, modifications can be made to mapping sources in the source-directory.
+Zip on this folder has the layout, run AMD64 setup file. Was made on British ISO keyboard, modifications can be made to mapping sources in the source-directory.
 
 ### How it was created?
 
