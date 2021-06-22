@@ -1,3 +1,6 @@
 for i in *.wav ; do 
     ffmpeg -i "$i" "${i%.wav}.flac"
 done
+for i in *.WAV ; do
+    ffmpeg -i "$i" "${i%.WAV}.flac"
+done
