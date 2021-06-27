@@ -1,3 +1,6 @@
 for i in *.wav ; do 
     ffmpeg -i "$i" -q:a 2 "${i%.wav}.mp3"
 done
+for i in *.WAV ; do
+    ffmpeg -i "$i" -q:a 2 "${i%.WAV}.mp3"
+done
