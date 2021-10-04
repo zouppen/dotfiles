@@ -5,8 +5,9 @@
 (setq prelude-flyspell nil)
 (guru-mode 0)
 (global-hl-line-mode 0)
+(global-display-line-numbers-mode 0)
 (global-nlinum-mode 0)
-(beacon-mode -1)
+;;(beacon-mode -1)
 
 ;; Fix ansi-term C-a keybinding with prelude stealing it
 (add-hook 'term-mode-hook (lambda ()
@@ -186,10 +187,10 @@
 (key-chord-define-global "jf" 'avy-goto-word-1)
 
 ;; Jump to next character, repeat the character to jump to next one.
-(prelude-require-package 'iy-go-to-char)
+;;(prelude-require-package 'iy-go-to-char)
 (key-chord-define-global "jj" nil)
-(key-chord-define-global "jj" 'iy-go-to-char)
-(key-chord-define-global "hh" 'iy-go-to-char-backward)
+;;(key-chord-define-global "jj" 'iy-go-to-char)
+;;(key-chord-define-global "hh" 'iy-go-to-char-backward)
 
 (key-chord-define-global "jn" 'mc/mark-more-like-this-extended)
 ;; TODO 'mc/mark-more-like-this-extended for previous to make it work.
